@@ -1,0 +1,137 @@
+{
+    "key": "group_resource_fields",
+    "title": "Resource Custom Fields",
+    "fields": [
+        {
+            "key": "field_resource_type",
+            "label": "Resources Type",
+            "name": "resources_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Where is this resource hosted?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "internal": "Internal Content",
+                "external_link": "External Link",
+                "downloadable_file": "Downloadable File"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_resource_skill",
+            "label": "Skill Level",
+            "name": "skill_level",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Intended target experience level for this resource.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "choices": {
+                "all": "All Level",
+                "beginner": "Beginner",
+                "intermediate": "Intermediate",
+                "advance": "Advance"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_resource_author",
+            "label": "Author",
+            "name": "author",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Author or organization that compiled the resource.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "33", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "e.g. Marameo Design",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_resource_ext_url",
+            "label": "External URL",
+            "name": "external_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Direct link to the external resource.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_resource_type",
+                        "operator": "==",
+                        "value": "external_link"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://external-resource.com",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_resource_file",
+            "label": "Downloadable File",
+            "name": "downloadable_file",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Upload the resource file (PDF, Zip, etc.).",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_resource_type",
+                        "operator": "==",
+                        "value": "downloadable_file"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "",
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "resource"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for resources.",
+    "show_in_rest": 1,
+    "display_title": "",
+    "modified": 1788220000
+}

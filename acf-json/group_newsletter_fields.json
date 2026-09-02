@@ -1,0 +1,59 @@
+{
+    "key": "group_newsletter_fields",
+    "title": "Newsletter Custom Fields",
+    "fields": [
+        {
+            "key": "field_newsletter_send",
+            "label": "Send Date",
+            "name": "send_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Date when the newsletter issue was dispatched.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "display_format": "d/m/Y",
+            "return_format": "Y-m-d",
+            "first_day": 1,
+            "default_to_current_date": 0,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_newsletter_pdf",
+            "label": "PDF Download",
+            "name": "pdf_download",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Upload the PDF version of this newsletter issue.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "pdf",
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "newsletter"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for newsletters.",
+    "show_in_rest": 1,
+    "display_title": "",
+    "modified": 1788220000
+}

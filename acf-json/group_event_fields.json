@@ -1,0 +1,244 @@
+{
+    "key": "group_event_fields",
+    "title": "Event Custom Fields",
+    "fields": [
+        {
+            "key": "field_event_start",
+            "label": "Start Date",
+            "name": "start_date",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "Start date and time of the event.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "display_format": "d/m/Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_event_end",
+            "label": "End Date",
+            "name": "end_date",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "End date and time of the event.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "display_format": "d/m/Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 1,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_event_format",
+            "label": "Event Location Format",
+            "name": "location_format",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Choose whether this event is physically hosted or virtual.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "choices": {
+                "in_person": "In-Person",
+                "online": "Online (Virtual)"
+            },
+            "default_value": [],
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_event_cost",
+            "label": "Entry Cost",
+            "name": "entry_cost",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "e.g. Free, $15 USD, Invite Only",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "Free",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_event_venue",
+            "label": "Physical Venue",
+            "name": "physical_venue",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Full physical address or venue description.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_event_format",
+                        "operator": "==",
+                        "value": "in_person"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "123 Tech Street, Sydney NSW 2000",
+            "maxlength": "",
+            "rows": "3",
+            "new_lines": "",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_event_meeting",
+            "label": "Virtual Meeting",
+            "name": "virtual_meeting",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Join link for Zoom, Meet, Teams, etc.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_event_format",
+                        "operator": "==",
+                        "value": "online"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://zoom.us/j/123456789",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_event_reg_url",
+            "label": "Registration URL",
+            "name": "registration_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Ticket booking or registration website URL.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_event_format",
+                        "operator": "==",
+                        "value": "online"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://eventbrite.com/my-event",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_event_speakers",
+            "label": "Speakers",
+            "name": "speakers",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "List of speakers participating in the event.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "relevanssi_exclude": 0,
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_speaker_name",
+            "button_label": "Add Speaker",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_speaker_name",
+                    "label": "Speaker Name",
+                    "name": "name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Full name of speaker.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "John Doe",
+                    "maxlength": "",
+                    "parent_repeater": "field_event_speakers"
+                },
+                {
+                    "key": "field_speaker_title",
+                    "label": "Speaker Title",
+                    "name": "title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Professional title / company.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "Senior Engineer at Acme Corp",
+                    "maxlength": "",
+                    "parent_repeater": "field_event_speakers"
+                },
+                {
+                    "key": "field_speaker_url",
+                    "label": "Speaker URL",
+                    "name": "url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "LinkedIn, personal site, or Twitter handle.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "default_value": "",
+                    "placeholder": "https://linkedin.com/in/johndoe",
+                    "parent_repeater": "field_event_speakers"
+                },
+                {
+                    "key": "field_speaker_avatar",
+                    "label": "Speaker Avatar",
+                    "name": "avatar",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Headshot image of speaker.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": { "width": "50", "class": "", "id": "" },
+                    "return_format": "id",
+                    "library": "all",
+                    "preview_size": "medium",
+                    "parent_repeater": "field_event_speakers"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for events.",
+    "show_in_rest": 1,
+    "display_title": "",
+    "modified": 1788220000
+}

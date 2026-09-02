@@ -1,0 +1,169 @@
+{
+    "key": "group_blog_fields",
+    "title": "Blog Custom Fields",
+    "fields": [
+        {
+            "key": "field_blog_tag",
+            "label": "Technology Tags",
+            "name": "tech_tag-terms",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Select the technology tags that apply to this blog post.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "relevanssi_exclude": 0,
+            "taxonomy": "tech_tag",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "checkbox",
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_blog_cat",
+            "label": "Blog Category",
+            "name": "blog_category-term",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Select the primary blog category.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "relevanssi_exclude": 0,
+            "taxonomy": "blog_category",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_blog_est_read",
+            "label": "Estimate Reading Time",
+            "name": "estimate_reading",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Estimated reading time in minutes.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "e.g. 5",
+            "prepend": "",
+            "append": "mins",
+            "min": 1,
+            "max": "",
+            "step": 1,
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_blog_assoc_url",
+            "label": "Associated URL",
+            "name": "associated_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Reference or canonical external URL for the post.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://example.com",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_blog_spons_cnt",
+            "label": "Sponsor Content",
+            "name": "sponsor_content",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Is this content sponsored by an external partner?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": { "width": "100", "class": "", "id": "" },
+            "message": "Yes, this is sponsored content",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_blog_spons_nm",
+            "label": "Sponsor Name",
+            "name": "sponsor_name",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the name of the sponsor organization.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_blog_spons_cnt",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "e.g. Google Cloud",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "allow_in_bindings": 0
+        },
+        {
+            "key": "field_blog_spons_lk",
+            "label": "Sponsor Link",
+            "name": "sponsor_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter the sponsor website or promo URL.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_blog_spons_cnt",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": { "width": "50", "class": "", "id": "" },
+            "default_value": "",
+            "placeholder": "https://sponsor.com/promo",
+            "allow_in_bindings": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "blog"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Custom fields for IT community blog posts.",
+    "show_in_rest": 1,
+    "display_title": "",
+    "modified": 1788220000
+}
