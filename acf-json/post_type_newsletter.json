@@ -72,7 +72,9 @@
         "thumbnail",
         "custom-fields"
     ],
-    "taxonomies": [],
+    "taxonomies": [
+        "newsletter_category"
+    ],
     "has_archive": true,
     "has_archive_slug": "newsletters",
     "rewrite": {
