@@ -1,0 +1,28 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-separator-color: var(--color-neutral-grey-200);
+  }
+
+  .mod--theme--dark {
+    --mmd-separator-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@layer components {
+  .wp-block-separator {
+    border: none;
+    border-top: 1px solid var(--mmd-separator-color, var(--color-neutral-grey-200));
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wp-block-separator.is-style-wide {
+    width: 100%;
+    max-width: none;
+  }
+
+  .wp-block-separator.is-style-dots {
+    border: none;
+    color: var(--mmd-separator-color, var(--color-neutral-grey-300));
+  }
+}

@@ -1,0 +1,38 @@
+.mmd-grid-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: .125rem;
+}
+
+.mmd-grid-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc((100% / 2) - .15rem);
+}
+
+.mmd-grid-option-button {
+  padding: .45rem 0;
+  border-radius: .25rem;
+  border: 1px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.mmd-grid-option-button:hover {
+  background-color: rgba(13, 102, 194, 0.5);
+}
+
+.mmd-grid-option-button.is-selected {
+  background-color: #0d66c2;
+}
+
+.mmd-grid-option-button.is-selected img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%) hue-rotate(313deg) brightness(103%) contrast(103%);
+}

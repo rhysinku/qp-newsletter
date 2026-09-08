@@ -1,0 +1,12 @@
+.mmd-editor-notice {
+  font-weight: 700;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 48rem;
+  padding: .5em .25em;
+  border-radius: .5rem;
+  background-color: #a8a814;
+  color: #1e1e1e;
+  margin: 1rem auto;
+}

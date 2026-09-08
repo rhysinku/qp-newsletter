@@ -1,0 +1,9 @@
+
+.mmd-link-field .block-editor-link-control {
+  min-width: unset;
+}
+
+.mmd-link-field .block-editor-link-control__search-input {
+  min-width: unset;
+  max-width: 100%;
+}

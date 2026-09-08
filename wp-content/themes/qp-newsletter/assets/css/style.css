@@ -1,0 +1,194 @@
+
+@import "tailwindcss";
+@source "../../**/*.php";
+@source "../../**/*.js";
+@source "./**/*.php";
+@source "./**/*.js";
+
+/**
+ * Tailwind
+ */
+@import "./tailwind";
+
+@import "./atoms/index.css";
+@import "./components/index.css";
+@import "./blocks/index.css";
+@import "./layout/index.css";
+@import "./content.css";
+
+@theme {
+  /* breakpoints */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 36rem; /* 576px */
+  --breakpoint-md: 48rem; /* 768px */
+  --breakpoint-lg: 62rem; /* 992px */
+  --breakpoint-xl: 75rem; /* 1200px */
+  --breakpoint-2xl: 87.5rem; /* 1400px */
+
+  /* shadows */
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+
+  /* border radius */
+  --radius-3px: 3px;
+
+  /* leading / letter-spacing */
+  --leading-1px: 1px;
+
+  /* filters */
+  --blur-*: initial;
+
+  /* aspect ratios */
+  --aspect-*: initial;
+
+  /* colors */
+  --color-primary-blue-200: #E0EEFE;
+  --color-neutral-graphite: #3E3E3F;
+  --color-white: var(--color-system-white);
+  --color-black: var(--color-system-black);
+
+  /* others */
+  --perspective-*: initial;
+
+  /* animations */
+  --animate-*: initial;
+}
+
+/* plugins */
+@plugin "../../tailwind/responsive-typography.js";
+@plugin "../../tailwind/grid-system.js";
+@plugin "../../tailwind/spacing.js";
+@plugin "../../tailwind/ratio.js";
+@plugin "../../tailwind/masonry.js";
+
+/* base */
+@layer base {
+  :root {
+    --mmd-container-max: 90rem; /* 1440px */
+    --mmd-container-gutter: 1rem; /* 16px */
+
+    /* Hairline border for light surfaces (cards, tabs, dividers). Single source of
+       truth — replaces the repeated rgba(96,96,96,0.15) literal. Intentionally NOT
+       theme-aware: it sits on white/light surfaces that stay light regardless of the
+       section's theme, so a dark-theme flip would make it invisible. */
+    --mmd-hairline: color-mix(in srgb, var(--color-neutral-grey-500) 15%, transparent);
+  }
+
+  @media (min-width: 48rem) { /* 768px */
+    :root {
+      --mmd-container-gutter: 1.5rem; /* 24px */
+    }
+  }
+
+  @media (min-width: 62rem) { /* 992px */
+    :root {
+      --mmd-container-gutter: 4rem; /* 64px */
+    }
+  }
+
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  body {
+    --mmd-base-leading: 1.7;
+    --mmd-base-text: var(--color-system-base);
+
+    @apply text-body font-primary bg-system-white;
+    color: var(--mmd-base-text);
+    /*line-height: var(--mmd-base-leading);*/
+    max-width: 120rem;
+    margin-inline: auto;
+    box-shadow: -1px 0 0 rgba(0, 0, 0, 0.1), 1px 0 0 rgba(0, 0, 0, 0.1);
+    overflow-x: clip;
+    position: relative;
+  }
+
+  /* wp headings */
+  .wp-block-heading {
+    margin-inline: 0;
+  }
+
+  .wp-block-heading:not(:first-child) {
+    margin-top: 2.5rem;
+  }
+
+  .wp-block-heading:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  figure {
+    margin-bottom: 0;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  /**
+   * Core block text-alignment utilities.
+   *
+   * The frontend dequeues `wp-block-library`, so the core `.has-text-align-*`
+   * rules are not loaded. The editor still applies these, which made center/
+   * left/right aligned paragraphs render correctly in the editor but not on
+   * the frontend. Restore them here.
+   */
+  .has-text-align-left {
+    text-align: left;
+  }
+
+  .has-text-align-center {
+    text-align: center;
+  }
+
+  .has-text-align-right {
+    text-align: right;
+  }
+}
+
+.container {
+  max-width: var(--mmd-container-max);
+  padding-inline: var(--mmd-container-gutter);
+  margin-inline: auto;
+  width: 100%;
+  position: relative;
+
+  /* Specificity boosts for width & alignment modifiers */
+  &.max-w-screen-md {
+    max-width: var(--breakpoint-md); /* 48rem = 768px */
+  }
+  &.max-w-screen-2xl {
+    max-width: var(--breakpoint-2xl); /* 87.5rem = 1400px */
+  }
+  &.max-w-none {
+    max-width: none;
+  }
+  &.lg\:max-w-\[75\%\] {
+    @media (width >= 62rem) {
+      max-width: 75%;
+    }
+    @media (width >= 90rem) { /* 1440px */
+      max-width: 1080px; /* 75% of 1440px */
+    }
+  }
+  &.lg\:ml-0 {
+    @media (width >= 62rem) {
+      margin-left: 0;
+    }
+    @media (width >= 90rem) {
+      margin-left: calc((100vw - var(--mmd-container-max)) / 2);
+    }
+  }
+  &.lg\:mr-auto {
+    @media (width >= 62rem) {
+      margin-right: auto;
+    }
+  }
+
+  .container {
+    padding-inline: 0;
+    max-width: none;
+  }
+}

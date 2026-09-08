@@ -1,0 +1,5 @@
+@layer components {
+  .mmd-content > :is(p, ul, ol, blockquote, iframe, address):not(:last-of-type) {
+    @apply mb-4;
+  }
+}

@@ -1,0 +1,6 @@
+@theme {
+ --font-*: initial;
+ --font-primary: "Inter";
+ --font-mono: "IBM Plex Mono", monospace;
+}
+

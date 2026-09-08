@@ -1,0 +1,34 @@
+# WordPress Core Ignored Directories
+/wp-admin/
+/wp-includes/
+/wp-content/plugins/
+/wp-content/uploads/
+/wp-content/upgrade/
+/wp-content/languages/
+/wp-content/mu-plugins/
+
+# WordPress Core Ignored Root Files
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+/wp-*.php
+
+# Theme node dependencies, compiled targets, and local overrides
+wp-content/themes/qp-newsletter/node_modules/
+wp-content/themes/qp-newsletter/gutenberg/build/
+wp-content/themes/qp-newsletter/*.min.js
+wp-content/themes/qp-newsletter/*.min.css
+wp-content/themes/qp-newsletter/variables.local.php
+
+# Local DDEV overrides & database snapshots
+.ddev/db-snapshots/
+.ddev/apache/
+.ddev/nginx_full/
+.ddev/php/
+.ddev/.import-assets/
+.ddev/commands/web/wp
+
+# OS and temporary assets
+.DS_Store
+.figma-measure-state.json

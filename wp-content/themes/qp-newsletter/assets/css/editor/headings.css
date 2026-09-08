@@ -1,0 +1,63 @@
+/* core headings */
+.wp-block-heading:is(h1) {
+  @apply text-heading-1;
+}
+
+.wp-block-heading:is(h2) {
+  @apply text-heading-2;
+}
+
+.wp-block-heading:is(h3) {
+  @apply text-heading-3;
+}
+
+.wp-block-heading:is(h4) {
+  @apply text-heading-4;
+}
+
+.wp-block-heading:is(h5) {
+  @apply text-heading-5;
+}
+
+.wp-block-heading:is(h6) {
+  @apply text-heading-6;
+}
+
+/* override default css of gutenberg */
+:where(.editor-styles-wrapper) :is(.text-heading-1, h1) {
+  @apply text-heading-1;
+  margin-block: 0;
+}
+
+:where(.editor-styles-wrapper) :is(.text-heading-2, h2) {
+  @apply text-heading-2;
+  margin-block: 0;
+}
+
+:where(.editor-styles-wrapper) :is(.text-heading-3, h3) {
+  @apply text-heading-3;
+  margin-block: 0;
+}
+
+:where(.editor-styles-wrapper) :is(.text-heading-4, h4) {
+  @apply text-heading-4;
+  margin-block: 0;
+}
+
+:where(.editor-styles-wrapper) :is(.text-heading-5, h5) {
+  @apply text-heading-5;
+  margin-block: 0;
+}
+
+:where(.editor-styles-wrapper) :is(.text-heading-6, h6) {
+  @apply text-heading-6;
+  margin-block: 0;
+}
+
+.wp-block-heading {
+  margin-block: 0;
+}
+
+.mmd-heading .mod--variant--featured {
+  margin-block: 0;
+}

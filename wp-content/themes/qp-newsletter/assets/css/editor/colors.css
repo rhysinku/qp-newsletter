@@ -1,0 +1,22 @@
+.mmd-inspector-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .5rem;
+}
+
+.mmd-inspector-button-group .mmd-color-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 50% !important;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #888;
+}
+
+.mmd-inspector-button-group .mmd-color-button:is(.mmd-color-selected) {
+  outline: 2px solid var(--color-system-black);
+}

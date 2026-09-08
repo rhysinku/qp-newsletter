@@ -1,0 +1,26 @@
+/* import main tailwind css file */
+@import "./style.css";
+
+/* custom editor-specific css files */
+@import "./editor/index.css";
+
+/* editor-specific plugins */
+@plugin "../../tailwind/editor-spacing.js";
+
+/* editor base */
+body.js.block-editor-page .editor-styles-wrapper {
+  padding: 0 16px;
+}
+
+.editor-styles-wrapper {
+  @apply font-primary;
+}
+
+/* ratio image */
+.is-ratio-image {
+  margin-bottom: 0;
+}
+
+.is-ratio-image>img {
+  height: 100%;
+}

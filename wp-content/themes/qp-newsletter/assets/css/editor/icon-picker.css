@@ -1,0 +1,88 @@
+.mmd-custom-popover__trigger {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  padding: 0 !important;
+}
+
+.mmd-custom-popover__trigger-icon {
+  background-color: var(--color-system-white);
+  outline: 1px solid currentColor;
+  color: var(--color-primary);
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 3px;
+  margin-right: .85rem;
+}
+
+.mmd-custom-popover__trigger-icon img {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(2699%) hue-rotate(200deg) brightness(83%) contrast(94%) !important;
+}
+
+/*.mmd-custom-popover__trigger svg {*/
+/*  color: inherit;*/
+/*}*/
+
+.mmd-custom-popover__wrapper {
+  width: 30rem;
+  overflow-y: scroll;
+  max-height: 22rem;
+  padding: 1.5rem;
+}
+
+.mmd-custom-popover__grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  margin-top: .75rem;
+}
+
+.mmd-custom-popover__grid__item {
+  color: #4d4d4d;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: .4rem;
+  text-align: center;
+  cursor: pointer;
+  padding: .45rem .2rem;
+  border-radius: 6px;
+  line-height: 1.2;
+}
+
+.mmd-custom-popover__grid__item img {
+  filter: brightness(0) saturate(100%) invert(17%) sepia(87%) saturate(2699%) hue-rotate(200deg) brightness(83%) contrast(94%) !important;
+}
+
+.mmd-custom-popover__grid__item:is(:hover, :focus, .is-active) {
+  background-color: var(--color-primary);
+  color: var(--color-system-white);
+  outline: 1px solid currentColor;
+}
+
+.mmd-custom-popover__grid__item:is(:hover, :focus, .is-active) img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(3%) saturate(7477%) hue-rotate(87deg) brightness(116%) contrast(107%);
+}
+
+/*.mmd-custom-popover__grid__item:is(:hover, :focus, .is-active) img {*/
+/*  filter: none;*/
+/*}*/
+
+.mmd-custom-popover__grid__item:is(:hover, :focus, .is-active) .mmd-custom-popover__grid__item-title {
+  color: var(--color-system-white);
+}
+
+.mmd-custom-popover__grid__item-title {
+  color: #4d4d4d;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .6rem;
+  letter-spacing: 1px;
+}

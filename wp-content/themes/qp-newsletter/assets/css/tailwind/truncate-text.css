@@ -1,0 +1,13 @@
+@layer utilities {
+  .truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--mmd-truncate-text-lines, 1);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .truncate-text-2 {
+    --mmd-truncate-text-lines: 2;
+  }
+}

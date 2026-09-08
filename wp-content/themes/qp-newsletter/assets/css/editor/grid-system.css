@@ -1,0 +1,91 @@
+.mmd-row:not(.mmd-row-static) {
+  display: block;
+}
+
+.mmd-row:not(.mmd-row-static) > div {
+  width: 100%;
+}
+
+.mmd-row:not(.mmd-row-static)[class*="cols-"] > div > div > * {
+  --col-width: 100%;
+}
+
+/* Dynamic column width for different layouts */
+.mmd-row:not(.mmd-row-static).lg\:cols-2 > div > div > * {
+  --col-width: calc(100% / 2);
+}
+
+.mmd-row:not(.mmd-row-static).lg\:cols-3 > div > div > * {
+  --col-width: calc(100% / 3);
+}
+
+.mmd-row:not(.mmd-row-static).lg\:cols-4 > div > div > * {
+  --col-width: calc(100% / 4);
+}
+
+.mmd-row:not(.mmd-row-static).lg\:cols-5 > div > div > * {
+  --col-width: calc(100% / 5);
+}
+
+.mmd-row:not(.mmd-row-static).lg\:cols-6 > div > div > * {
+  --col-width: calc(100% / 6);
+}
+
+/* Custom ratio-based two-column layouts */
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-40-60 > div > div > *:nth-child(1) {
+  --col-width: 40%;
+}
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-40-60 > div > div > *:nth-child(2) {
+  --col-width: 60%;
+}
+
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-60-40 > div > div > *:nth-child(1) {
+  --col-width: 60%;
+}
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-60-40 > div > div > *:nth-child(2) {
+  --col-width: 40%;
+}
+
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-30-70 > div > div > *:nth-child(1) {
+  --col-width: 30%;
+}
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-30-70 > div > div > *:nth-child(2) {
+  --col-width: 70%;
+}
+
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-70-30 > div > div > *:nth-child(1) {
+  --col-width: 70%;
+}
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-70-30 > div > div > *:nth-child(2) {
+  --col-width: 30%;
+}
+
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-20-80 > div > div > *:nth-child(1) {
+  --col-width: 20%;
+}
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-20-80 > div > div > *:nth-child(2) {
+  --col-width: 80%;
+}
+
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-80-20 > div > div > *:nth-child(1) {
+  --col-width: 80%;
+}
+.mmd-row:not(.is-static, .is-ssr).lg\:cols-80-20 > div > div > *:nth-child(2) {
+  --col-width: 20%;
+}
+
+/* apply dynamic variables */
+.mmd-row:not(.mmd-row-static) > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  row-gap: 1rem;
+}
+
+.mmd-row:not(.mmd-row-static) > div > div > * {
+  flex: 0 0 var(--col-width);
+  max-width: var(--col-width);
+  padding-inline: var(--inline-spacing);
+}
+

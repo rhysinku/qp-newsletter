@@ -1,0 +1,81 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-theme-heading: var(--color-primary-navy-900);
+    --mmd-theme-subheading: var(--color-primary-brass-400);
+    --mmd-theme-text: var(--color-neutral-grey-700);
+    --mmd-theme-link-text: inherit;
+    --mmd-theme-link-text-hover: var(--color-primary-blue-800);
+  }
+
+  .mod--theme--dark {
+    --mmd-theme-heading: var(--color-neutral-white);
+    --mmd-theme-subheading: var(--color-primary-blue-50);
+    --mmd-theme-text: var(--color-neutral-white);
+    --mmd-theme-link-text: inherit;
+    --mmd-theme-link-text-hover: var(--color-primary-blue-50);
+  }
+
+  .bg-primary-blue-800,
+  .bg-primary-navy-900 {
+    --mmd-theme-subheading: var(--color-primary-blue-50);
+  }
+
+  :where(.mod--theme--dark, .mod--theme--light) {
+    color: var(--mmd-theme-text);
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    color: var(--mmd-theme-heading);
+  }
+
+  :where(p, li) a:not(.mmd-button) {
+    color: var(--mmd-theme-link-text);
+  }
+
+  :where(p, li) a:not(.mmd-button):is(:hover, :focus) {
+    color: var(--mmd-theme-link-text-hover);
+  }
+
+  .mmd-subheading {
+    text-transform: uppercase;
+    color: var(--mmd-theme-subheading);
+    font-size: 0.75rem;
+    line-height: 1.33;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: .5rem;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .mmd-category {
+    font-size: 0.75rem;
+    font-weight: 800;
+    line-height: 1.33;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    @apply text-heading-1;
+  }
+  h2 {
+    @apply text-heading-2;
+  }
+  h3 {
+    @apply text-heading-3;
+  }
+  h4 {
+    @apply text-heading-4;
+  }
+  h5 {
+    @apply text-heading-5;
+  }
+  h6 {
+    @apply text-heading-6;
+  }
+
+  p strong {
+    font-weight: 700;
+  }
+}

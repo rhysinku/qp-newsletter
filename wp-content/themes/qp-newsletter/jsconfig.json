@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@marameodesign/utils": [
+        "gutenberg/utils"
+      ],
+      "@marameodesign/components": [
+        "gutenberg/components"
+      ]
+    }
+  },
+  "include": [
+    "gutenberg"
+  ]
+}

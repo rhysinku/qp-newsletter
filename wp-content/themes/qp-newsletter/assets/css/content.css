@@ -1,0 +1,7 @@
+.mmd-content :where(p, li) a:not(.mmd-button, [class]) {
+  @apply underline underline-offset-4 font-bold hover:no-underline focus:no-underline;
+}
+
+:is(.wp-block-heading, .wp-block-paragraph, .wp-block-list):has(+ [class^="wp-block-mmd-"]) {
+  margin-bottom: 2.5rem;
+}

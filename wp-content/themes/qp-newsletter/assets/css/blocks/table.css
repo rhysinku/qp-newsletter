@@ -1,0 +1,115 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-table-head-bg-color: var(--color-primary-navy-900);
+    --mmd-table-head-text-color: var(--color-system-white);
+    --mmd-table-border-color: var(--color-neutral-grey-300);
+    --mmd-table-first-col-color: var(--color-neutral-jet);
+    --mmd-table-body-color: var(--color-neutral-grey-700);
+    --mmd-table-striped-bg-color: var(--color-neutral-grey-100);
+  }
+
+  .mod--theme--dark {
+    --mmd-table-head-bg-color: var(--color-primary-blue-800);
+    --mmd-table-head-text-color: var(--color-system-white);
+    --mmd-table-border-color: rgba(255, 255, 255, 0.2);
+    --mmd-table-first-col-color: var(--color-system-white);
+    --mmd-table-body-color: var(--color-neutral-grey-100);
+    --mmd-table-striped-bg-color: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Scroll wrapper */
+.wp-block-table {
+  overflow-x: auto;
+  margin-block: 2rem;
+  width: 100%;
+}
+
+.wp-block-table table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+  min-width: 36rem; /* prevent cells collapsing below readable width */
+}
+
+/* Override core's border: 1px solid on all sides */
+.wp-block-table table td,
+.wp-block-table table th {
+  padding: 0.5rem; /* 8px — Figma: p-[8px] on cells */
+  border: none !important;
+  border-bottom: 1px solid var(--mmd-table-border-color) !important;
+  text-align: left;
+  font-family: var(--font-primary), sans-serif;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.625rem; /* 26px */
+  color: var(--mmd-table-body-color);
+  word-break: normal;
+}
+
+/* First column: bold label text */
+.wp-block-table table td:first-child {
+  font-weight: 700;
+  color: var(--mmd-table-first-col-color);
+}
+
+/* First column width — responsive */
+.wp-block-table table th:first-child,
+.wp-block-table table td:first-child {
+  width: 40%;
+}
+
+@media (min-width: 64rem) {
+  .wp-block-table table th:first-child,
+  .wp-block-table table td:first-child {
+    width: 23.4375rem; /* 375px per Figma */
+  }
+}
+
+/* Header row */
+.wp-block-table table thead th {
+  background-color: var(--mmd-table-head-bg-color) !important;
+  color: var(--mmd-table-head-text-color) !important;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
+  font-weight: 700;
+  letter-spacing: 0.0625rem; /* 1px */
+  text-transform: uppercase;
+  padding: 0.75rem 0.5rem; /* 12px vertical / 8px horizontal */
+  border-bottom: none !important;
+}
+
+/* Footer row */
+.wp-block-table table tfoot td {
+  background-color: var(--mmd-table-head-bg-color);
+  color: var(--mmd-table-head-text-color);
+  font-weight: 700;
+  padding: 0.75rem 0.5rem;
+  border-bottom: none !important;
+}
+
+/* Striped variant — neutralise core's outer border and border-collapse override */
+.wp-block-table.is-style-stripes {
+  border: none !important;
+}
+
+.wp-block-table.is-style-stripes table {
+  border-collapse: collapse !important;
+}
+
+/* Reset core's odd-row background so only even rows are striped */
+.wp-block-table.is-style-stripes table tbody tr:nth-child(odd) {
+  background-color: transparent;
+}
+
+.wp-block-table.is-style-stripes table tbody tr:nth-child(even) {
+  background-color: var(--mmd-table-striped-bg-color);
+}
+
+/* Caption */
+.wp-block-table figcaption.wp-element-caption {
+  padding-block: 0.5rem;
+  font-family: var(--font-primary), sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  color: var(--mmd-table-body-color);
+}

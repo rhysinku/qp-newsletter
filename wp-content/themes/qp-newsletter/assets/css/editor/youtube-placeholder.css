@@ -1,0 +1,47 @@
+.yt-floating-input {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, .78);
+  padding: .5rem .25rem;
+  color: #333;
+  &__container {
+    max-width: 600px;
+    margin-inline: auto;
+  }
+}
+
+.m-video-placeholder {
+  position: relative;
+  width: 100%;
+  max-width: 640px; /* Set max-width as needed */
+  height: 360px; /* Adjust height for the placeholder */
+  background-color: #333; /* Placeholder background color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  .play-btn-icon {
+    --dimensions: 60px; /* Set the size of the play button */
+    width: var(--dimensions); /* Size of the circle play button */
+    max-width: var(--dimensions);
+    height: var(--dimensions);
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent button background */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 18px; /* Triangle play button */
+      border-color: transparent transparent transparent rgba(0, 0, 0, 0.7);
+      margin-left: 4px; /* Adjust to center the triangle */
+    }
+  }
+}

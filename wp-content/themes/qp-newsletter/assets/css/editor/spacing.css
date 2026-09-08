@@ -1,0 +1,9 @@
+.mmd-content > div > .block-editor-block-list__layout > * {
+  margin-top: 0;
+  margin-bottom: var(--mmd-bottom-spacing, 1.5rem);
+}
+
+/* Remove default block spacing in editor */
+.editor-styles-wrapper .mmd-content .wp-block > .mmd-editor-spacing > div:not([class]) > .mmd-spacing {
+  padding-block: 0;
+}

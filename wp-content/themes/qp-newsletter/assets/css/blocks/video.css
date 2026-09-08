@@ -1,0 +1,5 @@
+@layer components {
+  :where(.wp-block-mmd-video) > :is(figure, .embed-code-wrapper) {
+    border-radius: var(--video--border-radius, 0);
+  }
+}
