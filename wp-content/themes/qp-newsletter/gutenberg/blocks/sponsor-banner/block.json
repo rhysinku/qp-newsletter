@@ -1,0 +1,44 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1.0.0",
+  "name": "qp/sponsor-banner",
+  "title": "Sponsor Banner",
+  "description": "An unobtrusive sponsor banner section containing logo and outbound URL.",
+  "category": "mmd-standalone-blocks",
+  "icon": "awards",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false
+  },
+  "attributes": {
+    "sponsor_id": {
+      "type": "number"
+    },
+    "sponsor_logo_uri": {
+      "type": "string",
+      "default": ""
+    },
+    "sponsor_name": {
+      "type": "string",
+      "default": ""
+    },
+    "sponsor_url": {
+      "type": "string",
+      "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "qp-newsletter",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.scss"
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1.0.0",
+  "name": "qp/code-snippet",
+  "title": "Code Snippet",
+  "description": "A dark-mode syntax highlighted code snippet block with line numbers.",
+  "category": "mmd-standalone-blocks",
+  "icon": "editor-code",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string",
+      "default": ""
+    },
+    "language": {
+      "type": "string",
+      "default": "javascript"
+    },
+    "caption": {
+      "type": "string",
+      "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "qp-newsletter",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.scss"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1.0.0",
+  "name": "qp/resource-cta",
+  "title": "Resource CTA",
+  "description": "Flat button card displaying cheat sheet descriptions and a download link.",
+  "category": "mmd-standalone-blocks",
+  "icon": "download",
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "attributes": {
+    "resource_id": {
+      "type": "number",
+      "default": 0
+    },
+    "button_label": {
+      "type": "string",
+      "default": "Download Resource"
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "qp-newsletter",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

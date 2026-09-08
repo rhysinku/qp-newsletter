@@ -27,6 +27,7 @@ wp.domReady(() => {
   getBlockTypes().forEach((blockType) => {
     if (
       !blockType.name.startsWith('mmd/') &&
+      !blockType.name.startsWith('qp/') &&
       !whiteList.includes(blockType.name)
     ) {
       unregisterBlockType(blockType.name);

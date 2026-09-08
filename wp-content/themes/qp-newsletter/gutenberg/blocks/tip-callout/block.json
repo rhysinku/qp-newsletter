@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "version": "1.0.0",
+  "name": "qp/tip-callout",
+  "title": "Tip Callout",
+  "description": "High-contrast bordered card styling with colored accents for callouts.",
+  "category": "mmd-standalone-blocks",
+  "icon": "feedback",
+  "supports": {
+    "anchor": true,
+    "customClassName": true,
+    "html": false
+  },
+  "attributes": {
+    "type": {
+      "type": "string",
+      "default": "tip"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "content": {
+      "type": "string",
+      "default": ""
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "qp-newsletter",
+  "editorScript": "file:./index.js",
+  "style": "file:./style.scss"
+}
