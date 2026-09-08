@@ -55,37 +55,37 @@
   },
   "color": {
     "system": {
-      "base": "#1D1D1D",
-      "success": "#048700",
-      "error": "#B91C1C",
+      "base": "#F8FAFC",
+      "success": "#10B981",
+      "error": "#EF4444",
       "black": "#000000",
       "white": "#ffffff",
-      "green-700": "#048700",
-      "green-50": "#ECF1E8",
-      "red-700": "#B91C1C",
-      "red-50": "#FEE2E2"
+      "green-700": "#10B981",
+      "green-50": "#064E3B",
+      "red-700": "#EF4444",
+      "red-50": "#451A03"
     },
     "primary": {
-      "default": "#064B8D",
-      "blue-800": "#064B8D",
-      "navy-900": "#1B365D",
-      "brass-400": "#C5A059",
-      "brass-300": "#EDC372",
-      "blue-200": "#E0EEFE",
-      "blue-50": "#F3F7FC"
+      "default": "#3B82F6",
+      "blue-800": "#3B82F6",
+      "navy-900": "#0F172A",
+      "brass-400": "#1E293B",
+      "brass-300": "#334155",
+      "blue-200": "#60A5FA",
+      "blue-50": "#0F172A"
     },
     "neutral": {
-      "default": "#F3F4F7",
-      "white": "#FFFFFF",
-      "light-grey": "#F3F4F7",
-      "grey-100": "#F6F6F6",
-      "grey-150": "#EAEAEA",
-      "grey-200": "#E5E5E5",
-      "grey-300": "#D4D4D4",
-      "grey-500": "#606060",
-      "grey-700": "#404040",
-      "grey-900": "#1D1D1D",
-      "jet": "#1C1C1C"
+      "default": "#0F172A",
+      "white": "#F8FAFC",
+      "light-grey": "#1E293B",
+      "grey-100": "#0F172A",
+      "grey-150": "#1E293B",
+      "grey-200": "#334155",
+      "grey-300": "#475569",
+      "grey-500": "#64748B",
+      "grey-700": "#94A3B8",
+      "grey-900": "#CBD5E1",
+      "jet": "#020617"
     }
   },
   "typography": {
