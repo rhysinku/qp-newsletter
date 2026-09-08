@@ -1,33 +1,28 @@
-# WordPress Core Ignored Directories
+# WordPress Core Ignored Directories & Root Files
 /wp-admin/
 /wp-includes/
-/wp-content/plugins/
-/wp-content/uploads/
-/wp-content/upgrade/
-/wp-content/languages/
-/wp-content/mu-plugins/
-
-# WordPress Core Ignored Root Files
 /index.php
 /license.txt
 /readme.html
 /xmlrpc.php
 /wp-*.php
 
-# Theme node dependencies, compiled targets, and local overrides
+# Ignore all of wp-content except our specific custom theme
+wp-content/*
+!wp-content/themes/
+wp-content/themes/*
+!wp-content/themes/qp-newsletter/
+
+# Ignore local DDEV files except the config.yaml
+.ddev/*
+!.ddev/config.yaml
+
+# Ignore theme build dependencies & outputs inside our theme folder
 wp-content/themes/qp-newsletter/node_modules/
 wp-content/themes/qp-newsletter/gutenberg/build/
 wp-content/themes/qp-newsletter/*.min.js
 wp-content/themes/qp-newsletter/*.min.css
 wp-content/themes/qp-newsletter/variables.local.php
-
-# Local DDEV overrides & database snapshots
-.ddev/db-snapshots/
-.ddev/apache/
-.ddev/nginx_full/
-.ddev/php/
-.ddev/.import-assets/
-.ddev/commands/web/wp
 
 # OS and temporary assets
 .DS_Store
