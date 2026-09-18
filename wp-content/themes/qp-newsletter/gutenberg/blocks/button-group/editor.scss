@@ -1,0 +1,61 @@
+.editor-styles-wrapper {
+  .mmd-button-group {
+    .block-editor-inner-blocks {
+      width: 100%;
+    }
+
+    > div {
+      justify-content: inherit;
+      flex-direction: inherit;
+
+      > .block-editor-block-list__layout {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: inherit;
+        align-items: center;
+        gap: 1rem;
+        flex-direction: inherit;
+      }
+    }
+
+    .tenup-block-components-link__label {
+      display: inline-block;
+      vertical-align: middle;
+
+      + span {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: .25rem;
+      }
+    }
+
+    &:is(.is-style-stacked) {
+      [data-title="Button"]:has(> .btn) {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+
+  // Base
+  [data-title="Button"]:has(> .btn) {
+    width: max-content;
+
+    > .btn {
+      width: 100%;
+    }
+  }
+}
+
+
+.editor-styles-wrapper{
+  .mmd-button-group:is(.is-style-stacked){
+      .btn{
+          justify-content: center;
+          .tenup-block-components-link__label{
+              display: inline;
+              max-width: fit-content;
+          }
+      }
+  }
+}

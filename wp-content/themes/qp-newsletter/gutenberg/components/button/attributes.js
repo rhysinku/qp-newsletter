@@ -13,8 +13,16 @@ export default function addAttributes(attrObject, suffix = '') {
       default: false,
     },
     [`buttonType${suffix}`]: {
-      enum: ["mod--variant--primary", "mod--variant--secondary", "mod--variant--arrow"],
+      enum: [
+        "mod--variant--primary",
+        "mod--variant--secondary",
+        "mod--variant--arrow",
+      ],
       default: "mod--variant--primary",
+    },
+    [`enableNewsletterType${suffix}`]: {
+      type: "boolean",
+      default: false,
     },
   });
 }

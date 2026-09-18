@@ -23,10 +23,6 @@ export default function addAttributes(attrObject, suffix = "") {
         darkTheme: "text-white"
       },
     },
-    [`headingAlignment${suffix}`]: {
-      type: "string",
-      default: "left",
-    },
     [`usePostTitle${suffix}`]: {
       type: "boolean",
       default: false,

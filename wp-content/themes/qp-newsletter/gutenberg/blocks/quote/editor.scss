@@ -1,0 +1,15 @@
+.editor-styles-wrapper {
+  .mmd-quote {
+    &::before,
+    &::after {
+      content: "";
+    }
+
+    &__content {
+      .block-editor-rich-text__editable.text-\[2rem\] {
+        font-size: 2rem;
+        margin-block: 0;
+      }
+    }
+  }
+}

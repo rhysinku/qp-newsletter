@@ -1,0 +1,13 @@
+.wp-block-mmd-section--2cols.sticky-sidebar > .mmd-content > .mmd-row > .mmd-col:nth-child(2) {
+  @media (min-width: 62rem) {
+    position: sticky;
+    top: 6.563rem;
+    align-self: flex-start;
+  }
+}
+
+.wp-block-mmd-section--2cols {
+  .mmd-cta-card {
+    height: auto;
+  }
+}

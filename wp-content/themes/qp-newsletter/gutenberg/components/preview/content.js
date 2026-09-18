@@ -28,7 +28,7 @@ export default function Content(props) {
     src = `${window.location.protocol}//${window.location.host}/${path}/preview.png?${Date.now()}`;
   }
   else {
-    src = `${window.location.protocol}//${window.location.host}/wp-content/themes/qp-newsletter/gutenberg/blocks/${blockName}/preview.png?${Date.now()}`;
+    src = `${window.location.protocol}//${window.location.host}/wp-content/themes/marameodesign/gutenberg/blocks/${blockName}/preview.png?${Date.now()}`;
   }
 
   return (

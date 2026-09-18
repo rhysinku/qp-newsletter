@@ -18,7 +18,6 @@ export default function get(props, suffix = "", attributeName = "") {
       imageFit: props.attributes[`imageFit${suffix}`],
       imageLoading: props.attributes[`imageLoading${suffix}`],
       imageDescription: props.attributes[`imageDescription${suffix}`],
-      containedHeight: props.attributes[`containedHeight${suffix}`],
     };
   }
 }

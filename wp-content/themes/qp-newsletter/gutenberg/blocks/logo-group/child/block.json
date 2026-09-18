@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.0.0",
+  "name": "mmd/logo-group-child",
+  "title": "Logo Group Child",
+  "description": "A single item in a Logo Group block",
+  "category": "mmd-dedicated-blocks",
+  "icon": "format-image",
+  "supports": {
+    "anchor": false,
+    "customClassName": false
+  },
+  "parent": ["mmd/logo-group"],
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

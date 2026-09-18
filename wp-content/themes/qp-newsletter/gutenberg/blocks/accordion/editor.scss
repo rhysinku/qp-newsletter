@@ -1,0 +1,24 @@
+.mmd-accordion {
+
+  .block-editor-block-list__layout {
+    & > .block-list-appender {
+      position: static;
+    }
+  }
+
+}
+
+.mmd-accordion.mod--theme--dark {
+
+  .block-editor-block-list__layout {
+    & > .block-list-appender {
+      position: static;
+
+      .components-button {
+        box-shadow: inset 0 0 0 1px #fff;
+        color: #fff;
+      }
+    }
+  }
+
+}

@@ -11,7 +11,7 @@ export default function Content(props) {
     captionClassName = "",
     descriptionClassName = "",
     decorSVG = <></>,
-    isContainedHeight: isContainedHeightProp = false,
+    isContainedHeight = false,
     suffix = "",
   } = props;
   const {
@@ -26,11 +26,7 @@ export default function Content(props) {
     imageCaption,
     imageLoading,
     imageDescription,
-    containedHeight,
   } = get(props, suffix);
-
-  // The static prop (if a block passes one) OR the per-block toggle attribute.
-  const isContainedHeight = isContainedHeightProp || !!containedHeight;
 
   /**
    * Return nothing if no image URI
@@ -56,8 +52,7 @@ export default function Content(props) {
           )}
           width={imageWidth || null}
           height={imageHeight || null}
-          loading={props.fetchPriority === "high" ? "eager" : imageLoading}
-          fetchpriority={props.fetchPriority || null}
+          loading={imageLoading}
           decoding="async"
           srcSet={imageSrcSet || null}
           sizes={imageSizes || null}

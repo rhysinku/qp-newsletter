@@ -1,0 +1,9 @@
+.post-type-cag .block-position-configuration { display: block; }
+.block-position-configuration { display: none; }
+
+.editor-styles-wrapper {
+  [data-is-in-post-with-sidebar="1"] :not(.lg\:order-first) > .mmd-cta__image {
+    max-width: 12.5rem !important;
+    margin-left: auto !important;
+  }
+}

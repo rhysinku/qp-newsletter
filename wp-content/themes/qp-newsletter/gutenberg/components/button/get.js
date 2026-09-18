@@ -9,6 +9,7 @@ export default function get(props, suffix = "", attributeName = "") {
       buttonTarget: "_self",
       buttonRelation: "noopener",
       buttonIsValid: false,
+      enableNewsletterType: false,
     };
   }
   
@@ -16,17 +17,41 @@ export default function get(props, suffix = "", attributeName = "") {
     return props.attributes[`${attributeName}${suffix}`];
   } else {
     return {
-      buttonText: props.attributes[`buttonText${suffix}`] === undefined ? "" : props.attributes[`buttonText${suffix}`],
-      buttonUrl: props.attributes[`buttonUrl${suffix}`] === undefined ? "" : props.attributes[`buttonUrl${suffix}`],
-      buttonOpenInNewTab: props.attributes[`buttonOpenInNewTab${suffix}`] === undefined ? false : props.attributes[`buttonOpenInNewTab${suffix}`],
-      buttonType: props.attributes[`buttonType${suffix}`] === undefined ? "mod--variant--primary" : props.attributes[`buttonType${suffix}`],
-      buttonTarget: props.attributes[`buttonOpenInNewTab${suffix}`] === undefined ? "_self" : props.attributes[`buttonOpenInNewTab${suffix}`] ? "_blank" : "_self",
-      buttonRelation: props.attributes[`buttonOpenInNewTab${suffix}`] === undefined ? "noopener" : props.attributes[`buttonOpenInNewTab${suffix}`]
-        ? "noopener noreferrer"
-        : "noopener",
+      buttonText:
+        props.attributes[`buttonText${suffix}`] === undefined
+          ? ""
+          : props.attributes[`buttonText${suffix}`],
+      buttonUrl:
+        props.attributes[`buttonUrl${suffix}`] === undefined
+          ? ""
+          : props.attributes[`buttonUrl${suffix}`],
+      buttonOpenInNewTab:
+        props.attributes[`buttonOpenInNewTab${suffix}`] === undefined
+          ? false
+          : props.attributes[`buttonOpenInNewTab${suffix}`],
+      buttonType:
+        props.attributes[`buttonType${suffix}`] === undefined
+          ? "mod--variant--primary"
+          : props.attributes[`buttonType${suffix}`],
+      buttonTarget:
+        props.attributes[`buttonOpenInNewTab${suffix}`] === undefined
+          ? "_self"
+          : props.attributes[`buttonOpenInNewTab${suffix}`]
+          ? "_blank"
+          : "_self",
+      buttonRelation:
+        props.attributes[`buttonOpenInNewTab${suffix}`] === undefined
+          ? "noopener"
+          : props.attributes[`buttonOpenInNewTab${suffix}`]
+          ? "noopener noreferrer"
+          : "noopener",
       buttonIsValid: Boolean(
         props.attributes[`buttonText${suffix}`] &&
-          props.attributes[`buttonUrl${suffix}`]
+          (props.attributes[`buttonUrl${suffix}`] ||
+            props.attributes[`enableNewsletterType${suffix}`])
+      ),
+      enableNewsletterType: Boolean(
+        props.attributes[`enableNewsletterType${suffix}`]
       ),
     };
   }

@@ -1,0 +1,26 @@
+.mmd-tabs {
+  --mmd-tabs-padding: 1.25rem;
+  --mmd-tabs-border-radius: 3px;
+  --mmd-tabs-shadow: 0 4px 32px 17px rgba(0, 0, 0, 0.02);
+
+  padding: var(--mmd-tabs-padding);
+  border-radius: var(--mmd-tabs-border-radius);
+  overflow: hidden;
+  box-shadow: var(--mmd-tabs-shadow);
+}
+
+.bg-system-white .mmd-tabs {
+  --mmd-tabs-padding: 0;
+  --mmd-tabs-border-radius: 0;
+  --mmd-tabs-shadow: none;
+}
+
+@media all and (min-width: 62rem) {
+  .mmd-tabs {
+    --mmd-tabs-padding: 2rem 2.5rem;
+  }
+
+  .bg-system-white .mmd-tabs {
+    --mmd-tabs-padding: 0;
+  }
+}

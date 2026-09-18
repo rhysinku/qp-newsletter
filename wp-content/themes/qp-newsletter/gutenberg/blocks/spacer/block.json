@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.0.3",
+  "name": "mmd/spacer",
+  "title": "Spacer",
+  "description": "A block for adding custom spacing or a horizontal line.",
+  "category": "mmd-generic-blocks",
+  "icon": "minus",
+  "supports": {
+    "anchor": false,
+    "customClassName": false,
+    "html": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/gallery",
+  "title": "Image/Gallery",
+  "description": "A magic block for images that show images as one-image, 2-column images or a gallery with carousel & preview dynamically based on number of images.",
+  "category": "mmd-generic-blocks",
+  "icon": "format-image",
+  "supports": {
+    "anchor": false,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": ["mmd-slider-core-style", "file:./style-index.css"],
+  "viewScript": ["mmd-slider-core-script", "file:./view.js"]
+}

@@ -1,0 +1,12 @@
+.mmd-heading {
+  --mmd-heading-bottom-spacing: .75rem;
+  margin-bottom: var(--mmd-heading-bottom-spacing);
+
+  &:has(+ .mmd-spacing) {
+    --mmd-heading-bottom-spacing: 2.25rem;
+  }
+
+  .mmd-button-group {
+    margin: 0;
+  }
+}

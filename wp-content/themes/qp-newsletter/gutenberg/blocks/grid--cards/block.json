@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/grid--cards",
+  "title": "Grid of Cards",
+  "description": "A block to handle grid of cards.",
+  "category": "mmd-grid-blocks",
+  "icon": "grid-view",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": ["mmd-grid--people-style", "file:./style-index.css"]
+}

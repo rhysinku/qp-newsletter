@@ -1,4 +1,4 @@
-import { BlockControls, AlignmentControl } from "@wordpress/block-editor";
+import { BlockControls } from "@wordpress/block-editor";
 import { ToolbarGroup, DropdownMenu } from "@wordpress/components";
 import { setSuffixedAttributes } from "@marameodesign/utils";
 import get from "./get";
@@ -14,7 +14,7 @@ const DEFAULT_HEADING_LEVEL_OPTIONS = [
 
 export default function ToolbarControl(props) {
   const { setAttributes, suffix = "", customHeadingLevelOptions = [], customHeadingLevelChoices = [] } = props;
-  const { headingLevel, variant, headingAlignment } = get(props, suffix);
+  const { headingLevel, variant } = get(props, suffix);
 
   // Use either customHeadingLevelOptions or customHeadingLevelChoices (for backward compatibility)
   const customOptions = customHeadingLevelOptions.length > 0 ? customHeadingLevelOptions : customHeadingLevelChoices;
@@ -28,8 +28,8 @@ export default function ToolbarControl(props) {
 
   return (
     <>
-      <BlockControls>
-        {variant === 'default' && (
+      {variant === 'default' && (
+        <BlockControls>
           <ToolbarGroup>
             <DropdownMenu
               key={`heading-level-${headingLevel}`} // Force re-render when headingLevel changes
@@ -44,32 +44,8 @@ export default function ToolbarControl(props) {
               }))}
             />
           </ToolbarGroup>
-        )}
-        <ToolbarGroup>
-          <AlignmentControl
-            value={headingAlignment || "left"}
-            onChange={newVal => {
-              setSuffixedAttributes(
-                setAttributes,
-                { headingAlignment: newVal || "left" },
-                suffix
-              );
-            }}
-            alignmentControls={[
-              {
-                icon: "editor-alignleft",
-                title: "Align text left",
-                align: "left",
-              },
-              {
-                icon: "editor-aligncenter",
-                title: "Align text center",
-                align: "center",
-              },
-            ]}
-          />
-        </ToolbarGroup>
-      </BlockControls>
+        </BlockControls>
+      )}
     </>
   );
 }

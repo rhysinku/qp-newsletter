@@ -31,7 +31,6 @@ export default function InspectorControl(props) {
     imageCaption,
     imageFit,
     imageDescription,
-    containedHeight,
   } = get(props, suffix);
 
   // Merge customOptions over defaultOptions
@@ -161,17 +160,6 @@ export default function InspectorControl(props) {
             setSuffixedAttributes(setAttributes, {
               useFeaturedImage: !useFeaturedImage,
             }, suffix)
-          }
-        />
-      )}
-
-      {options?.allowContainedHeight && (
-        <ToggleControl
-          label="Contained height"
-          help="Off: crop to the block ratio (equal height when side by side). On: show the whole image at its natural height."
-          checked={!!containedHeight}
-          onChange={value =>
-            setSuffixedAttributes(setAttributes, { containedHeight: value }, suffix)
           }
         />
       )}

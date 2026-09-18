@@ -1,0 +1,21 @@
+.components-form-file-upload {
+  display: none;
+}
+
+.block-editor-media-placeholder__upload-button {
+  display: none;
+}
+
+.is-selected {
+  .not-editable {
+    opacity: .5;
+  }
+}
+
+.editor-styles-wrapper {
+  figcaption.mmd-image-caption{
+    color: var(--color-system-white);
+    font-size: 10px;
+    font-style: italic;
+  }
+}

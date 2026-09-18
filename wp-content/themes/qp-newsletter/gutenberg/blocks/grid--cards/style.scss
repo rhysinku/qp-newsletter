@@ -1,0 +1,26 @@
+.mmd-section-logo{
+    .mmd-content > .mmd-row{
+       align-items: center;
+       --inline-spacing: 1.875rem;
+       &.lg\:cols-3, &.lg\:cols-4, &.lg\:cols-5, &.lg\:cols-6{
+         @media (max-width: 991px) {
+            .mmd-col{
+                flex: 0 0 33.33%;
+                max-width: 33.33%;
+            }
+         }
+         @media (max-width: 480px) {
+            .mmd-col{
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+         }
+       }
+       img{
+            max-width: 250px;
+            min-height: 100px;
+            object-fit: contain;
+            margin: 0 auto;
+       }
+    }
+}

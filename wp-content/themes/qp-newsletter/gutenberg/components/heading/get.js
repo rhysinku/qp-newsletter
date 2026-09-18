@@ -9,7 +9,6 @@ export default function get(props, suffix = "") {
       headingIcon: props.attributes[`headingIcon${suffix}`],
       headingIconPosition: props.attributes[`headingIconPosition${suffix}`],
       preHeadingTextColor: props.attributes[`preHeadingTextColor${suffix}`],
-      headingAlignment: props.attributes[`headingAlignment${suffix}`],
       variant: props.attributes[`variant${suffix}`],
     };
   }
@@ -23,7 +22,6 @@ export default function get(props, suffix = "") {
     headingIcon: props.attributes.headingIcon,
     headingIconPosition: props.attributes.headingIconPosition,
     preHeadingTextColor: props.attributes.preHeadingTextColor,
-    headingAlignment: props.attributes.headingAlignment,
     variant: props.attributes[`variant${suffix}`],
   };
 }

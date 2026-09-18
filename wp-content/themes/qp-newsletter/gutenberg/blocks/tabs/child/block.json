@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mmd/tab-child",
+  "title": "Tab Item",
+  "category": "mmd-dedicated-blocks",
+  "icon": "table-row-after",
+  "description": "A single tab panel containing its own content.",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "parent": [
+    "mmd/tabs"
+  ],
+  "usesContext": [
+    "mmd/tabsActiveTab",
+    "mmd/tabsAnchor"
+  ],
+  "editorScript": "file:./index.js"
+}

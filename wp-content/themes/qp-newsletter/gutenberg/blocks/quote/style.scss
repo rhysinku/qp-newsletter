@@ -1,0 +1,53 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-quote-text: var(--color-primary);
+    --mmd-quote-attribution-text: var(--color-neutral-grey-700);
+  }
+
+  .mod--theme--dark {
+    --mmd-quote-text: var(--color-primary-blue-200);
+    --mmd-quote-attribution-text: var(--color-system-white);
+  }
+}
+
+@layer components {
+  .mmd-quote {
+    color: var(--mmd-quote-text);
+  }
+
+  .mmd-quote::before,
+  .mmd-quote::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    //left: 50%;
+    //transform: translateX(-50%);
+    width: 100%;
+    //width: 100vw;
+    //max-width: 120rem;
+    height: 2px;
+    background-color: currentColor;
+  }
+
+  .mmd-quote::before {
+    top: 0;
+  }
+
+  .mmd-quote::after {
+    bottom: 0;
+  }
+
+  .mmd-quote__attribution {
+    color: var(--mmd-quote-attribution-text);
+  }
+
+  //@media all and (min-width: 62rem) {
+  //  .mmd-content-grid__main .mmd-quote::before,
+  //  .mmd-content-grid__main .mmd-quote::after {
+  //    left: 0;
+  //    transform: unset;
+  //    width: var(--breakpoint-2xl);
+  //  }
+  //}
+}

@@ -33,7 +33,6 @@ export default function Edit(props) {
     usePostTitle,
     enablePreHeading,
     preHeading,
-    headingAlignment,
     variant,
   } = get(props, suffix);
 
@@ -71,19 +70,12 @@ export default function Edit(props) {
   }
 
   return (
-    <div
-      className={twMerge(
-        "flex flex-col",
-        headingAlignment === "center"
-          ? "w-full text-center justify-center items-center"
-          : "flex-1 w-full lg:w-auto text-left justify-start items-start"
-      )}
-    >
-      {enablePreHeading && (preHeading || isSelected) && (
+    <>
+      {enablePreHeading && (
         <RichText
           tagName="span"
           className={twMerge(
-            "mmd-subheading mmd-preheading mb-2 block",
+            "uppercase tracking-[1.4px] text-sm text-primary mb-2 font-bold block",
             preHeadingClassName
           )}
           value={preHeading}
@@ -101,11 +93,7 @@ export default function Edit(props) {
             display: hideWhenInactive && !heading && !isActive ? "none" : null,
           }}
           tagName={finalTagName}
-          className={twMerge(
-            className,
-            headingAlignment === "center" ? "text-center" : "text-left",
-            variant && `mod--variant--${variant}`
-          )}
+          className={twMerge(className, variant && `mod--variant--${variant}`)}
           value={heading}
           allowedFormats={allowedFormats}
           onChange={value =>
@@ -119,15 +107,11 @@ export default function Edit(props) {
             display: hideWhenInactive && !heading && !isActive ? "none" : null,
           }}
           tagName={finalTagName}
-          className={twMerge(
-            className,
-            headingAlignment === "center" ? "text-center" : "text-left",
-            variant && `mod--variant--${variant}`
-          )}
+          className={twMerge(className, variant && `mod--variant--${variant}`)}
           value={heading}
           placeholder={placeholder}
         />
       )}
-    </div>
+    </>
   );
 }

@@ -1,0 +1,111 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-people-heading: var(--color-neutral-jet);
+    --mmd-people-text: var(--color-neutral-grey-700);
+  }
+
+  .mod--theme--dark {
+    --mmd-people-heading: var(--color-system-white);
+    --mmd-people-text: var(--color-neutral);
+  }
+}
+
+@layer components {
+  .mmd-people-grid-item {
+    display: flex;
+  }
+
+  .mmd-people-grid-item__header {
+    color: var(--mmd-people-text);
+    font-size: 0.875rem;
+  }
+
+  .mmd-people-grid-item__title {
+    color: var(--mmd-people-heading);
+    margin-bottom: .25rem;
+    font-size: 1rem;
+  }
+
+  .mmd-people-grid-item__image {
+    order: -1;
+    width: 100%;
+  }
+
+  .mmd-people-grid-item.mod--variant--stacked {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: center;
+
+    .mmd-people-grid-item__image {
+      max-width: 10rem;
+      margin: 0 auto 1.125rem;
+    }
+  }
+
+  .mmd-people-grid-item.mod--variant--inline {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: start;
+
+    .mmd-people-grid-item__image {
+      max-width: 5rem;
+      flex-shrink: 0;
+      margin: 0 1.125rem 0 0;
+    }
+  }
+
+  .mmd-people-grid-popup-card {
+    --padding: 1.5rem;
+    --image-square-dimensions: 8rem;
+
+    padding: var(--padding);
+    margin-top: calc(var(--image-square-dimensions) / 2);
+    max-height: 90vh;
+    @media all and (min-width: 62rem) {
+      --padding: 2.5rem;
+      --image-square-dimensions: 13.125rem;
+    }
+
+    .mmd-people-grid-item__image {
+      max-width: var(--image-square-dimensions);
+      margin: calc(((var(--image-square-dimensions) / 2) * -1) + (var(--padding) * -1)) auto 0;
+    }
+
+    .mmd-people-grid-item__header {
+      font-size: 0.875rem;
+      margin-block: 1rem;
+      color: var(--color-neutral-grey-500);
+    }
+
+    .mmd-people-grid-item__title {
+      color: var(--color-neutral-jet);
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: .25rem;
+    }
+
+    .mmd-people-grid-item__socials {
+      margin-bottom: 1rem;
+    }
+
+    .mmd-people-grid-item__content {
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      max-height: 15rem;
+    }
+
+    @media all and (min-width: 48rem) {
+      .mmd-people-grid-item__content {
+        max-height: 24rem;
+      }
+    }
+
+    @media all and (min-width: 62rem) {
+      .mmd-people-grid-item__header {
+        margin-block: 1.875rem 1.188rem;
+      }
+    }
+  }
+}

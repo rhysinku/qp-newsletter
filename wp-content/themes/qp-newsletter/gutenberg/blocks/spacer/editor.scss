@@ -1,0 +1,45 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-editor-spacer-text-color: #222;
+  }
+
+  .mod--theme--dark {
+    --mmd-editor-spacer-text-color: #fff;
+  }
+}
+
+.editor-styles-wrapper .mmd-spacer {
+  border-style: solid;
+  border-color: currentColor;
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--mmd-editor-spacer-text-color);
+
+  &-text {
+    text-transform: uppercase;
+    letter-spacing: .25em;
+    font-weight: 600;
+    font-size: 1rem;
+    opacity: .8;
+    color: inherit;
+  }
+
+  &.mmd-spacing-sm {
+    --mmd-block-spacing: 4rem !important;
+  }
+
+  &.mmd-spacing-md {
+    --mmd-block-spacing: 4.5rem !important;
+  }
+
+  &.mmd-spacing-lg {
+    --mmd-block-spacing: 6.875rem !important;
+  }
+
+  &.mmd-spacing-xl {
+    --mmd-block-spacing: 9.25rem !important;
+  }
+}

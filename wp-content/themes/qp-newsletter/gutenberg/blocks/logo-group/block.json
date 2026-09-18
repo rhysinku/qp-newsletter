@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.0.1",
+  "name": "mmd/logo-group",
+  "title": "Logo Group (DO NOT USE)",
+  "description": "This is replaced by Partners/Donors Block",
+  "category": "mmd-grid-blocks",
+  "icon": "images-alt2",
+  "supports": {
+    "anchor": false,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

@@ -10,14 +10,10 @@ export default function Content(props) {
     tagName = null,
     suffix = "",
   } = props;
-  const {
-    heading,
-    headingLevel,
-    preHeading,
-    enablePreHeading,
-    headingAlignment,
-    variant,
-  } = get(props, suffix);
+  const { heading, headingLevel, preHeading, enablePreHeading, variant } = get(
+    props,
+    suffix
+  );
 
   // Construct final tag name for the heading
   let finalTagName = tagName ?? `h${headingLevel}`;
@@ -25,26 +21,13 @@ export default function Content(props) {
     finalTagName = "p";
   }
 
-  const hasPreHeading = enablePreHeading && preHeading;
-
-  if (!heading && !hasPreHeading) {
-    return null;
-  }
-
   return (
-    <div
-      className={twMerge(
-        "flex flex-col",
-        headingAlignment === "center"
-          ? "w-full text-center justify-center items-center"
-          : "flex-1 w-full lg:w-auto text-left justify-start items-start"
-      )}
-    >
-      {hasPreHeading && (
+    <>
+      {enablePreHeading && preHeading && (
         <RichText.Content
           tagName="span"
           className={twMerge(
-            "mmd-subheading mmd-preheading mb-2 block",
+            "uppercase tracking-[1.4px] text-sm text-primary mb-2 font-bold block",
             preHeadingClassName
           )}
           value={preHeading}
@@ -54,14 +37,10 @@ export default function Content(props) {
       {heading && (
         <RichText.Content
           tagName={finalTagName}
-          className={twMerge(
-            className,
-            headingAlignment === "center" ? "text-center" : "text-left",
-            variant && `mod--variant--${variant}`
-          )}
+          className={twMerge(className, variant && `mod--variant--${variant}`)}
           value={heading}
         />
       )}
-    </div>
+    </>
   );
 }

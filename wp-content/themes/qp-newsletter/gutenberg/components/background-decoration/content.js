@@ -11,7 +11,7 @@ export default function Content(props) {
     return (
       <figure className="bg-decor-right absolute top-0 right-0 -z-10" aria-hidden="true">
         <img
-          src="/wp-content/themes/qp-newsletter/assets/images/icons/right-bg-decor.svg"
+          src="/wp-content/themes/marameodesign/assets/images/icons/right-bg-decor.svg"
           alt="Decoration image"
           decoding="async"
         />
@@ -22,7 +22,7 @@ export default function Content(props) {
     return (
       <figure className="bg-decor-top-right absolute top-0 right-0 -z-10" aria-hidden="true">
         <img
-          src="/wp-content/themes/qp-newsletter/assets/images/icons/top-right-bg-decor.svg"
+          src="/wp-content/themes/marameodesign/assets/images/icons/top-right-bg-decor.svg"
           alt="Decoration image"
           decoding="async"
           />
@@ -33,7 +33,7 @@ export default function Content(props) {
     return (
       <figure className="bg-decor-top-right absolute top-0 right-[15%] -z-10" aria-hidden="true">
         <img
-          src="/wp-content/themes/qp-newsletter/assets/images/icons/hero-decor-top.svg"
+          src="/wp-content/themes/marameodesign/assets/images/icons/hero-decor-top.svg"
           alt="Decoration image"
           decoding="async"
           />

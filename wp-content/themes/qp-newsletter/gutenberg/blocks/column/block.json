@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/column",
+  "title": "Column",
+  "description": "A single column in a section",
+  "category": "mmd-generic-blocks",
+  "icon": "text-page",
+  "supports": {
+    "anchor": false,
+    "customClassName": true
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "usesContext": [
+    "blockTheme",
+    "bgColor"
+  ],
+  "providesContext": {
+    "blockTheme": "blockTheme",
+    "bgColor": "bgColor"
+  },
+  "parent": ["mmd/section--2cols"],
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

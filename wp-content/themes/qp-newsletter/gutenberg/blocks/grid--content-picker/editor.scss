@@ -1,0 +1,16 @@
+.editor-styles-wrapper {
+  [data-type="mmd/grid--content-picker"] {
+    article {
+      a {
+        pointer-events: none;
+      }
+    }
+
+    .mmd-download-report {
+      .mmd-button {
+        color: var(--mmd-button-primary-text);
+        text-decoration: none;
+      }
+    }
+  }
+}

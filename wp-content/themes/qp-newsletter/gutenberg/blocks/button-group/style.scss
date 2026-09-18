@@ -1,0 +1,12 @@
+.mmd-button-group {
+  &:is(.is-style-stacked) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    .btn {
+      max-width: none;
+      width: 100%;
+    }
+  }
+}

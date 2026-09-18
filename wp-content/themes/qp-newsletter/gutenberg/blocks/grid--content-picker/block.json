@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.1",
+  "name": "mmd/grid--content-picker",
+  "title": "Grid of Content (Manual)",
+  "description": "A block that allows selecting content manually one by one",
+  "category": "mmd-grid-blocks",
+  "icon": "admin-post",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "posts": {
+      "type": "array",
+      "default": []
+    },
+    "columns": {
+      "type": "string",
+      "default": "lg:cols-3"
+    },
+    "cardsDisplayMode": {
+      "type": "string",
+      "default": "standard"
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "render": "file:./render.php"
+} 

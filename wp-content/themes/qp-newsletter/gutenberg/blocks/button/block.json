@@ -1,0 +1,20 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/button",
+  "title": "Button",
+  "description": "A block that allows you to add a single button to your page",
+  "category": "mmd-generic-blocks",
+  "icon": "button",
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "parent": [
+    "mmd/button-group"
+  ],
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

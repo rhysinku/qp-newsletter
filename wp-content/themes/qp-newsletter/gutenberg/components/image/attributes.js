@@ -45,10 +45,6 @@ export default function addAttributes(attrObject,suffix = "") {
       enum: ["cover", "contain"],
       default: "cover",
     },
-    [`containedHeight${suffix}`]: {
-      type: "boolean",
-      default: false,
-    },
     [`imageLoading${suffix}`]: {
       enum: ["eager", "lazy"],
       default: "lazy",

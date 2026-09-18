@@ -4,14 +4,14 @@ export function get(props) {
   };
 }
 
+// TODO: make compatible with config
 export function getClassName(props) {
   const { spacingAmount } = props.attributes;
 
   const classes = {
-    "extra-small": "mmd-spacing-xs",
-    small: "mmd-spacing-sm",
-    normal: "mmd-spacing-md",
     large: "mmd-spacing-lg",
+    normal: "mmd-spacing-md",
+    small: "mmd-spacing-sm",
     "extra-large": "mmd-spacing-xl",
   };
 

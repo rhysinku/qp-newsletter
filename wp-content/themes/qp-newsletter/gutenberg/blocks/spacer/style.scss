@@ -1,0 +1,28 @@
+.mmd-spacer {
+  height: var(--mmd-block-spacing);
+  padding: 0 !important;
+  margin: 0 !important;
+
+  &--line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__line {
+    width: 100%;
+    border: none;
+    border-top: 1px solid rgba(64, 64, 64, 0.2);
+    margin: 0;
+    padding: 0;
+  }
+}
+
+// Spacing rules before and after
+:has(+ .mmd-spacer) {
+  margin-bottom: 0;
+}
+
+.mmd-spacer+* {
+  margin-top: 0;
+}

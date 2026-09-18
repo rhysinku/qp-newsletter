@@ -106,7 +106,7 @@ const ImageElement = props => {
     allowCaption = true,
     allowDescription = false,
     setAttributes,
-    isContainedHeight: isContainedHeightProp = false,
+    isContainedHeight = false,
     suffix = "",
   } = props;
 
@@ -122,11 +122,7 @@ const ImageElement = props => {
     imageIsResponsive,
     imageCaption,
     imageDescription,
-    containedHeight,
   } = get(props, suffix);
-
-  // The static prop (if a block passes one) OR the per-block toggle attribute.
-  const isContainedHeight = isContainedHeightProp || !!containedHeight;
 
   const hasImage = !!imageUri;
   const imgProps = {

@@ -1,0 +1,119 @@
+.mmd-content-media__inner-wrapper {
+  display: grid;
+  row-gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.mmd-content-media__content {
+  padding-inline: 1rem;
+}
+
+.mmd-content-media.mod--variant--inner-block .mmd-content-media__content {
+  padding-inline: 0;
+}
+
+/**
+  As inner block
+ */
+.mmd-download-report__inner .mmd-content-media {
+  .mmd-content-media {
+    &__content {
+      padding-inline: 0 !important;
+    }
+  }
+}
+
+/**
+  1 column (floating media)
+ */
+[data-columns="lg:cols-1"] {
+  .mmd-content-media__inner-wrapper {
+    display: block;
+  }
+
+  .mmd-content-media__media {
+    position: relative;
+    z-index: 25;
+
+    @media all and (min-width: 48rem) {
+      width: 28.125rem;
+      max-width: 100%;
+    }
+  }
+}
+
+/**
+  Content grid main
+ */
+.mmd-content-grid__main {
+  > .mmd-content-media {
+    padding: 1.5rem 1rem;
+    .mmd-content-media {
+      &__content {
+        padding-inline: 0;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 62rem) {
+  .mmd-content-media {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, var(--breakpoint-2xl)) 1fr;
+  }
+
+  .mmd-content-media__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+  }
+
+  .mmd-content-media__inner-wrapper {
+    grid-column: 2 / 3;
+    display: grid;
+    justify-content: start;
+    align-items: stretch;
+    grid-template-columns: var(--columns-tpl);
+  }
+
+  .mmd-content-media[data-columns="lg:cols-2"] {
+    --columns-tpl: 1fr 1fr;
+  }
+
+  .mmd-content-media[data-columns="lg:cols-70-30"] {
+    --columns-tpl: 70% 30%;
+  }
+
+  .mmd-content-media[data-columns="lg:cols-30-70"] {
+    --columns-tpl: 30% 70%;
+  }
+
+  .mmd-content-media.mod--variant--media-right .mmd-content-media__inner-wrapper {
+    grid-column-end: 6;
+  }
+  .mmd-content-media.mod--variant--media-right .mmd-content-media__media {
+    padding-left: 1rem;
+  }
+  .mmd-content-media.mod--variant--media-left .mmd-content-media__inner-wrapper {
+    grid-column-start: 1;
+  }
+  .mmd-content-media.mod--variant--media-left .mmd-content-media__media {
+    padding-right: 1rem;
+  }
+
+  .mmd-content-media__media .mmd-figcaption {
+    padding-inline: 0;
+  }
+
+  /**
+    Maintain full bleed width of content media even when inside the section block
+    Design link: https://www.figma.com/design/JF5SCvaKxWSDkSJ0eFOHkw/-UI--MMC-Mixed-Migration-Review?node-id=1003-10077&m=dev
+   */
+  .wp-block-mmd-section--1col > .container > .mmd-content-media {
+    width: 100vw;
+    max-width: 120rem;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+}

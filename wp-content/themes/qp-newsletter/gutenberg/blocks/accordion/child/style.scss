@@ -1,0 +1,21 @@
+@layer base {
+  .mod--theme--light {
+    --mmd-accordion-button-color: var(--color-primary-navy-900);
+    --mmd-accordion-button-color-hover: var(--color-primary);
+  }
+
+  .mod--theme--dark {
+    --mmd-accordion-button-color: var(--color-system-white);
+    --mmd-accordion-button-color-hover: var(--color-primary-blue-200);
+  }
+}
+
+@layer components {
+  .accordion-button {
+    color: var(--mmd-accordion-button-color);
+
+    &:is(:hover, :focus, [aria-expanded="true"]) {
+      color: var(--mmd-accordion-button-color-hover);
+    }
+  }
+}

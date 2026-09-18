@@ -1,0 +1,12 @@
+.editor-styles-wrapper {
+  .mmd-button {
+    .tenup-block-components-link__label {
+      text-decoration: none;
+    }
+
+    // Secondary variant
+    &.mod--variant--secondary {
+      outline: var(--mmd-button-outline);
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mmd/tabs",
+  "title": "Tabs",
+  "category": "mmd-dedicated-blocks",
+  "icon": "table-row-after",
+  "description": "A block that displays content in tabs.",
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "providesContext": {
+    "mmd/tabsActiveTab": "activeTab",
+    "mmd/tabsAnchor": "anchor"
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./view.js",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css"
+}

@@ -1,0 +1,22 @@
+.wp-block-mmd-content-picker {
+  /* Block-specific styles can be added here */
+}
+
+.wp-block-mmd-content-picker .content-picker-item {
+  margin-bottom: 1rem;
+}
+
+.wp-block-mmd-content-picker .content-picker-side-by-side {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.wp-block-mmd-content-picker .content-picker-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wp-block-mmd-content-picker .content-picker-no-image {
+  /* Styles for no-image display */
+} 

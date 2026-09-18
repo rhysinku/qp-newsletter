@@ -1,0 +1,24 @@
+.editor-styles-wrapper {
+  .mmd-people-grid-item {
+    &.mod--variant--stacked {
+      .mmd-people-grid-item__image {
+        margin-inline: auto;
+      }
+    }
+
+    &.mod--variant--inline {
+      .mmd-people-grid-item__image {
+        margin-inline-end: 1.25rem;
+      }
+    }
+
+    &__header > p {
+      margin-block: 0;
+    }
+
+    &__title {
+      margin-bottom: .25rem;
+      font-size: 1rem;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/accordion-child",
+  "title": "Accordion Item",
+  "description": "A single item in an accordion block.",
+  "category": "mmd-generic-blocks",
+  "icon": "arrow-down",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "parent": ["mmd/accordion"],
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

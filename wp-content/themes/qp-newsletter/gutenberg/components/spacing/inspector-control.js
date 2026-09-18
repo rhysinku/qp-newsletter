@@ -9,7 +9,6 @@ export default function InspectorControl(props) {
       label="Spacing"
       value={spacingAmount}
       options={[
-        { label: "Extra Small", value: "extra-small" },
         { label: "Small", value: "small" },
         { label: "Normal", value: "normal" },
         { label: "Large", value: "large" },

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.2",
+  "name": "mmd/button-group",
+  "title": "Button Group",
+  "description": "A group of buttons",
+  "category": "mmd-generic-blocks",
+  "icon": "button",
+  "supports": {
+    "anchor": false,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

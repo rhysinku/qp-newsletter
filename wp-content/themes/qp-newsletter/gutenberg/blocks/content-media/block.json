@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/content-media",
+  "title": "Content Media",
+  "description": "Display rich content alongside an image or illustration in a balanced two-column layout.\nPerfect for storytelling sections like \"About Us\" or service descriptions. This block allows flexible alignment of headings, body text, and a visual element such as an illustration, photo, or icon. Fully responsive and customizable.",
+  "category": "mmd-generic-blocks",
+  "icon": "align-right",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

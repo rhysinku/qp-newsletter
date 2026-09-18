@@ -2,5 +2,313 @@
   {
     "label": "None",
     "value": ""
+  },
+  {
+    "label": "Advocacy Loud Hailer Speaker",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Advocacy_Loud_Hailer_Speaker_AQUA.svg"
+  },
+  {
+    "label": "Advocacy Voice",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Advocacy_Voice_AQUA.svg"
+  },
+  {
+    "label": "Aeroplane Airplane Plane",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Aeroplane_Airplane_Plane_AQUA.svg"
+  },
+  {
+    "label": "Authorities Police Officer",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Authorities_Police_Officer_AQUA.svg"
+  },
+  {
+    "label": "Banking Money Finance",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Banking_Money_Finance_AQUA.svg"
+  },
+  {
+    "label": "Blankets sleeping bags",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Blankets_sleeping_bags_AQUA.svg"
+  },
+  {
+    "label": "Boat Migrants Smugglers",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Boat_Migrants_Smugglers_AQUA.svg"
+  },
+  {
+    "label": "Boat Ship Ocean Sea",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Boat_Ship_Ocean_Sea_AQUA.svg"
+  },
+  {
+    "label": "Boat Sinking Dinghy",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Boat_Sinking_Dinghy_AQUA.svg"
+  },
+  {
+    "label": "Boat Sinking Ship 1",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Boat_Sinking_Ship_1_AQUA.svg"
+  },
+  {
+    "label": "Boat Sinking Ship 2",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Boat_Sinking_Ship_2_AQUA.svg"
+  },
+  {
+    "label": "Boat Small Boats Migrants",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Boat_Small_Boats_Migrants_AQUA.svg"
+  },
+  {
+    "label": "Bus Transport",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Bus_Transport_AQUA.svg"
+  },
+  {
+    "label": "City Urban Movement 1",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/City_Urban_Movement_1_AQUA.svg"
+  },
+  {
+    "label": "City Urban Movement 2",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/City_Urban_Movement_2_AQUA.svg"
+  },
+  {
+    "label": "City Urban Movement 3",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/City_Urban_Movement_3_AQUA.svg"
+  },
+  {
+    "label": "City Urban People",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/City_Urban_People_AQUA.svg"
+  },
+  {
+    "label": "Climate Change Earth Planet",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Climate_Change_Earth_Planet_AQUA.svg"
+  },
+  {
+    "label": "Clothes",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Clothes_AQUA.svg"
+  },
+  {
+    "label": "Cog Process Ideas Mechanism",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Cog_Process_Ideas_Mechanism_AQUA.svg"
+  },
+  {
+    "label": "Communication Interaction",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Communication_Interaction_AQUA.svg"
+  },
+  {
+    "label": "Covid-19 Disease",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Covid-19_Disease_AQUA.svg"
+  },
+  {
+    "label": "Data Gathering Systems",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Data_Gathering_Systems_AQUA.svg"
+  },
+  {
+    "label": "Document Report Book Pamphlet",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Document_Report_Book_Pamphlet_AQUA.svg"
+  },
+  {
+    "label": "Document Report Paper",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Document_Report_Paper_AQUA.svg"
+  },
+  {
+    "label": "Document Research Data",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Document_Research_Data_AQUA.svg"
+  },
+  {
+    "label": "Download Cloud",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Download_Cloud_AQUA.svg"
+  },
+  {
+    "label": "Education Book",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Education_Book_AQUA.svg"
+  },
+  {
+    "label": "Education Teacher Student University",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Education_Teacher_Student_University_AQUA.svg"
+  },
+  {
+    "label": "Email envelope",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Email_envelope_AQUA.svg"
+  },
+  {
+    "label": "Food",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Food_AQUA.svg"
+  },
+  {
+    "label": "Gender Sex Female Male",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Gender_Sex_Female_Male_AQUA.svg"
+  },
+  {
+    "label": "Globe World Planet Graphic",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Globe_World_Planet_Graphic_AQUA.svg"
+  },
+  {
+    "label": "Graph Economy Data",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Graph_Economy_Data_AQUA.svg"
+  },
+  {
+    "label": "Hands Engagement Support Friendship Open",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Hands_Engagement_Support_Friendship_Open_AQUA.svg"
+  },
+  {
+    "label": "Handshake Cooperation Collaboration",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Handshake_Cooperation_Collaboration_AQUA.svg"
+  },
+  {
+    "label": "Home Migration House Movement",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Home_Migration_House_Movement_AQUA.svg"
+  },
+  {
+    "label": "Home Population People",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Home_Population_People_AQUA.svg"
+  },
+  {
+    "label": "Ideas Thoughts Psychological",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Ideas_Thoughts_Psychological_AQUA.svg"
+  },
+  {
+    "label": "Interview Vox Pops Research",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Interview_Vox_Pops_Research_AQUA.svg"
+  },
+  {
+    "label": "Laptop Computer PC Mac",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Laptop_Computer_PC_Mac_AQUA.svg"
+  },
+  {
+    "label": "Laptop Download Computer",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Laptop_Download_Computer_AQUA.svg"
+  },
+  {
+    "label": "Law Justice Scales Balance",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Law_Justice_Scales_Balance_AQUA.svg"
+  },
+  {
+    "label": "Migrants People Walking",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Migrants_People_Walking_AQUA.svg"
+  },
+  {
+    "label": "Militia Armed Groups Army Weapons",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Militia_Armed_Groups_Army_Weapons_AQUA.svg"
+  },
+  {
+    "label": "Money Cash Dollar Payment",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Money_Cash_Dollar_Payment_AQUA.svg"
+  },
+  {
+    "label": "Money Cash Economy",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Money_Cash_Economy_AQUA.svg"
+  },
+  {
+    "label": "Money Transfer Payment",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Money_Transfer_Payment_AQUA.svg"
+  },
+  {
+    "label": "No Entry Banned",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/No_Entry_Banned_AQUA.svg"
+  },
+  {
+    "label": "Options Questions Decisions",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Options_Questions_Decisions_AQUA.svg"
+  },
+  {
+    "label": "People Crowd Migrants",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/People_Crowd_Migrants_AQUA.svg"
+  },
+  {
+    "label": "People Directions Choices Migrants",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/People_Directions_Choices_Migrants_AQUA.svg"
+  },
+  {
+    "label": "People Movement 1",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/People_Movement_1_AQUA.svg"
+  },
+  {
+    "label": "People Movement 2",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/People_Movement_2_AQUA.svg"
+  },
+  {
+    "label": "Person People Man Woman",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Person_People_Man_Woman_AQUA.svg"
+  },
+  {
+    "label": "People Stack",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/People_Person_Men_Women_8x3_grid_AQUA.svg"
+  },
+  {
+    "label": "Phone Device Smart phone",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Phone_Device_Smart_phone_AQUA.svg"
+  },
+  {
+    "label": "Returnee ARROW",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Returnee_ARROW_AQUA.svg"
+  },
+  {
+    "label": "Roadblock Warning",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Roadblock_Warning_AQUA.svg"
+  },
+  {
+    "label": "Seminar Speech Public",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Seminar_Speech_Public_AQUA.svg"
+  },
+  {
+    "label": "Shelter",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Shelter_AQUA.svg"
+  },
+  {
+    "label": "Socio-educational activities",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Socio-educational_activities_AQUA.svg"
+  },
+  {
+    "label": "Speech Bubble Talk",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Speech_Bubble_Talk_AQUA.svg"
+  },
+  {
+    "label": "Speech Bubbles Languages Talk",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Speech_Bubbles_Languages_Talk_ALT.svg"
+  },
+  {
+    "label": "Speech Interview Vox Pops Opinion",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Speech_Interview_Vox_Pops_Opinion_AQUA.svg"
+  },
+  {
+    "label": "Speech Marks",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Speech_Marks_AQUA.svg"
+  },
+  {
+    "label": "Sun Solar Sun Protection Heat",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Sun_Solar_Sun_Protection_Heat_AQUA.svg"
+  },
+  {
+    "label": "Survey Clipboard Form",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Survey_Clipboard_Form_AQUA.svg"
+  },
+  {
+    "label": "Tick Check Research Data",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Tick_Check_Research_Data_AQUA.svg"
+  },
+  {
+    "label": "Video Call Zoom Teams",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Video_Call_Zoom_Teams_AQUA.svg"
+  },
+  {
+    "label": "Video Play",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Video_Play_AQUA.svg"
+  },
+  {
+    "label": "Violence Armed Robbery",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Violence_Armed_Robbery_AQUA.svg"
+  },
+  {
+    "label": "Violence Explosion",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Violence_Explosion_AQUA.svg"
+  },
+  {
+    "label": "Violence Fist Protest",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Violence_Fist_Protest_AQUA.svg"
+  },
+  {
+    "label": "Warning Danger Excalamation Sign",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Warning_Danger_Excalamation_Sign_AQUA.svg"
+  },
+  {
+    "label": "Work Construction Digging Building",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/Work_Construction_Digging_Building_AQUA.svg"
+  },
+  {
+    "label": "World Map",
+    "value": "\/wp-content\/themes\/marameodesign\/assets\/images\/brand-icons\/World_Map_AQUA.svg"
   }
 ]

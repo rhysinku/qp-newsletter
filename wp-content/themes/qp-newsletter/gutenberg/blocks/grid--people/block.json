@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.1",
+  "name": "mmd/grid--people",
+  "title": "Grid of People",
+  "description": "A block to handle grid of people.",
+  "category": "mmd-grid-blocks",
+  "icon": "grid-view",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "attributes": {
+    "posts": {
+      "type": "array",
+      "default": []
+    },
+    "columns": {
+      "type": "string",
+      "default": "lg:cols-3"
+    },
+    "displayMode": {
+      "type": "string",
+      "default": "stacked"
+    },
+    "showPopup": {
+      "type": "boolean",
+      "default": false
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

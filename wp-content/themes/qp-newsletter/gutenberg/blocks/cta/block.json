@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.1",
+  "name": "mmd/cta",
+  "title": "CTA",
+  "description": "Display call-to-action block",
+  "category": "mmd-generic-blocks",
+  "icon": "align-right",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

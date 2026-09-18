@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "@wordpress/element";
 import { Popover, Button, SearchControl } from "@wordpress/components";
-import { setSuffixedAttributes, getSpriteUri } from "@marameodesign/utils";
+import { setSuffixedAttributes } from "@marameodesign/utils";
 import { twMerge } from "tailwind-merge";
 
 export const IconPicker = props => {
@@ -12,7 +12,6 @@ export const IconPicker = props => {
     targetAttribute = null,
     suffix = "",
     __hasSpacingBottom = false,
-    isSprite = false,
   } = props;
   const [popoverAnchor, setPopoverAnchor] = useState();
   const [isVisible, setIsVisible] = useState(false);
@@ -114,24 +113,18 @@ export const IconPicker = props => {
           return (
             <div className="mmd-custom-popover__trigger-icon">
               {icon && (
-                isSprite ? (
-                  <svg className="icon size-6" style={{ width: "24px", height: "24px" }} aria-hidden="true">
-                    <use href={getSpriteUri(icon)}></use>
-                  </svg>
-                ) : (
-                  <img
-                    src={icon}
-                    alt={iconAlt}
-                    width={24}
-                    height={24}
-                    loading="lazy"
-                    decoding="async"
-                    style={{
-                      maxWidth: "24px",
-                      maxHeight: "24px",
-                    }}
-                  />
-                )
+                <img
+                  src={icon}
+                  alt={iconAlt}
+                  width={24}
+                  height={24}
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    maxWidth: "24px",
+                    maxHeight: "24px",
+                  }}
+                />
               )}
             </div>
           );
@@ -161,24 +154,18 @@ export const IconPicker = props => {
                     onClick={() => handleIconClick(option)}
                   >
                     {option.value && (
-                      isSprite ? (
-                        <svg className="icon size-6" style={{ width: "24px", height: "24px" }} aria-hidden="true">
-                          <use href={getSpriteUri(option.value)}></use>
-                        </svg>
-                      ) : (
-                        <img
-                          src={option.value}
-                          alt={option.label}
-                          width={24}
-                          height={24}
-                          loading="lazy"
-                          decoding="async"
-                          style={{
-                            maxWidth: "24px",
-                            maxHeight: "24px",
-                          }}
-                        />
-                      )
+                      <img
+                        src={option.value}
+                        alt={option.label}
+                        width={24}
+                        height={24}
+                        loading="lazy"
+                        decoding="async"
+                        style={{
+                          maxWidth: "24px",
+                          maxHeight: "24px",
+                        }}
+                      />
                     )}
                     <strong className="mmd-custom-popover__grid__item-title">
                       {option.label}
