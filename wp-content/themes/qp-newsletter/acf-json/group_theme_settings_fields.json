@@ -1,0 +1,70 @@
+{
+    "key": "group_theme_settings",
+    "title": "Theme Settings",
+    "fields": [
+        {
+            "key": "field_theme_header_logo",
+            "label": "Header Logo",
+            "name": "header_logo",
+            "type": "image",
+            "instructions": "Upload a custom header logo image.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all"
+        },
+        {
+            "key": "field_theme_header_cta_label",
+            "label": "Header CTA Label",
+            "name": "header_cta_label",
+            "type": "text",
+            "instructions": "Label for the CTA button on the right side of the header (e.g. 'Support us').",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Support us"
+        },
+        {
+            "key": "field_theme_header_cta_link",
+            "label": "Header CTA Link",
+            "name": "header_cta_link",
+            "type": "url",
+            "instructions": "URL for the header CTA button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}

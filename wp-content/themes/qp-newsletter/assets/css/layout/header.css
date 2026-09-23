@@ -1,1 +1,231 @@
-/* Intentionally empty — no project-specific styles ship in the boilerplate. Add this component's styles here as it's built. */
+/* ==========================================================================
+   Global Navigation Header & Mobile Drawer Styles (Pill Concept)
+   ========================================================================== */
+
+/* Space for floating header to prevent layout shifts (CLS) */
+body {
+  padding-top: 7.5rem; /* Sufficient top space for the top-4 floating pill (h-20 + offset) */
+}
+
+/* Header basic transitions */
+.mmd-site-header {
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Header transition offset when hidden on scroll down */
+.mmd-site-header.-translate-y-full {
+  transform: translateY(-120%);
+}
+
+/* Desktop Menu (Flex layout) */
+.mmd-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* Comfortable navigation spacing */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mmd-menu > .menu-item {
+  position: relative;
+}
+
+/* Navigation links */
+.mmd-menu > .menu-item > a {
+  color: var(--color-neutral-grey-900);
+  font-weight: 500;
+  font-size: 0.9375rem; /* ~15px */
+  padding: 0.5rem 0.25rem;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Active and Hover states using brand colors */
+.mmd-menu > .menu-item:hover > a,
+.mmd-menu > .menu-item.current-menu-item > a,
+.mmd-menu > .menu-item.current-page-ancestor > a {
+  color: var(--color-primary);
+}
+
+/* Underlying indicator bar on hover/active */
+.mmd-menu > .menu-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.mmd-menu > .menu-item:hover > a::after,
+.mmd-menu > .menu-item.current-menu-item > a::after {
+  transform: scaleX(1);
+}
+
+/* Down arrow caret for items with children on desktop */
+.mmd-menu > .menu-item-has-children > a {
+  padding-right: 1.25rem;
+}
+
+.mmd-menu > .menu-item-has-children > a::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 5px;
+  background-color: currentColor;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+  transition: transform 0.2s ease;
+}
+
+.mmd-menu > .menu-item-has-children:hover > a::before {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* ==========================================================================
+   DESKTOP DROPDOWN SUB-MENUS
+   ========================================================================== */
+
+.mmd-menu .sub-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background-color: var(--color-neutral-white);
+  border: 1px solid var(--color-neutral-grey-200);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.2s ease;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  z-index: 60;
+  list-style: none;
+  margin: 0;
+}
+
+/* Show dropdowns on hover */
+.mmd-menu .menu-item-has-children:hover > .sub-menu,
+.mmd-menu .menu-item-has-children:focus-within > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Dropdown list links */
+.mmd-menu .sub-menu a {
+  color: var(--color-neutral-grey-700);
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+  display: block;
+  text-decoration: none;
+}
+
+.mmd-menu .sub-menu a:hover,
+.mmd-menu .sub-menu .current-menu-item > a {
+  color: var(--color-primary);
+  background-color: var(--color-primary-blue-50);
+}
+
+/* ==========================================================================
+   MOBILE DRAWER & NAVIGATION
+   ========================================================================== */
+
+/* Mobile Navigation drawer overlay backdrop */
+.mmd-mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 35;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mmd-mobile-nav-overlay.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mobile drawer container */
+.mmd-mobile-nav {
+  box-shadow: -10px 0 30px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Active slide-out states */
+.mmd-mobile-nav.is-active {
+  transform: translateX(0);
+}
+
+/* Mobile Menu Lists */
+.mmd-mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mmd-mobile-menu .menu-item {
+  position: relative;
+}
+
+.mmd-mobile-menu .menu-item > a {
+  color: var(--color-neutral-grey-900);
+  font-weight: 600;
+  font-size: 1.125rem; /* 18px */
+  text-decoration: none;
+  display: block;
+  padding: 0.375rem 0;
+  transition: color 0.2s ease;
+}
+
+.mmd-mobile-menu .menu-item > a:hover {
+  color: var(--color-primary);
+}
+
+/* Mobile sub-menu list */
+.mmd-mobile-menu .sub-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 0.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-left: 1px solid var(--color-neutral-grey-200);
+  margin-top: 0.25rem;
+}
+
+.mmd-mobile-menu .sub-menu a {
+  color: var(--color-neutral-grey-700);
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mmd-mobile-menu .sub-menu a:hover {
+  color: var(--color-primary);
+}

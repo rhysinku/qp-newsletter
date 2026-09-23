@@ -27,6 +27,7 @@ function mmd_register_menus(): void {
   register_nav_menu('header-menu', __('Header Menu'));
   register_nav_menu('footer-menu', __('Footer Menu'));
 }
+add_action('after_setup_theme', 'mmd_register_menus');
 
 /** add excerpt for page */
 add_post_type_support('page', 'excerpt');
