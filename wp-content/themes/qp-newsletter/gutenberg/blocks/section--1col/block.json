@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.1.0",
+  "name": "mmd/section--1col",
+  "title": "Section",
+  "description": "A block that serves as a wrapper to inner blocks.",
+  "category": "mmd-section-blocks",
+  "icon": "editor-justify",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+
+  "providesContext": {
+    "blockTheme": "blockTheme",
+    "bgColor": "bgColor"
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css"
+}

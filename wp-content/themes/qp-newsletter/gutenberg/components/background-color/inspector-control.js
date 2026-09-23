@@ -30,16 +30,19 @@ export function InspectorControl(props) {
     }));
   } else {
     // Use all available colors from config
-    options = Object.entries(getGutenbergConfig("bgColor"))
-      .map(([key, value]) => {
-        if (value) {
-          return {
-            label: value.label,
-            key: value.value,
-          };
-        }
-      })
-      .filter(item => item.key && item.key.length);
+    options = _.uniqBy(
+      Object.entries(getGutenbergConfig("bgColor"))
+        .map(([key, value]) => {
+          if (value) {
+            return {
+              label: value.label,
+              key: value.value,
+            };
+          }
+        })
+        .filter(item => item && item.key && item.key.length),
+      "key"
+    );
   }
 
   /**

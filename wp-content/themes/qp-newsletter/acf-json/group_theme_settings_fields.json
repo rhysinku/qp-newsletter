@@ -48,6 +48,118 @@
                 "id": ""
             },
             "default_value": ""
+        },
+        {
+            "key": "field_theme_footer_partners",
+            "label": "Footer Partners",
+            "name": "footer_partners",
+            "type": "repeater",
+            "instructions": "List of partner logos to display in the footer top section.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "button_label": "Add Partner Logo",
+            "sub_fields": [
+                {
+                    "key": "field_theme_partner_logo",
+                    "label": "Partner Logo",
+                    "name": "partner_logo",
+                    "type": "image",
+                    "instructions": "Upload a partner logo image.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "parent_repeater": "field_theme_footer_partners"
+                },
+                {
+                    "key": "field_theme_partner_link",
+                    "label": "Partner Link",
+                    "name": "partner_link",
+                    "type": "url",
+                    "instructions": "Optional website link for the partner.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "parent_repeater": "field_theme_footer_partners"
+                }
+            ]
+        },
+        {
+            "key": "field_theme_footer_acknowledgement",
+            "label": "Acknowledgement of Country",
+            "name": "footer_acknowledgement",
+            "type": "wysiwyg",
+            "instructions": "Acknowledgement of Country statement displayed in the footer middle column.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_theme_footer_cite_website",
+            "label": "Cite This Website",
+            "name": "footer_cite_website",
+            "type": "wysiwyg",
+            "instructions": "Visual text copy for 'Cite This Website' column.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_theme_footer_privacy_policy_links",
+            "label": "Privacy Policy & Legal Links",
+            "name": "footer_privacy_policy_links",
+            "type": "wysiwyg",
+            "instructions": "Inline links shown next to the copyright info (e.g. 'Privacy Policy | Terms & Conditions').",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
         }
     ],
     "location": [
