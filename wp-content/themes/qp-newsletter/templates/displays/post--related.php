@@ -36,6 +36,15 @@ if ($post_type === 'newsletter') {
       $date_iso = date('c', $ts);
     }
   }
+} elseif ($post_type === 'event') {
+  $start_date_val = $fields['start_date'] ?? get_post_meta($post_id, 'start_date', true);
+  if (!empty($start_date_val)) {
+    $ts = strtotime($start_date_val);
+    if ($ts) {
+      $date = date_i18n(get_option('date_format', 'F j, Y'), $ts);
+      $date_iso = date('c', $ts);
+    }
+  }
 }
 
 // Excerpt trimming
@@ -77,9 +86,17 @@ switch ($post_type) {
     break;
 
   case 'event':
-    $terms = get_the_terms($post_id, 'event_category');
-    if (!empty($terms) && !is_wp_error($terms)) {
-      $badge_text = $terms[0]->name;
+    $loc_format = $fields['location_format'] ?? get_post_meta($post_id, 'location_format', true);
+    if ($loc_format === 'in_person') {
+      $badge_text = 'In-Person';
+    } elseif ($loc_format === 'online') {
+      $badge_text = 'Online';
+    }
+    if (empty($badge_text)) {
+      $terms = get_the_terms($post_id, 'event_category');
+      if (!empty($terms) && !is_wp_error($terms)) {
+        $badge_text = $terms[0]->name;
+      }
     }
     break;
 
