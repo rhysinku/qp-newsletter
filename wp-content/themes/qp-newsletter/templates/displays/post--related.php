@@ -27,6 +27,17 @@ $thumbnail_id = (int) get_post_thumbnail_id($post_id);
 $date = get_the_date('F j, Y', $post_id);
 $date_iso = get_the_date('c', $post_id);
 
+if ($post_type === 'newsletter') {
+  $send_date_val = $fields['send_date'] ?? get_post_meta($post_id, 'send_date', true);
+  if (!empty($send_date_val)) {
+    $ts = strtotime($send_date_val);
+    if ($ts) {
+      $date = date_i18n(get_option('date_format', 'F j, Y'), $ts);
+      $date_iso = date('c', $ts);
+    }
+  }
+}
+
 // Excerpt trimming
 $excerpt = get_the_excerpt($post_id);
 if (empty($excerpt)) {
@@ -73,9 +84,18 @@ switch ($post_type) {
     break;
 
   case 'newsletter':
-    $terms = get_the_terms($post_id, 'newsletter_category');
-    if (!empty($terms) && !is_wp_error($terms)) {
-      $badge_text = $terms[0]->name;
+    $cat_id = $fields['newsletter_category-term'] ?? get_post_meta($post_id, 'newsletter_category-term', true);
+    if (!empty($cat_id) && is_numeric($cat_id)) {
+      $term = get_term((int) $cat_id, 'newsletter_category');
+      if ($term && !is_wp_error($term)) {
+        $badge_text = $term->name;
+      }
+    }
+    if (empty($badge_text)) {
+      $terms = get_the_terms($post_id, 'newsletter_category');
+      if (!empty($terms) && !is_wp_error($terms)) {
+        $badge_text = $terms[0]->name;
+      }
     }
     break;
 }
