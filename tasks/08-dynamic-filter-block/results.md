@@ -28,13 +28,19 @@ We have designed, developed, and verified the custom **Dynamic Filter Block** (`
    - Suppressed raw `.facetwp-counter` counts.
    - Enhanced active selection pills with `role="button"`, `tabindex="0"`, and keyboard handlers (`facetwp_scripts`).
    - Suppressed FacetWP default PNG background-image icon on `.facetwp-selection-value` to eliminate duplicate `× ×` close icons.
+   - Configured `facetwp_search_query_args` to ensure all public content post types (`news`, `resource`, `event`, `newsletter`, `blog`, `post`, `page`) are queried during search.
+   - Hooked `relevanssi_prevent_default_request`, `relevanssi_search_ok`, and `relevanssi_admin_search_ok` to bypass Relevanssi's query replacement (`WHERE 1=2`) on FacetWP secondary keyword search queries.
 2. **`gutenberg/blocks/dynamic-filter/` (New Block)**:
-   - `block.json`: Registered SSR block under `mmd-grid-blocks` with schema attributes (`contentTypes`, `postsPerPage`, `columns`, `showSearch`, `showSort`, `sidebarTitle`, `showTechTags`, `showCategories`, `showContentTypes`, `preview`).
+   - `block.json`: Registered SSR block under `mmd-grid-blocks` with schema attributes (`contentTypes`, `postsPerPage`, `columns`, `showSearch`, `showSort`, `sidebarTitle`, `showTechTags`, `showCategories`, `showContentTypes`, `preview`, `bgColor`, `blockTheme`, `isInnerBlock`) and declared `"usesContext": ["bgColor", "blockTheme"]`.
    - `index.js`: Registered block via `registerBlockType`.
-   - `edit.js`: Provided Gutenberg editor canvas preview via `@wordpress/server-side-render` with loading/error fallbacks and Preview component support.
-   - `inspector.js`: Built rich sidebar panels for query settings (multi-select post types, posts per page slider, column selector) and interface toggles (search, sort, sidebar title, category/tech-tag toggles).
+   - `edit.js`: Provided Gutenberg editor canvas preview via `@wordpress/server-side-render` with loading/error fallbacks, `BackgroundColor.useAutoAdjustedBlockTheme`, `IsInnerBlock.checkIfInnerBlock`, and Preview component support.
+   - `inspector.js`: Built rich sidebar panels for:
+     - Appearance: Context-aware background color swatch picker via `<BackgroundColor.InspectorControl />` when used standalone, and automatic notice when nested inside a Section Block.
+     - Query settings: Multi-select post types, posts per page slider, column selector.
+     - Interface toggles: Search, sort, sidebar title, category/tech-tag toggles.
    - `render.php`: Server-side PHP template rendering:
-     - Responsive container and 2-column layout on desktop (`lg:flex-row`).
+     - Context-aware wrapper: detects when nested inside a Section block (`$block->context['bgColor']` or `isInnerBlock`) and renders a clean `<div class="mmd-dynamic-filter mmd-dynamic-filter--inner w-full">` without duplicate `<section>` tags or nested `.container` wrappers.
+     - Standalone rendering: renders `<section class="mmd-dynamic-filter py-10 lg:py-16 {$bg_color} {$block_theme}">` with `<div class="container mx-auto px-4 sm:px-6 lg:px-8">`.
      - Defaults card listing to a balanced **2-column grid** (`grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8`) next to the sidebar, expanding card width from ~250px to ~400px for optimal breathing room.
      - Balanced mobile control bar: "Filters" trigger button on the left and styled Sort dropdown on the right (`justify-between`), with results count cleanly separated on mobile and inline on desktop.
      - Collapsible accordion facet groups with chevron rotation and ARIA states.
@@ -45,6 +51,7 @@ We have designed, developed, and verified the custom **Dynamic Filter Block** (`
    - `preview.png`: Inserter preview thumbnail.
 3. **`assets/css/blocks/dynamic-filter.css` (New)**:
    - Custom styling for FacetWP checkboxes, search bar input, sort select dropdown with custom chevron, active selection pills, and pagination numbers.
+   - Added `.mmd-dynamic-filter--inner` full-width styles and dark theme results count contrast support (`.mod--theme--dark .mmd-results-count`).
    - Conforms 100% to design system tokens with zero hardcoded hex colors.
 4. **`assets/css/blocks/index.css` (Modified)**:
    - Imported `./dynamic-filter.css`.

@@ -1,5 +1,5 @@
 import ServerSideRender from "@wordpress/server-side-render";
-import { Preview } from "@marameodesign/components";
+import { BackgroundColor, IsInnerBlock, Preview } from "@marameodesign/components";
 import Inspector from "./inspector";
 
 const EmptyResponsePlaceholder = () => (
@@ -24,6 +24,9 @@ export const Edit = (props) => {
   const { attributes, name } = props;
   const { preview } = Preview.get(props);
 
+  BackgroundColor.useAutoAdjustedBlockTheme(props);
+  IsInnerBlock.checkIfInnerBlock(props);
+
   if (preview) {
     return <Preview.Content {...props} />;
   }
@@ -41,3 +44,4 @@ export const Edit = (props) => {
     </>
   );
 };
+

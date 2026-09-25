@@ -6,6 +6,8 @@ import {
   RangeControl,
 } from "@wordpress/components";
 import { InspectorControls } from "@wordpress/block-editor";
+import { BackgroundColor } from "@marameodesign/components";
+import { useDirectParentBlock } from "@marameodesign/utils";
 
 const POST_TYPE_CHOICES = [
   { label: "News", value: "news" },
@@ -29,9 +31,28 @@ export default function Inspector(props) {
     showContentTypes = false,
   } = attributes;
 
+  const parentBlock = useDirectParentBlock(props.clientId);
+  const isInsideSection = Boolean(
+    (props.context && typeof props.context.bgColor !== "undefined") ||
+    (parentBlock && parentBlock.name && parentBlock.name.startsWith("mmd/section"))
+  );
+
   return (
     <InspectorControls>
+      {isInsideSection ? (
+        <PanelBody title="Appearance" initialOpen={false}>
+          <p className="components-base-control__help">
+            Background color and container layout are managed by the parent Section block.
+          </p>
+        </PanelBody>
+      ) : (
+        <PanelBody title="Appearance" initialOpen={true}>
+          <BackgroundColor.InspectorControl {...props} />
+        </PanelBody>
+      )}
+
       <PanelBody title="Content Query" initialOpen={true}>
+
         <SelectControl
           label="Filter by Post Types"
           value={contentTypes}

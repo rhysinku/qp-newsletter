@@ -89,11 +89,24 @@ $query_args = [
 ];
 
 $query = new WP_Query($query_args);
+
+// 4. Section block & standalone background resolution.
+$is_inside_section = !empty($block->context['bgColor'])
+  || !empty($attributes['isInnerBlock'])
+  || !empty($block->context['blockTheme']);
+
+$bg_color = !empty($attributes['bgColor']) ? $attributes['bgColor'] : 'bg-neutral-light-grey';
+$block_theme = !empty($attributes['blockTheme']) ? $attributes['blockTheme'] : 'mod--theme--light';
 ?>
 
-<section class="mmd-dynamic-filter py-10 lg:py-16 bg-neutral-light-grey">
+<?php if ($is_inside_section) : ?>
+<div class="mmd-dynamic-filter mmd-dynamic-filter--inner w-full">
+  <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+<?php else : ?>
+<section class="mmd-dynamic-filter py-10 lg:py-16 <?php echo esc_attr($bg_color . ' ' . $block_theme); ?>">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col lg:flex-row gap-8 lg:gap-10 items-start">
+<?php endif; ?>
 
       <!-- ========================================================= -->
       <!-- SIDEBAR / MOBILE DRAWER COLUMN                           -->
@@ -312,5 +325,10 @@ $query = new WP_Query($query_args);
 
       </main>
     </div>
+<?php if ($is_inside_section) : ?>
+  </div>
+<?php else : ?>
   </div>
 </section>
+<?php endif; ?>
+

@@ -255,4 +255,18 @@
     background: transparent;
     cursor: default;
   }
+
+  /* ==========================================================================
+     Inner Section Block Compatibility & Dark Theme Adaptations
+     ========================================================================== */
+  .mmd-dynamic-filter--inner {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  /* Dark Theme Context Support */
+  .mod--theme--dark .mmd-results-count {
+    color: var(--color-neutral-grey-900, #CBD5E1);
+  }
 }
+

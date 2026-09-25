@@ -212,3 +212,41 @@ add_action('facetwp_scripts', function (): void {
   </script>
   <?php
 }, 100);
+
+// 4. Keyword search integration & Relevanssi compatibility.
+// Ensure FacetWP search queries all public content post types and prevents Relevanssi from killing secondary search queries.
+add_filter('facetwp_search_query_args', function (array $search_args, array $params): array {
+  $search_args['facetwp_search'] = true;
+
+  // If post_type is not already restricted, query all public post types except attachments.
+  if (empty($search_args['post_type'])) {
+    $public_post_types = get_post_types(['public' => true]);
+    unset($public_post_types['attachment']);
+    $search_args['post_type'] = array_values($public_post_types);
+  }
+
+  return $search_args;
+}, 10, 2);
+
+// Prevent Relevanssi from replacing FacetWP's secondary search query with 'WHERE 1=2' on the frontend.
+add_filter('relevanssi_prevent_default_request', function (bool $prevent, $query): bool {
+  if (is_a($query, 'WP_Query') && !empty($query->get('facetwp_search'))) {
+    return false;
+  }
+  return $prevent;
+}, 10, 2);
+
+add_filter('relevanssi_search_ok', function (bool $ok, $query): bool {
+  if (is_a($query, 'WP_Query') && !empty($query->get('facetwp_search'))) {
+    return false;
+  }
+  return $ok;
+}, 10, 2);
+
+add_filter('relevanssi_admin_search_ok', function (bool $ok, $query): bool {
+  if (is_a($query, 'WP_Query') && !empty($query->get('facetwp_search'))) {
+    return false;
+  }
+  return $ok;
+}, 10, 2);
+

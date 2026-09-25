@@ -11,7 +11,23 @@
     "anchor": true,
     "customClassName": true
   },
+  "usesContext": [
+    "bgColor",
+    "blockTheme"
+  ],
   "attributes": {
+    "bgColor": {
+      "type": "string",
+      "default": "bg-neutral-light-grey"
+    },
+    "blockTheme": {
+      "type": "string",
+      "default": "mod--theme--light"
+    },
+    "isInnerBlock": {
+      "type": "boolean",
+      "default": false
+    },
     "contentTypes": {
       "type": "array",
       "default": ["news"]
