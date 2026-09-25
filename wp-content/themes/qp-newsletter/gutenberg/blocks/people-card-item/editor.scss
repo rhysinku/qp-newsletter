@@ -1,0 +1,69 @@
+.editor-styles-wrapper {
+  .mmd-people-card {
+    &__image,
+    &__image-figure,
+    figure {
+      width: 7.5rem !important;
+      height: 7.5rem !important;
+      border-radius: 9999px !important;
+      overflow: hidden !important;
+      margin: 0 auto !important;
+      position: relative !important;
+
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center !important;
+        border-radius: 9999px !important;
+        position: static !important;
+      }
+
+      figcaption {
+        display: none !important;
+      }
+    }
+
+    /* Button Variants in Editor */
+    .mmd-button {
+      &.mod--variant--arrow {
+        color: var(--color-primary-blue-800) !important;
+        background-color: transparent !important;
+        border: none !important;
+
+        .tenup-block-components-link__label,
+        span,
+        input,
+        a {
+          color: inherit !important;
+        }
+      }
+
+      &.mod--variant--primary {
+        background-color: var(--color-primary-blue-800) !important;
+        border-color: var(--color-primary-blue-800) !important;
+        color: var(--color-system-white) !important;
+
+        .tenup-block-components-link__label,
+        span,
+        input,
+        a {
+          color: var(--color-system-white) !important;
+        }
+      }
+
+      &.mod--variant--secondary {
+        background-color: transparent !important;
+        border-color: var(--color-primary-navy-900) !important;
+        color: var(--color-primary-navy-900) !important;
+
+        .tenup-block-components-link__label,
+        span,
+        input,
+        a {
+          color: var(--color-primary-navy-900) !important;
+        }
+      }
+    }
+  }
+}

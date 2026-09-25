@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.0.0",
+  "name": "mmd/people-card-grid",
+  "title": "People Card Grid",
+  "description": "A block to display a grid of people cards using Tailwind grid.",
+  "category": "mmd-grid-blocks",
+  "icon": "grid-view",
+  "supports": {
+    "anchor": true,
+    "customClassName": false
+  },
+  "usesContext": [
+    "blockTheme",
+    "bgColor"
+  ],
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

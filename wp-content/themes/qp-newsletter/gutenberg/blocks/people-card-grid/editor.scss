@@ -1,0 +1,37 @@
+.editor-styles-wrapper {
+  .mmd-people-card-grid {
+    display: block !important;
+    padding: 0.75rem !important;
+    border: 1px dashed rgba(59, 130, 246, 0.25) !important;
+    border-radius: 0.75rem !important;
+    background-color: rgba(59, 130, 246, 0.02) !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+
+    &:hover,
+    &.is-selected {
+      border-color: rgba(59, 130, 246, 0.8) !important;
+      background-color: rgba(59, 130, 246, 0.04) !important;
+    }
+
+    > .block-editor-inner-blocks {
+      width: 100% !important;
+
+      > .block-editor-block-list__layout {
+        display: grid !important;
+        grid-template-columns: repeat(var(--grid-cols, 2), minmax(0, 1fr)) !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+
+        > [data-block] {
+          margin-top: 0 !important;
+          margin-bottom: 0 !important;
+          height: 100% !important;
+
+          > .mmd-people-card {
+            height: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}

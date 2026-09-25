@@ -33,6 +33,7 @@ export const Edit = (props) => {
               template={[["mmd/card--expert"]]}
               allowedBlocks={[
                 "mmd/card--expert",
+                "mmd/people-card-grid",
                 "mmd/grid--key-insights-child",
               ]}
               orientation="horizontal"

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.0.0",
+  "name": "mmd/people-card-item",
+  "title": "People Card Item",
+  "description": "An individual people card item.",
+  "category": "mmd-generic-blocks",
+  "icon": "id-alt",
+  "parent": [
+    "mmd/people-card-grid"
+  ],
+  "supports": {
+    "anchor": false,
+    "customClassName": false
+  },
+  "usesContext": [
+    "blockTheme",
+    "bgColor"
+  ],
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "marameodesign",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
