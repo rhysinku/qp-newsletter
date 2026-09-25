@@ -72,7 +72,9 @@
         "thumbnail",
         "custom-fields"
     ],
-    "taxonomies": [],
+    "taxonomies": [
+        "tech_tag"
+    ],
     "has_archive": true,
     "has_archive_slug": "resources",
     "rewrite": {

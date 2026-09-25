@@ -7,7 +7,8 @@
     "object_type": [
         "blog",
         "news",
-        "event"
+        "event",
+        "resource"
     ],
     "advanced_configuration": true,
     "import_source": "",

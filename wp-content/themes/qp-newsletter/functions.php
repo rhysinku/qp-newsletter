@@ -96,20 +96,25 @@ add_filter('jpeg_quality', function ($arg) {
 
 /**
  * Image size sets + responsive image styles (RIS).
- *
- * Register the project's aspect-ratio size sets and named responsive-image styles here as part of
- * foundation ticket F5. Example (delete once you add your own):
- *
- *   add_filter('mmd_alter_image_size_sets_list', function ($sets) {
- *     $sets['3:2'] = '450x300|600x400|900x600|1200x800';
- *     return $sets;
- *   });
- *
- *   add_filter('mmd_alter_responsive_image_styles_list', function ($ris) {
- *     $ris['card'] = ['sizes' => '(min-width: 1024px) 421px, 100vw', 'whratio' => '3:2', 'srcset' => ''];
- *     return $ris;
- *   });
  */
+add_filter('mmd_alter_image_size_sets_list', function ($sets) {
+  $sets['16:9'] = '480x270|768x432|1024x576|1440x810';
+  $sets['3:2'] = '450x300|600x400|900x600|1200x800';
+  $sets['27:10'] = '540x200|1080x400|1620x600|2160x800';
+  return $sets;
+});
+
+add_filter('mmd_alter_responsive_image_styles_list', function ($ris) {
+  $ris['news-featured'] = [
+    'sizes' => '(min-width: 1200px) 1200px, (min-width: 768px) 90vw, 100vw',
+    'whratio' => '16:9',
+  ];
+  $ris['news_featured'] = [
+    'sizes' => '(min-width: 1200px) 1200px, (min-width: 768px) 90vw, 100vw',
+    'whratio' => '16:9',
+  ];
+  return $ris;
+});
 
 
 /**

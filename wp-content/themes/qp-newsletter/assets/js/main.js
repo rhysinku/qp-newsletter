@@ -138,9 +138,158 @@
     }
   }
 
+  class TableOfContents {
+    constructor() {
+      this.wrapper = document.querySelector('.mmd-toc-wrapper');
+      this.content = document.querySelector('.mmd-toc-content');
+      this.list = document.querySelector('#mmd-toc-list');
+      this.button = document.querySelector('.mmd-toc-button');
+
+      if (!this.wrapper || !this.content || !this.list) return;
+
+      this.init();
+    }
+
+    init() {
+      const headings = Array.from(this.content.querySelectorAll('h2, h3'));
+      if (headings.length === 0) {
+        this.wrapper.style.display = 'none';
+        return;
+      }
+
+      this.buildList(headings);
+      this.setupAccordion();
+      this.setupObserver(headings);
+    }
+
+    buildList(headings) {
+      this.list.innerHTML = '';
+      headings.forEach((heading, index) => {
+        let id = heading.id;
+        if (!id) {
+          id = heading.textContent
+            .toLowerCase()
+            .trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/[\s_-]+/g, '-')
+            .replace(/^-+|-+$/g, '') || `section-${index + 1}`;
+          heading.id = id;
+        }
+
+        const li = document.createElement('li');
+        li.className = heading.tagName.toLowerCase() === 'h3' ? 'toc-h3' : 'toc-h2';
+
+        const a = document.createElement('a');
+        a.href = `#${id}`;
+        a.textContent = heading.textContent;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          const target = document.getElementById(id);
+          if (target) {
+            const headerOffset = 100;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+            history.pushState(null, '', `#${id}`);
+          }
+        });
+
+        li.appendChild(a);
+        this.list.appendChild(li);
+      });
+    }
+
+    setupAccordion() {
+      if (!this.button) return;
+      this.button.addEventListener('click', () => {
+        const isCollapsed = this.wrapper.classList.toggle('is-collapsed');
+        this.button.setAttribute('aria-expanded', (!isCollapsed).toString());
+      });
+    }
+
+    setupObserver(headings) {
+      if (!('IntersectionObserver' in window)) return;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const links = this.list.querySelectorAll('a');
+            links.forEach((link) => {
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('is-active');
+              } else {
+                link.classList.remove('is-active');
+              }
+            });
+          }
+        });
+      }, {
+        rootMargin: '-100px 0px -60% 0px',
+        threshold: 0
+      });
+
+      headings.forEach((heading) => observer.observe(heading));
+    }
+  }
+
+  class ShareWidgets {
+    constructor() {
+      this.copyButtons = document.querySelectorAll('.mmd-copy-link-btn');
+      if (this.copyButtons.length === 0) return;
+      this.init();
+    }
+
+    init() {
+      this.copyButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const url = btn.getAttribute('data-url') || window.location.href;
+          const tooltip = btn.parentElement.querySelector('.mmd-copy-tooltip');
+
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(() => {
+              this.showTooltip(tooltip);
+            }).catch(() => {
+              this.fallbackCopy(url, tooltip);
+            });
+          } else {
+            this.fallbackCopy(url, tooltip);
+          }
+        });
+      });
+    }
+
+    showTooltip(tooltip) {
+      if (!tooltip) return;
+      tooltip.classList.remove('hidden');
+      setTimeout(() => {
+        tooltip.classList.add('hidden');
+      }, 2000);
+    }
+
+    fallbackCopy(text, tooltip) {
+      const input = document.createElement('input');
+      input.value = text;
+      document.body.appendChild(input);
+      input.select();
+      try {
+        document.execCommand('copy');
+        this.showTooltip(tooltip);
+      } catch (e) {
+        console.error('Failed to copy', e);
+      }
+      document.body.removeChild(input);
+    }
+  }
+
   // Initialize when DOM is fully loaded
   document.addEventListener('DOMContentLoaded', () => {
     new SiteHeader();
+    new TableOfContents();
+    new ShareWidgets();
   });
 
 })();

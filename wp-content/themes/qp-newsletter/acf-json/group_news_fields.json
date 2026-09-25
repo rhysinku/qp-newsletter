@@ -11,7 +11,11 @@
             "instructions": "Select the technology tags that apply to this news item.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" },
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
             "relevanssi_exclude": 0,
             "taxonomy": "tech_tag",
             "add_term": 0,
@@ -32,9 +36,13 @@
             "aria-label": "",
             "type": "taxonomy",
             "instructions": "Select the primary news category.",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" },
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
             "relevanssi_exclude": 0,
             "taxonomy": "news_category",
             "add_term": 0,
@@ -57,7 +65,11 @@
             "instructions": "Estimated reading time in minutes.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" },
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
             "placeholder": "e.g. 3",
             "prepend": "",
@@ -76,9 +88,13 @@
             "instructions": "Reference or canonical external URL for the news.",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": { "width": "50", "class": "", "id": "" },
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
-            "placeholder": "https://example.com/news-source",
+            "placeholder": "https:\/\/example.com\/news-source",
             "allow_in_bindings": 0
         },
         {
@@ -90,7 +106,11 @@
             "instructions": "Is this news item sponsored?",
             "required": 0,
             "conditional_logic": 0,
-            "wrapper": { "width": "100", "class": "", "id": "" },
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
             "message": "Yes, this news is sponsored",
             "default_value": 0,
             "ui": 1,
@@ -115,7 +135,11 @@
                     }
                 ]
             ],
-            "wrapper": { "width": "50", "class": "", "id": "" },
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
             "placeholder": "e.g. AWS",
             "prepend": "",
@@ -140,9 +164,13 @@
                     }
                 ]
             ],
-            "wrapper": { "width": "50", "class": "", "id": "" },
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
             "default_value": "",
-            "placeholder": "https://sponsor.com/promo",
+            "placeholder": "https:\/\/sponsor.com\/promo",
             "allow_in_bindings": 0
         }
     ],
@@ -165,5 +193,7 @@
     "description": "Custom fields for news posts.",
     "show_in_rest": 1,
     "display_title": "",
-    "modified": 1788220000
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1790307247
 }
