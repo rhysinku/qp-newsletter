@@ -75,8 +75,8 @@
     "taxonomies": [
         "newsletter_category"
     ],
-    "has_archive": true,
-    "has_archive_slug": "newsletters",
+    "has_archive": false,
+    "has_archive_slug": "",
     "rewrite": {
         "permalink_rewrite": "custom_permalink",
         "slug": "newsletters",

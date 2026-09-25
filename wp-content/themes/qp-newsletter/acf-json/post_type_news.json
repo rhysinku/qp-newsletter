@@ -76,8 +76,8 @@
         "tech_tag",
         "news_category"
     ],
-    "has_archive": true,
-    "has_archive_slug": "news",
+    "has_archive": false,
+    "has_archive_slug": "",
     "rewrite": {
         "permalink_rewrite": "custom_permalink",
         "slug": "news",

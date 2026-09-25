@@ -75,8 +75,8 @@
     "taxonomies": [
         "tech_tag"
     ],
-    "has_archive": true,
-    "has_archive_slug": "resources",
+    "has_archive": false,
+    "has_archive_slug": "",
     "rewrite": {
         "permalink_rewrite": "custom_permalink",
         "slug": "resources",

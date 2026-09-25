@@ -35,13 +35,13 @@ To maintain strict codebase integrity, we enforce the following naming, key-gene
 
 ### 3.1 Custom Post Types (CPTs)
 
-| Post Type | Singular Slug | Plural Slug | Supports | Built-in Taxonomies | Description |
-|---|---|---|---|---|---|
-| **Blog** | `blog` | `blog` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag`, `blog_category` | In-depth technical articles, tutorials, and developer thoughts. |
-| **News** | `news` | `news` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag`, `news_category` | Technical industry news, releases, product launches, and alerts. |
-| **Event** | `event` | `events` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag` | IT community meetups, webinars, conferences, and bootcamps. |
-| **Newsletter** | `newsletter` | `newsletters` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | — | Archive of dispatched community newsletters with PDF downloads. |
-| **Resource** | `resource` | `resources` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag` | Technical references, sheets, checklists, and downloadable guides. |
+| Post Type | Singular Slug | Plural Slug | Supports | Built-in Taxonomies | Archive (`has_archive`) | Description |
+|---|---|---|---|---|---|---|
+| **Blog** | `blog` | `blog` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag`, `blog_category` | `true` (`blog`) | In-depth technical articles, tutorials, and developer thoughts. |
+| **News** | `news` | `news` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag`, `news_category` | `false` (Static Page) | Technical industry news, releases, product launches, and alerts. |
+| **Event** | `event` | `events` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag` | `false` (Static Page) | IT community meetups, webinars, conferences, and bootcamps. |
+| **Newsletter** | `newsletter` | `newsletters` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | — | `false` (Static Page) | Archive of dispatched community newsletters with PDF downloads. |
+| **Resource** | `resource` | `resources` | `title`, `editor`, `excerpt`, `thumbnail`, `revisions`, `custom-fields` | `tech_tag` | `false` (Static Page) | Technical references, sheets, checklists, and downloadable guides. |
 
 ### 3.2 Custom Taxonomies
 
@@ -168,6 +168,8 @@ Each content type is extended with custom fields to support rich frontend displa
      The decoupled frontend reads this schema to build strict CSS `aspect-ratio` layout wrappers, completely eliminating Cumulative Layout Shift (CLS).
 4. **Conditional Query Optimization**:
    For Events, an admin filter and customized pre_get_posts query hook will separate upcoming events from past events (comparing the `start_date` meta key against the current timestamp) to keep user views relevant.
+5. **Static Hub Pages vs Native CPT Archives**:
+   CPT archives (`has_archive`) are set to `false` for `news`, `event`, `newsletter`, and `resource`. Listing and hub URLs (`/news/`, `/events/`, `/newsletters/`, `/resources/`) are standard WordPress Pages (`post_type: page`). This allows content editors to edit hub pages directly in Gutenberg (showing the "Edit Page" admin toolbar link) and compose custom layouts or query blocks, while single post permalinks remain preserved at their respective rewrite slugs (`/{slug}/%postname%/`).
 
 ---
 
