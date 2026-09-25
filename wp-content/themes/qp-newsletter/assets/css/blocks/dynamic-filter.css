@@ -264,9 +264,56 @@
     margin-inline: auto;
   }
 
+  /* Results Count Text */
+  .mmd-results-count {
+    color: var(--color-neutral-grey-700);
+    transition: color 0.15s ease-in-out;
+  }
+
+  /* Search Input Mock (Editor Canvas & General) */
+  .mmd-search-icon {
+    color: var(--color-neutral-grey-500, #64748B) !important;
+    stroke: var(--color-neutral-grey-500, #64748B) !important;
+    flex-shrink: 0;
+  }
+
+  .mmd-search-input {
+    color: var(--color-primary-navy-900) !important;
+  }
+
+  .mmd-search-input::placeholder {
+    color: var(--color-neutral-grey-500, #64748B) !important;
+    opacity: 1;
+  }
+
   /* Dark Theme Context Support */
-  .mod--theme--dark .mmd-results-count {
-    color: var(--color-neutral-grey-900, #CBD5E1);
+  .mod--theme--dark .mmd-results-count,
+  .mod--theme--dark .mmd-results-count *,
+  .mod--theme--dark .facetwp-facet-results_count,
+  .mod--theme--dark .facetwp-facet-results_count * {
+    color: var(--color-neutral-grey-300, #D4D4D4) !important;
+  }
+
+  .mod--theme--dark .facetwp-pager .facetwp-page.dots {
+    color: var(--color-neutral-grey-300, #D4D4D4) !important;
+  }
+
+  .mod--theme--dark .mmd-filter-meta-bar {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .mod--theme--dark .facetwp-selections li {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--color-system-white, #FFFFFF);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .mod--theme--dark .facetwp-selections li:hover,
+  .mod--theme--dark .facetwp-selections li:focus-visible {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
   }
 }
+
+
 

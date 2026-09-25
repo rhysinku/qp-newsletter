@@ -217,10 +217,10 @@ $block_theme = !empty($attributes['blockTheme']) ? $attributes['blockTheme'] : '
                 <?php echo facetwp_display('facet', 'search'); ?>
               <?php else : ?>
                 <div class="flex items-center px-4 py-3 gap-3">
-                  <svg class="w-5 h-5 text-neutral-grey-400 fill-none stroke-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <svg class="mmd-search-icon w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24" aria-hidden="true">
                     <use href="<?php echo esc_url(mmd_sprite('search')); ?>"></use>
                   </svg>
-                  <input type="text" disabled placeholder="Search by keyword..." class="w-full bg-transparent border-none text-sm text-neutral-grey-700 outline-none">
+                  <input type="text" disabled placeholder="Search by keyword..." class="mmd-search-input w-full bg-transparent border-none text-sm outline-none">
                 </div>
               <?php endif; ?>
             </div>
@@ -228,7 +228,7 @@ $block_theme = !empty($attributes['blockTheme']) ? $attributes['blockTheme'] : '
         <?php endif; ?>
 
         <!-- Controls Meta Bar: Mobile Filter Button, Count, and Sort -->
-        <div class="py-3 mb-4 border-b border-neutral-grey-200/60">
+        <div class="mmd-filter-meta-bar py-3 mb-4 border-b border-neutral-grey-200/60">
           <div class="flex items-center justify-between gap-3">
             <!-- Left: Mobile Filter button (< lg) | Desktop Results Count (>= lg) -->
             <div class="flex items-center gap-3">
@@ -243,7 +243,7 @@ $block_theme = !empty($attributes['blockTheme']) ? $attributes['blockTheme'] : '
                 <span>Filters</span>
               </button>
 
-              <div class="hidden lg:block mmd-results-count text-xs sm:text-sm font-medium text-neutral-grey-600">
+              <div class="hidden lg:block mmd-results-count text-xs sm:text-sm font-medium">
                 <?php if (!$is_editor && function_exists('facetwp_display')) : ?>
                   <?php echo facetwp_display('facet', 'results_count'); ?>
                 <?php else : ?>
@@ -270,7 +270,7 @@ $block_theme = !empty($attributes['blockTheme']) ? $attributes['blockTheme'] : '
           </div>
 
           <!-- Mobile Results Count (< lg) -->
-          <div class="lg:hidden pt-2.5 text-xs font-medium text-neutral-grey-600 mmd-results-count">
+          <div class="lg:hidden pt-2.5 text-xs font-medium mmd-results-count">
             <?php if (!$is_editor && function_exists('facetwp_display')) : ?>
               <?php echo facetwp_display('facet', 'results_count'); ?>
             <?php else : ?>
