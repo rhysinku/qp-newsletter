@@ -1,1 +1,24 @@
-/* Intentionally empty — no project-specific styles ship in the boilerplate. Add this component's styles here as it's built. */
+/* Related Posts & Cards Styles
+ *
+ * Universal component styling for related items across single post templates.
+ */
+
+.mmd-related-posts {
+  position: relative;
+}
+
+.mmd-card--related {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.mmd-card--related:hover {
+  transform: translateY(-2px);
+}
+
+.mmd-card--related .mmd-card__image img {
+  transform-origin: center;
+}

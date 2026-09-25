@@ -234,3 +234,8 @@ $sponsor_link = $fields['sponsor_link'] ?? get_post_meta($post_id, 'sponsor_link
     </div>
   </section>
 </article>
+
+<?php
+// Universal Related Posts Section
+get_template_part('templates/partials/related-posts');
+?>

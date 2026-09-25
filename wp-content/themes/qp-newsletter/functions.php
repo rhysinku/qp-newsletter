@@ -113,6 +113,14 @@ add_filter('mmd_alter_responsive_image_styles_list', function ($ris) {
     'sizes' => '(min-width: 1200px) 1200px, (min-width: 768px) 90vw, 100vw',
     'whratio' => '16:9',
   ];
+  $ris['card--related'] = [
+    'sizes' => '(min-width: 1200px) 380px, (min-width: 768px) 50vw, 100vw',
+    'whratio' => '16:9',
+  ];
+  $ris['related-card'] = [
+    'sizes' => '(min-width: 1200px) 380px, (min-width: 768px) 50vw, 100vw',
+    'whratio' => '16:9',
+  ];
   return $ris;
 });
 
