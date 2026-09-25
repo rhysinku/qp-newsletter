@@ -1,0 +1,64 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "api_version": 3,
+  "version": "1.0.0",
+  "name": "mmd/dynamic-filter",
+  "title": "Dynamic Filter Listing",
+  "description": "Faceted search and filter listing powered by FacetWP.",
+  "category": "mmd-grid-blocks",
+  "icon": "filter",
+  "supports": {
+    "anchor": true,
+    "customClassName": true
+  },
+  "attributes": {
+    "contentTypes": {
+      "type": "array",
+      "default": ["news"]
+    },
+    "postsPerPage": {
+      "type": "number",
+      "default": 9
+    },
+    "columns": {
+      "type": "string",
+      "default": "xl:cols-2"
+    },
+    "showSearch": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSort": {
+      "type": "boolean",
+      "default": true
+    },
+    "sidebarTitle": {
+      "type": "string",
+      "default": "Filters"
+    },
+    "showTechTags": {
+      "type": "boolean",
+      "default": true
+    },
+    "showCategories": {
+      "type": "boolean",
+      "default": true
+    },
+    "showContentTypes": {
+      "type": "boolean",
+      "default": false
+    },
+    "preview": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {
+    "attributes": {
+      "preview": true
+    }
+  },
+  "textdomain": "qp-newsletter",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php"
+}

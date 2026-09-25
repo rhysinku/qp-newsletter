@@ -133,9 +133,9 @@ $reading_time = $fields['estimate_reading'] ?? get_post_meta($post_id, 'estimate
 ?>
 
 <article class="mmd-card mmd-card--related relative isolate flex flex-col h-full bg-white rounded-2xl overflow-hidden border border-neutral-grey-150/60 shadow-sm hover:shadow-md hover:border-neutral-grey-300 transition-all duration-200 group">
-  <!-- Card Thumbnail -->
-  <figure class="mmd-card__image relative aspect-video overflow-hidden bg-neutral-grey-100 m-0">
-    <?php if (!empty($thumbnail_id)) : ?>
+  <?php if (!empty($thumbnail_id)) : ?>
+    <!-- Card Thumbnail -->
+    <figure class="mmd-card__image relative aspect-video overflow-hidden bg-neutral-grey-100 m-0">
       <?php echo mmd_render_image_by_ris(
         $thumbnail_id,
         'card--related',
@@ -143,28 +143,21 @@ $reading_time = $fields['estimate_reading'] ?? get_post_meta($post_id, 'estimate
         $title,
         wrap_figure: false
       ); ?>
-    <?php else : ?>
-      <!-- Subtle branded placeholder when no thumbnail is set -->
-      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-neutral-grey-100 to-neutral-grey-200 text-neutral-grey-500">
-        <svg class="w-10 h-10 opacity-40 fill-none stroke-current" viewBox="0 0 24 24" aria-hidden="true">
-          <use href="<?php echo esc_url(mmd_sprite('file')); ?>"></use>
-        </svg>
-      </div>
-    <?php endif; ?>
-  </figure>
+    </figure>
+  <?php endif; ?>
 
   <!-- Card Body -->
-  <div class="mmd-card__content p-6 flex flex-col flex-1">
+  <div class="mmd-card__content p-5 sm:p-6 flex flex-col flex-1">
     <!-- Badge & Reading time row -->
     <div class="flex items-center justify-between gap-2 mb-2">
       <?php if (!empty($badge_text)) : ?>
-        <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-primary-blue-50 text-primary border border-primary/20">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-normal bg-primary-blue-50 text-primary border border-primary/20 whitespace-nowrap">
           <?php echo esc_html($badge_text); ?>
         </span>
       <?php endif; ?>
 
       <?php if (!empty($reading_time)) : ?>
-        <span class="text-xs text-neutral-grey-500 flex items-center gap-1">
+        <span class="text-xs text-neutral-grey-500 flex items-center gap-1 shrink-0 whitespace-nowrap">
           <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" aria-hidden="true">
             <use href="<?php echo esc_url(mmd_sprite('clock')); ?>"></use>
           </svg>

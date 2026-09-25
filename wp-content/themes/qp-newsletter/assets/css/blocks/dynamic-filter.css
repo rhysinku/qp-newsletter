@@ -1,0 +1,258 @@
+/**
+ * Dynamic Filter Block & FacetWP Styling
+ *
+ * @package QP NewsLetter
+ */
+
+@layer components {
+  /* ==========================================================================
+     FacetWP General Reset & Typography
+     ========================================================================== */
+  .facetwp-facet {
+    margin-bottom: 0 !important;
+  }
+
+  /* Suppress raw FacetWP counts */
+  .facetwp-counter {
+    display: none !important;
+  }
+
+  /* ==========================================================================
+     FacetWP Checkbox Styling
+     ========================================================================== */
+  .facetwp-facet .facetwp-checkbox {
+    display: flex !important;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.375rem 0.25rem !important;
+    margin-bottom: 0.25rem;
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: var(--color-neutral-grey-700);
+    background: none !important;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+    border-radius: 0.375rem;
+  }
+
+  .facetwp-facet .facetwp-checkbox:hover {
+    color: var(--color-primary-navy-900);
+  }
+
+  .facetwp-facet .facetwp-checkbox.checked {
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  /* Custom Checkbox Indicator */
+  .facetwp-facet .facetwp-checkbox::before {
+    content: "";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.125rem;
+    height: 1.125rem;
+    flex-shrink: 0;
+    border-radius: 0.25rem;
+    border: 1.5px solid var(--color-neutral-grey-300);
+    background-color: var(--color-system-white);
+    transition: all 0.15s ease-in-out;
+  }
+
+  .facetwp-facet .facetwp-checkbox:hover::before {
+    border-color: var(--color-primary);
+  }
+
+  .facetwp-facet .facetwp-checkbox.checked::before {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 0.75rem 0.75rem;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* ==========================================================================
+     FacetWP Search Input Styling
+     ========================================================================== */
+  .facetwp-facet-search .facetwp-input-wrap {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .facetwp-facet-search input.facetwp-search {
+    width: 100%;
+    height: 3.25rem;
+    padding: 0.75rem 1rem 0.75rem 2.75rem !important;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-primary-navy-900);
+    background-color: transparent;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  .facetwp-facet-search .facetwp-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.125rem;
+    height: 1.125rem;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* ==========================================================================
+     FacetWP Sort Select
+     ========================================================================== */
+  .facetwp-facet-results_sort select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0.5rem 2.25rem 0.5rem 0.875rem !important;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    color: var(--color-primary-navy-900);
+    background-color: var(--color-system-white);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgb(0,31,63)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 0.875rem 0.875rem;
+    border: 1px solid var(--color-neutral-grey-200) !important;
+    border-radius: 0.75rem !important;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition: all 0.15s ease-in-out;
+  }
+
+  .facetwp-facet-results_sort select:hover {
+    border-color: var(--color-neutral-grey-300);
+    background-color: var(--color-neutral-light-grey);
+  }
+
+  .facetwp-facet-results_sort select:focus-visible {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 20%, transparent);
+  }
+
+  /* ==========================================================================
+     FacetWP Active Selection Pills
+     ========================================================================== */
+  .facetwp-selections ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .facetwp-selections li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: var(--color-primary-blue-200);
+    color: var(--color-primary);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 15%, transparent);
+    cursor: pointer;
+    transition: all 0.15s ease-in-out;
+  }
+
+  .facetwp-selections li:hover,
+  .facetwp-selections li:focus-visible {
+    background-color: var(--color-primary);
+    color: var(--color-system-white);
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+  }
+
+  .facetwp-selections .facetwp-selection-label {
+    opacity: 0.75;
+    font-weight: 500;
+  }
+
+  /* Suppress FacetWP default PNG background-image icon to prevent double × */
+  .facetwp-selections .facetwp-selection-value {
+    background: none !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+    display: inline-flex !important;
+    align-items: center;
+  }
+
+  .facetwp-selections .facetwp-selection-value::after {
+    content: "\00d7";
+    font-size: 0.875rem;
+    line-height: 1;
+    margin-left: 0.375rem;
+    font-weight: 700;
+  }
+
+  /* Clear all pill */
+  .facetwp-selections li[data-value="clear-all"] {
+    background-color: var(--color-neutral-grey-200);
+    color: var(--color-neutral-grey-800);
+    border-color: var(--color-neutral-grey-300);
+  }
+
+  .facetwp-selections li[data-value="clear-all"]:hover {
+    background-color: var(--color-neutral-grey-700);
+    color: var(--color-system-white);
+  }
+
+  /* ==========================================================================
+     FacetWP Pagination Numbers
+     ========================================================================== */
+  .facetwp-pager {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .facetwp-pager .facetwp-page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    height: 2.25rem;
+    padding: 0 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary-navy-900);
+    background-color: var(--color-system-white);
+    border: 1px solid var(--color-neutral-grey-200);
+    text-decoration: none !important;
+    transition: all 0.15s ease-in-out;
+  }
+
+  .facetwp-pager .facetwp-page:hover {
+    background-color: var(--color-primary-blue-200);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .facetwp-pager .facetwp-page.active {
+    background-color: var(--color-primary);
+    color: var(--color-system-white);
+    border-color: var(--color-primary);
+  }
+
+  .facetwp-pager .facetwp-page.dots {
+    border: none;
+    background: transparent;
+    cursor: default;
+  }
+}

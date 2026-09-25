@@ -285,11 +285,110 @@
     }
   }
 
+  class DynamicFilter {
+    constructor() {
+      this.drawer = document.getElementById('mmd-filter-drawer');
+      this.openBtn = document.getElementById('mmd-mobile-filter-open');
+      this.closeBtn = document.getElementById('mmd-mobile-filter-close');
+      this.applyBtn = document.getElementById('mmd-mobile-filter-apply');
+      this.backdrop = document.querySelector('.mmd-drawer-backdrop');
+
+      this.init();
+    }
+
+    init() {
+      this.setupAccordion();
+      this.setupDrawer();
+      this.setupFacetwpEvents();
+    }
+
+    setupAccordion() {
+      // Event delegation for accordion toggles (resilient across AJAX reloads)
+      document.addEventListener('click', (e) => {
+        const toggle = e.target.closest('.mmd-facet-toggle');
+        if (!toggle) return;
+
+        const group = toggle.closest('.mmd-facet-group');
+        if (!group) return;
+
+        const content = group.querySelector('.mmd-facet-content');
+        const isOpen = group.classList.contains('is-open');
+
+        group.classList.toggle('is-open', !isOpen);
+        if (content) {
+          content.hidden = isOpen;
+        }
+        toggle.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    }
+
+    setupDrawer() {
+      if (!this.drawer) return;
+
+      const openDrawer = () => {
+        this.drawer.classList.remove('hidden');
+        if (this.openBtn) {
+          this.openBtn.setAttribute('aria-expanded', 'true');
+        }
+        document.body.style.overflow = 'hidden';
+
+        // Focus first interactive element in drawer
+        const focusable = this.drawer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length > 0) {
+          focusable[0].focus();
+        }
+      };
+
+      const closeDrawer = () => {
+        this.drawer.classList.add('hidden');
+        if (this.openBtn) {
+          this.openBtn.setAttribute('aria-expanded', 'false');
+          this.openBtn.focus();
+        }
+        document.body.style.overflow = '';
+      };
+
+      document.addEventListener('click', (e) => {
+        if (e.target.closest('#mmd-mobile-filter-open')) {
+          e.preventDefault();
+          openDrawer();
+        } else if (e.target.closest('#mmd-mobile-filter-close') || e.target.closest('#mmd-mobile-filter-apply') || e.target.classList.contains('mmd-drawer-backdrop')) {
+          e.preventDefault();
+          closeDrawer();
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && this.drawer && !this.drawer.classList.contains('hidden')) {
+          closeDrawer();
+        }
+      });
+
+      // Reset overflow if window resizes to desktop breakpoint
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) {
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    setupFacetwpEvents() {
+      if (typeof jQuery !== 'undefined') {
+        jQuery(document).on('facetwp-loaded', () => {
+          this.drawer = document.getElementById('mmd-filter-drawer');
+          this.openBtn = document.getElementById('mmd-mobile-filter-open');
+        });
+      }
+    }
+  }
+
   // Initialize when DOM is fully loaded
   document.addEventListener('DOMContentLoaded', () => {
     new SiteHeader();
     new TableOfContents();
     new ShareWidgets();
+    new DynamicFilter();
   });
 
 })();
