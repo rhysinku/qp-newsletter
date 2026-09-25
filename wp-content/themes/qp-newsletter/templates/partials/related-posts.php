@@ -57,6 +57,8 @@ switch ($post_type) {
     $cat_taxonomy = 'newsletter_category';
     break;
   case 'blog':
+    $cat_taxonomy = 'blog_category';
+    break;
   case 'post':
     $cat_taxonomy = 'category';
     break;

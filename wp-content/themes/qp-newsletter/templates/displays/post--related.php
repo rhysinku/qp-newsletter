@@ -115,6 +115,22 @@ switch ($post_type) {
       }
     }
     break;
+
+  case 'blog':
+    $cat_id = $fields['blog_category-term'] ?? get_post_meta($post_id, 'blog_category-term', true);
+    if (!empty($cat_id) && is_numeric($cat_id)) {
+      $term = get_term((int) $cat_id, 'blog_category');
+      if ($term && !is_wp_error($term)) {
+        $badge_text = $term->name;
+      }
+    }
+    if (empty($badge_text)) {
+      $terms = get_the_terms($post_id, 'blog_category');
+      if (!empty($terms) && !is_wp_error($terms)) {
+        $badge_text = $terms[0]->name;
+      }
+    }
+    break;
 }
 
 // Fallback to tech_tag or post type label
