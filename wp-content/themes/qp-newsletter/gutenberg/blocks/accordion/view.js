@@ -79,7 +79,8 @@ class AccordionItem {
     this.parent.closeOthers(this);
 
     this.button.setAttribute("aria-expanded", "true");
-    this.arrowIcon.setAttribute('href', '/wp-content/themes/marameodesign/assets/sprites/sprite.svg?v=11#Minus');
+    const currentHref = this.arrowIcon.getAttribute('href') || '';
+    this.arrowIcon.setAttribute('href', currentHref.includes('#') ? currentHref.replace(/#.*$/, '#Minus') : '/wp-content/themes/qp-newsletter/assets/sprites/sprite.svg?v=12#Minus');
 
     this.content.classList.remove("max-h-0");
     this.content.style.maxHeight = "0px";
@@ -95,7 +96,8 @@ class AccordionItem {
   close = () => {
     this.isActive = false;
     this.button.setAttribute("aria-expanded", "false");
-    this.arrowIcon.setAttribute('href', '/wp-content/themes/marameodesign/assets/sprites/sprite.svg?v=11#Plus');
+    const currentHref = this.arrowIcon.getAttribute('href') || '';
+    this.arrowIcon.setAttribute('href', currentHref.includes('#') ? currentHref.replace(/#.*$/, '#Plus') : '/wp-content/themes/qp-newsletter/assets/sprites/sprite.svg?v=12#Plus');
     this.content.classList.add("max-h-0");
     this.content.style.maxHeight = null;
   };

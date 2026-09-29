@@ -30,7 +30,6 @@ export const defaultAllowedBlocks = (currentBlockName = "", exclude = []) => {
     "mmd/image",
     "mmd/video",
     "mmd/accordion",
-    "mmd/cta",
     "mmd/quote",
     "mmd/separator",
   ];

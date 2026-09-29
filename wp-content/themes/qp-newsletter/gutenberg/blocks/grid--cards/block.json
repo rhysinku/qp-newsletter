@@ -19,5 +19,5 @@
   "textdomain": "marameodesign",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
-  "style": ["mmd-grid--people-style", "file:./style-index.css"]
+  "style": "file:./style-index.css"
 }

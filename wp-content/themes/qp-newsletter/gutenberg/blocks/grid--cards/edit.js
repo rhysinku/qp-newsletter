@@ -30,12 +30,11 @@ export const Edit = (props) => {
 
           <div {...blockProps}>
             <InnerBlocks
-              template={[["mmd/card--expert"]]}
-              allowedBlocks={[
-                "mmd/card--expert",
-                "mmd/people-card-grid",
-                "mmd/grid--key-insights-child",
+              template={[
+                ["mmd/people-card-item", {}],
+                ["mmd/people-card-item", {}],
               ]}
+              allowedBlocks={["mmd/people-card-item"]}
               orientation="horizontal"
             />
           </div>

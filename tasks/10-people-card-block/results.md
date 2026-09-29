@@ -36,6 +36,14 @@ Per your feedback regarding parent grid selection UX and card styling:
 4. **Strict Grid Parent Constraint**:
    - Enforced `"parent": ["mmd/people-card-grid"]` in `people-card-item/block.json`.
 
+5. **GridColumns Layout Control (`@marameodesign/components`)**:
+   - Replaced custom numeric `RangeControl` with `GridColumns.InspectorControl` under the `Layout` panel in `people-card-grid/inspector.js`.
+   - Filtered choices to `["2 Columns", "3 Columns", "4 Columns"]` matching visual icons (`2-cols.svg`, `3-cols.svg`, `4-cols.svg`).
+   - Integrated `GridColumns.addAttributes(attrObject)` with default `"lg:cols-2"` in `people-card-grid/schema.js`.
+   - Updated `people-card-grid/edit.js` and `people-card-grid/save.js` to read columns via `GridColumns.get(props)`, mapping `"lg:cols-2"`, `"lg:cols-3"`, `"lg:cols-4"` to native Tailwind grid classes (`grid-cols-2`, `grid-cols-3`, `grid-cols-4`).
+   - Maintained backward compatibility for existing blocks saved with integer values (`2`, `3`, `4`).
+   - Sanitized column display text in `people-card-item/inspector.js` (`displayCols = parentColumns.replace("lg:cols-", "")`).
+
 ---
 
 ## 2. Verification Evidence

@@ -1,17 +1,20 @@
 import { InnerBlocks, useBlockProps } from "@wordpress/block-editor";
 import { useHasSelectedInnerBlock } from "@10up/block-components";
 import { useDispatch } from "@wordpress/data";
-import { Preview } from "@marameodesign/components";
+import { GridColumns, Preview } from "@marameodesign/components";
 import { twMerge } from "tailwind-merge";
 import Inspector from "./inspector";
 import "./editor.scss";
 
 const getGridClass = cols => {
-  switch (Number(cols)) {
+  switch (cols) {
+    case "lg:cols-3":
     case 3:
       return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
+    case "lg:cols-4":
     case 4:
       return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6";
+    case "lg:cols-2":
     case 2:
     default:
       return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6";
@@ -19,10 +22,13 @@ const getGridClass = cols => {
 };
 
 export const Edit = props => {
-  const { attributes, clientId } = props;
-  const { columns = 2 } = attributes;
+  const { clientId } = props;
+  const { columns = "lg:cols-2" } = GridColumns.get(props);
   const { preview } = Preview.get(props);
   const { selectBlock } = useDispatch("core/block-editor");
+
+  const colsNumber =
+    typeof columns === "string" ? columns.replace("lg:cols-", "") : columns;
 
   const hasSelectedInnerBlock = useHasSelectedInnerBlock();
   const isActive = props.isSelected || hasSelectedInnerBlock;
@@ -30,7 +36,7 @@ export const Edit = props => {
   const blockProps = useBlockProps({
     className: twMerge("mmd-people-card-grid w-full", getGridClass(columns)),
     style: {
-      "--grid-cols": columns,
+      "--grid-cols": colsNumber,
     },
   });
 
@@ -52,7 +58,7 @@ export const Edit = props => {
           >
             <span className="flex items-center gap-1.5 font-semibold">
               <span className="dashicons dashicons-grid-view"></span>
-              People Card Grid ({columns} Columns)
+              People Card Grid ({colsNumber} Columns)
             </span>
             <button
               type="button"

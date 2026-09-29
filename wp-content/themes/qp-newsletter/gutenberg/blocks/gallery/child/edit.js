@@ -30,7 +30,7 @@ export const Edit = props => {
       {preview && (
         <Preview.Content
           {...props}
-          path="wp-content/themes/marameodesign/gutenberg/blocks/gallery/child"
+          path="wp-content/themes/qp-newsletter/gutenberg/blocks/gallery/child"
         />
       )}
       {!preview && (

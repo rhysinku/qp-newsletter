@@ -137,7 +137,7 @@ class MMCPeopleCards {
     card.insertAdjacentHTML("afterbegin", `
       <button type="button" aria-label="Close popup" class="close-people-popup text-neutral-grey cursor-pointer absolute z-10 top-2 right-2">
         <svg width="20" height="20" aria-hidden="true">
-          <use href="/wp-content/themes/marameodesign/assets/sprites/sprite.svg?15#X-Close"></use>
+          <use href="/wp-content/themes/qp-newsletter/assets/sprites/sprite.svg?12#x"></use>
         </svg>
       </button>
     `);

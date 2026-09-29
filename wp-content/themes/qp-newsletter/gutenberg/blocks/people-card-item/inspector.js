@@ -16,12 +16,17 @@ export default function Inspector(props) {
   } = props;
   const { hideImage } = attributes;
 
+  const displayCols =
+    typeof parentColumns === "string"
+      ? parentColumns.replace("lg:cols-", "")
+      : parentColumns;
+
   return (
     <InspectorControls>
       {parentClientId && (
         <PanelBody title="Grid Parent" initialOpen={true}>
           <p className="text-xs text-neutral-600 mb-2">
-            This card is inside a <strong>People Card Grid</strong> ({parentColumns} columns).
+            This card is inside a <strong>People Card Grid</strong> ({displayCols} columns).
           </p>
           <WpButton
             variant="secondary"

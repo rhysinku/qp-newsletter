@@ -13,4 +13,3 @@ export { defaultAllowedBlocks } from "./allowed-blocks";
 export { minifyId } from "./minify-id";
 export { useDirectParentBlock } from "./use-direct-parent-block";
 export { hasInnerBlocks } from "./has-inner-blocks";
-export { isInPostWithSidebar } from "./is-in-post-with-sidebar";

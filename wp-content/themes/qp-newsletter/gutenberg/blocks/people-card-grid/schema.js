@@ -1,4 +1,4 @@
-import { AttributeObject, Preview } from "@marameodesign/components";
+import { AttributeObject, GridColumns, Preview } from "@marameodesign/components";
 
 export const schema = () => {
   const attrObject = new AttributeObject();
@@ -6,13 +6,9 @@ export const schema = () => {
   // Preview component for block inserter
   Preview.addAttributes(attrObject);
 
-  // Column setting: min 2, max 4, default 2
-  attrObject.add({
-    columns: {
-      type: "number",
-      default: 2,
-    },
-  });
+  // Layout Grid Columns component (default: lg:cols-2)
+  GridColumns.addAttributes(attrObject);
+  attrObject.updateDefaultValue("columns", "lg:cols-2");
 
   return attrObject.getMergedAttributes();
 };

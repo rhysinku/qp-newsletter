@@ -115,12 +115,12 @@ document.addEventListener("DOMContentLoaded", () => {
         <div class="splide__arrows splide__arrows--ltr mt-4 gap-3 flex justify-center items-center">
           <button class="splide__arrow splide__arrow--prev cursor-pointer flex justify-center items-center rounded-sm p-1 size-10 transition-all" type="button" aria-label="Previous slide">
             <svg aria-hidden="true" width="16" height="16" class="pointer-events-none">
-              <use href="/wp-content/themes/marameodesign/assets/sprites/sprite.svg?10#ArrowLeft"></use>
+              <use href="/wp-content/themes/qp-newsletter/assets/sprites/sprite.svg?12#ArrowLeft"></use>
             </svg>
           </button>
           <button class="splide__arrow splide__arrow--next cursor-pointer flex justify-center items-center rounded-sm p-1 size-10 transition-all" type="button" aria-label="Next slide">
             <svg aria-hidden="true" width="16" height="16" class="pointer-events-none">
-              <use href="/wp-content/themes/marameodesign/assets/sprites/sprite.svg?10#ArrowRight2"></use>
+              <use href="/wp-content/themes/qp-newsletter/assets/sprites/sprite.svg?12#ArrowRight2"></use>
             </svg>
           </button>
         </div>
