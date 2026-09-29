@@ -3,16 +3,12 @@ import { InspectorControls } from "@wordpress/block-editor";
 import { ContentPicker } from "@10up/block-components";
 import { GridColumns } from "@marameodesign/components";
 
-
-// Content type choices
 const CONTENT_TYPE_CHOICES = [
-  { label: "MMR Publication", value: "mmr" },
-  { label: "MMR Article", value: "mmr-article" },
-  { label: "Article", value: "article" },
-  { label: "Project", value: "project" },
-  { label: "Event", value: "event" },
-  { label: "Press Release", value: "media-press" },
-  { label: "Resource", value: "resource" }
+  { label: "News", value: "news" },
+  { label: "Resources", value: "resource" },
+  { label: "Newsletters", value: "newsletter" },
+  { label: "Events", value: "event" },
+  { label: "Blogs", value: "blog" },
 ];
 
 export default function Inspector(props) {
@@ -20,38 +16,39 @@ export default function Inspector(props) {
   const {
     contentTypes,
     numPostsToShow,
-    categoryTerms,
-    regionTerms,
-    themeTerms,
-    countryTerms,
-    articleTypeTerms,
-    resourceTypeTerms,
+    newsCategoryTerms,
+    newsletterCategoryTerms,
+    blogCategoryTerms,
+    techTagTerms,
     onePostPerCT,
-    respectListingExclusions,
   } = props.attributes;
 
   return (
     <InspectorControls>
       <PanelBody title="Layout">
-        <GridColumns.InspectorControl {...props}
+        <GridColumns.InspectorControl
+          {...props}
           choices={["2 Columns", "3 Columns", "4 Columns"]}
-          __hasSpacingBottom />
+          __hasSpacingBottom
+        />
       </PanelBody>
 
       <PanelBody title="Query Settings" initialOpen={true}>
         <SelectControl
-          label="Filter by post types"
+          label="Filter by Post Types"
           value={contentTypes || []}
           options={CONTENT_TYPE_CHOICES}
           onChange={value => setAttributes({ contentTypes: Array.isArray(value) ? value : [value] })}
           multiple={true}
+          help="Hold Ctrl (Windows) or Cmd (Mac) to select multiple."
         />
 
         <TextControl
-          label="Number of posts to be displayed"
+          label="Number of posts to display"
           value={numPostsToShow}
-          onChange={numPostsToShow =>
-            setAttributes({ numPostsToShow: parseInt(numPostsToShow) })
+          type="number"
+          onChange={val =>
+            setAttributes({ numPostsToShow: parseInt(val, 10) || 6 })
           }
           help="Set to -1 to show all posts"
         />
@@ -60,96 +57,51 @@ export default function Inspector(props) {
           label="One post per content type"
           checked={onePostPerCT}
           onChange={value => setAttributes({ onePostPerCT: value })}
-          help="When enabled, gets one post from each selected content type"
+          help="When enabled, returns 1 latest post from each selected post type"
         />
 
-        <div className="mmd-editor-label">Filtered by categories</div>
+        <div className="mmd-editor-label">Filtered by News Categories</div>
         <ContentPicker
-          label="Filtered by categories"
-          onPickChange={categoryTerms => {
-            setAttributes({ categoryTerms: categoryTerms });
-          }}
+          label="News Categories"
+          onPickChange={terms => setAttributes({ newsCategoryTerms: terms })}
           mode="term"
-          contentTypes={["category"]}
+          contentTypes={["news_category"]}
           isOrderable={true}
-          content={categoryTerms}
+          content={newsCategoryTerms}
           maxContentItems={5}
         />
 
-
-        <div className="mmd-editor-label">Filtered by resource types</div>
+        <div className="mmd-editor-label">Filtered by Newsletter Categories</div>
         <ContentPicker
-          label="Filtered by resource types"
-          onPickChange={resourceTypeTerms => {
-            setAttributes({ resourceTypeTerms: resourceTypeTerms });
-          }}
+          label="Newsletter Categories"
+          onPickChange={terms => setAttributes({ newsletterCategoryTerms: terms })}
           mode="term"
-          contentTypes={["resource-type"]}
+          contentTypes={["newsletter_category"]}
           isOrderable={true}
-          content={resourceTypeTerms}
+          content={newsletterCategoryTerms}
           maxContentItems={5}
         />
 
-
-        <div className="mmd-editor-label">Filtered by article types</div>
+        <div className="mmd-editor-label">Filtered by Blog Categories</div>
         <ContentPicker
-          label="Filtered by article types"
-          onPickChange={articleTypeTerms => {
-            setAttributes({ articleTypeTerms: articleTypeTerms });
-          }}
+          label="Blog Categories"
+          onPickChange={terms => setAttributes({ blogCategoryTerms: terms })}
           mode="term"
-          contentTypes={["article-type"]}
+          contentTypes={["blog_category"]}
           isOrderable={true}
-          content={articleTypeTerms}
+          content={blogCategoryTerms}
           maxContentItems={5}
         />
 
-
-        <div className="mmd-editor-label">Filtered by regions</div>
+        <div className="mmd-editor-label">Filtered by Technology Tags</div>
         <ContentPicker
-          label="Filtered by regions"
-          onPickChange={regionTerms => {
-            setAttributes({ regionTerms: regionTerms });
-          }}
+          label="Technology Tags"
+          onPickChange={terms => setAttributes({ techTagTerms: terms })}
           mode="term"
-          contentTypes={["region"]}
+          contentTypes={["tech_tag"]}
           isOrderable={true}
-          content={regionTerms}
-          maxContentItems={5}
-        />
-
-
-        <div className="mmd-editor-label">Filtered by themes</div>
-        <ContentPicker
-          label="Filtered by themes"
-          onPickChange={themeTerms => {
-            setAttributes({ themeTerms: themeTerms });
-          }}
-          mode="term"
-          contentTypes={["mmc-theme"]}
-          isOrderable={true}
-          content={themeTerms}
-          maxContentItems={5}
-        />
-
-        <div className="mmd-editor-label">Filtered by countries</div>
-        <ContentPicker
-          label="Filtered by countries"
-          onPickChange={countryTerms => {
-            setAttributes({ countryTerms: countryTerms });
-          }}
-          mode="term"
-          contentTypes={["country"]}
-          isOrderable={true}
-          content={countryTerms}
-          maxContentItems={5}
-        />
-
-        <ToggleControl
-          label="Respect listing exclusions"
-          checked={respectListingExclusions}
-          onChange={value => setAttributes({ respectListingExclusions: value })}
-          help="When enabled, posts marked as 'Exclude from listings' will be hidden from results."
+          content={techTagTerms}
+          maxContentItems={10}
         />
       </PanelBody>
     </InspectorControls>

@@ -18,7 +18,7 @@
     },
     "contentTypes": {
       "type": "array",
-      "default": ["article"]
+      "default": ["news", "blog", "resource", "event", "newsletter"]
     },
     "numPostsToShow": {
       "type": "number",
@@ -28,38 +28,22 @@
       "type": "boolean",
       "default": false
     },
-    "categoryTerms": {
+    "newsCategoryTerms": {
       "type": "array",
       "default": []
     },
-    "articleTypeTerms": {
+    "newsletterCategoryTerms": {
       "type": "array",
       "default": []
     },
-    "resourceTypeTerms": {
+    "blogCategoryTerms": {
       "type": "array",
       "default": []
     },
-    "regionTerms": {
+    "techTagTerms": {
       "type": "array",
       "default": []
     },
-    "themeTerms": {
-      "type": "array",
-      "default": []
-    },
-    "countryTerms": {
-      "type": "array",
-      "default": []
-    },
-
-
-    "respectListingExclusions": {
-      "type": "boolean",
-      "default": false,
-      "description": "When enabled, posts marked as 'Exclude from listings' will be hidden from results."
-    },
-
     "preview": {
       "type": "boolean",
       "default": false

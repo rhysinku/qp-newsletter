@@ -1,8 +1,6 @@
 import { PanelBody, SelectControl } from "@wordpress/components";
 import { InspectorControls } from "@wordpress/block-editor";
-import { PostPicker } from "@marameodesign/components";
-
-import { GridColumns } from "@marameodesign/components";
+import { PostPicker, GridColumns } from "@marameodesign/components";
 
 export default function Inspector(props) {
   const { attributes, setAttributes } = props;
@@ -10,38 +8,35 @@ export default function Inspector(props) {
 
   return (
     <InspectorControls>
-      <PanelBody title="Display">
-        <SelectControl
-          label="Cards Display Mode"
-          value={cardsDisplayMode}
-          options={[
-            { label: "Standard", value: "standard" },
-            { label: "Document Card", value: "document" },
-          ]}
-          onChange={val => setAttributes({ cardsDisplayMode: val })}
-          __next40pxDefaultSize
-        />
+      <PanelBody title="Layout & Display">
         <GridColumns.InspectorControl
           {...props}
           choices={["2 Columns", "3 Columns", "4 Columns"]}
           __hasSpacingBottom
         />
+        <SelectControl
+          label="Cards Display Mode"
+          value={cardsDisplayMode}
+          options={[
+            { label: "Standard Card", value: "standard" },
+          ]}
+          onChange={val => setAttributes({ cardsDisplayMode: val })}
+          __next40pxDefaultSize
+        />
       </PanelBody>
-      <PanelBody title="Item Settings">
-        <div className="mmd-editor-label">Select Content</div>
+      <PanelBody title="Content Selection">
+        <div className="mmd-editor-label">Select Posts</div>
         <PostPicker.InspectorControl
           {...props}
           contentTypeChoices={[
-            "mmr",
-            "mmr-article",
-            "article",
-            "project",
-            "event",
-            "media-press",
+            "news",
             "resource",
+            "newsletter",
+            "event",
+            "blog",
             "page",
           ]}
-          // maxContentItems={10}
+          maxContentItems={24}
         />
       </PanelBody>
     </InspectorControls>
