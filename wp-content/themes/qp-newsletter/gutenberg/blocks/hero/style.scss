@@ -5,14 +5,88 @@
     --mmd-hero-decor-color: var(--color-system-white);
   }
 
-  .bg-primary-faint-blue {
+  .bg-primary-blue-50 {
     --mmd-hero-decor-color: var(--color-primary);
   }
 }
 
 @layer components {
   .mmd-hero {
-    // Background
+    // ===================================
+    // THEME CASCADE: Dark Mode Support
+    // ===================================
+    &.mod--theme--dark {
+      color: var(--color-system-white);
+
+      :where(h1, h2, h3, h4, h5, h6),
+      .text-heading-1,
+      .text-heading-2 {
+        color: var(--color-system-white) !important;
+      }
+
+      .mmd-hero__pre-heading,
+      .mmd-heading__pre-heading,
+      span.uppercase {
+        color: #93c5fd !important;
+      }
+
+      p,
+      .mmd-hero__content p {
+        color: color-mix(in srgb, var(--color-system-white) 85%, transparent);
+      }
+
+      .mmd-hero__back-link {
+        color: #93c5fd;
+
+        &:hover {
+          color: var(--color-system-white);
+        }
+      }
+
+      .mmd-button.mod--variant--secondary {
+        border-color: var(--color-system-white);
+        color: var(--color-system-white);
+
+        &:is(:hover, :focus) {
+          background-color: var(--color-system-white);
+          color: var(--color-primary-navy-900);
+        }
+      }
+    }
+
+    // ===================================
+    // THEME CASCADE: Light Mode Support
+    // ===================================
+    &.mod--theme--light {
+      color: var(--color-neutral-grey-700);
+
+      :where(h1, h2, h3, h4, h5, h6),
+      .text-heading-1,
+      .text-heading-2 {
+        color: var(--color-primary-navy-900);
+      }
+
+      .mmd-hero__pre-heading,
+      .mmd-heading__pre-heading,
+      span.uppercase {
+        color: var(--color-primary);
+      }
+
+      p,
+      .mmd-hero__content p {
+        color: var(--color-neutral-grey-700);
+      }
+
+      .mmd-hero__back-link {
+        color: var(--color-primary);
+
+        &:hover {
+          color: var(--color-primary-navy-900);
+        }
+      }
+    }
+
+    // Background decoration
     &__background {
       position: absolute;
       left: 0;
@@ -25,7 +99,7 @@
 
       svg {
         color: var(--mmd-hero-decor-color);
-        opacity: .4;
+        opacity: 0.3;
       }
     }
 
@@ -35,7 +109,14 @@
       max-width: var(--breakpoint-2xl);
     }
 
-    // VARIANT: Featured
+    // Back to Parent Link
+    &__back-link {
+      transition: color 0.15s ease-in-out;
+    }
+
+    // ===================================
+    // VARIANT: Simple
+    // ===================================
     &.mod--variant--simple {
       .mmd-breadcrumbs {
         margin-block-end: 1.25rem;
@@ -45,27 +126,17 @@
       }
     }
 
+    // ===================================
     // VARIANT: Featured
+    // ===================================
     &.mod--variant--featured {
       .mmd-breadcrumbs {
         padding-block-start: 1rem;
         padding-inline: 1rem;
       }
-    }
 
-    // VARIANT: Large
-    &.mod--variant--large {
-      .mmd-breadcrumbs {
-        margin-block-end: 1.25rem;
-      }
       h1 {
         margin-top: 0 !important;
-      }
-
-      .mmd-content {
-        > :nth-last-child(2) {
-          margin-bottom: 0 !important;
-        }
       }
     }
   }
@@ -76,23 +147,12 @@
 // =========================
 @media all and (min-width: 62rem) {
   .mmd-hero {
-    // Background
-    &__background {
-      border-right: 7px solid var(--color-system-white);
-      width: calc(57% + 3rem);
-      height: 100%;
-      transform: skewX(-10deg) translateX(-3rem);
-      z-index: unset;
-    }
-
-    // VARIANT: Featured
     &.mod--variant--simple {
       .mmd-breadcrumbs {
         margin-block-end: 1.875rem;
       }
     }
 
-    // VARIANT: Featured
     &.mod--variant--featured {
       .mmd-breadcrumbs {
         position: absolute;
@@ -101,20 +161,6 @@
         transform: translateX(-50%);
         z-index: 10;
         padding-block-start: unset;
-      }
-    }
-
-    // VARIANT: Large
-    &.mod--variant--large {
-      .mmd-content {
-        padding-right: 9rem;
-        max-width: 50%;
-        width: 100%;
-        clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
-      }
-
-      .mmd-breadcrumbs {
-        margin-block-end: 2rem;
       }
     }
   }

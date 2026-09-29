@@ -6,49 +6,29 @@
         "value": "bg-neutral-white",
         "theme": "light"
       },
-      "primary-jet-blue": {
+      "navy-900": {
         "label": "Navy Blue",
         "value": "bg-primary-navy-900",
         "theme": "dark"
       },
-      "primary-faint-blue": {
+      "blue-50": {
         "label": "Blue 50",
         "value": "bg-primary-blue-50",
         "theme": "light"
       },
-      "secondary-aths-special": {
+      "light-grey": {
         "label": "Light Grey",
         "value": "bg-neutral-light-grey",
         "theme": "light"
       },
-      "primary-light-blue": {
-        "label": "Blue 50",
-        "value": "bg-primary-blue-50",
-        "theme": "light"
-      },
-      "accent-super-light-blue": {
-        "label": "Blue 50",
-        "value": "bg-primary-blue-50",
-        "theme": "light"
-      },
-      "blue": {
+      "blue-800": {
         "label": "Blue",
         "value": "bg-primary-blue-800",
         "theme": "dark"
       },
-      "neutral-light-grey": {
-        "label": "Light Grey",
-        "value": "bg-neutral-light-grey",
-        "theme": "light"
-      },
-      "neutral-grey-100": {
+      "grey-100": {
         "label": "Grey 100",
         "value": "bg-neutral-grey-100",
-        "theme": "light"
-      },
-      "accent-soft-cream": {
-        "label": "Light Grey",
-        "value": "bg-neutral-light-grey",
         "theme": "light"
       }
     }

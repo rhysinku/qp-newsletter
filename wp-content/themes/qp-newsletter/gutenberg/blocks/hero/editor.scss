@@ -6,4 +6,57 @@
   .-translate-2\/4 {
     transform: translate(-50%, -50%);
   }
+
+  // ========================================================
+  // FEATURED HERO & SIMPLE HERO: Dark Theme Canvas Overrides
+  // ========================================================
+  .mmd-hero.mod--theme--dark {
+    h1, h2, h3, .wp-block-heading {
+      color: #ffffff !important;
+    }
+
+    .mmd-hero__pre-heading,
+    .mmd-heading__pre-heading,
+    span.uppercase {
+      color: #93c5fd !important;
+    }
+
+    p,
+    .mmd-hero__content p {
+      color: rgba(255, 255, 255, 0.88) !important;
+    }
+
+    .mmd-hero__back-link {
+      color: #93c5fd !important;
+    }
+
+    .mmd-button.mod--variant--secondary {
+      border-color: #ffffff !important;
+      color: #ffffff !important;
+    }
+  }
+
+  // ========================================================
+  // FEATURED HERO & SIMPLE HERO: Light Theme Canvas Overrides
+  // ========================================================
+  .mmd-hero.mod--theme--light {
+    h1, h2, h3, .wp-block-heading {
+      color: #0f172a !important;
+    }
+
+    .mmd-hero__pre-heading,
+    .mmd-heading__pre-heading,
+    span.uppercase {
+      color: #3b82f6 !important;
+    }
+
+    p,
+    .mmd-hero__content p {
+      color: #334155 !important;
+    }
+
+    .mmd-hero__back-link {
+      color: #3b82f6 !important;
+    }
+  }
 }

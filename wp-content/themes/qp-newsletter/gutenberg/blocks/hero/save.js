@@ -1,21 +1,12 @@
-import { Image } from "@marameodesign/components";
-import { HeroSimple, HeroFeatured, HeroLarge } from "./variants";
-
+import { HeroFeatured, HeroSimple } from "./variants";
 import "./style.scss";
 
-export const Save = (props) => {
-  const { showImageAsBackground } = props.attributes;
-  const { imageId } = Image.get(props);
-  
-  if (imageId) {
-    if (showImageAsBackground) {
-      return <HeroLarge.Save {...props} />;
-    }
-    else {
-      return <HeroFeatured.Save {...props} />;
-    }
-  }
-  else {
+export const Save = props => {
+  const { heroType = "featured" } = props.attributes;
+
+  if (heroType === "simple") {
     return <HeroSimple.Save {...props} />;
   }
-}
+
+  return <HeroFeatured.Save {...props} />;
+};

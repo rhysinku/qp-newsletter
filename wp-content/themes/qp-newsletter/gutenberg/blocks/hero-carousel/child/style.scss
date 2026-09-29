@@ -1,0 +1,9 @@
+@layer components {
+  .mmd-hero-carousel-slide {
+    min-height: 32rem;
+
+    @media (min-width: 1024px) {
+      min-height: 40rem;
+    }
+  }
+}

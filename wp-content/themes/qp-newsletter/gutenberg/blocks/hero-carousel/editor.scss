@@ -1,0 +1,36 @@
+.editor-styles-wrapper {
+  .mmd-hero-carousel {
+    visibility: visible !important;
+  }
+
+  // Force dark navy headings inside the slide card
+  .mmd-hero-carousel-slide__card {
+    background-color: #ffffff !important;
+    color: #0f172a !important;
+
+    h1, h2, h3, .text-heading-1, .text-heading-2, .wp-block-heading {
+      color: #0f172a !important;
+      -webkit-text-fill-color: #0f172a !important;
+    }
+
+    .mmd-hero__pre-heading,
+    .mmd-heading__pre-heading,
+    span.uppercase {
+      color: #3b82f6 !important;
+    }
+
+    p,
+    .mmd-hero-carousel-slide__content p {
+      color: #334155 !important;
+    }
+
+    .mmd-breadcrumbs {
+      color: #64748b !important;
+    }
+
+    .mmd-button.mod--variant--secondary {
+      border-color: #0f172a !important;
+      color: #0f172a !important;
+    }
+  }
+}

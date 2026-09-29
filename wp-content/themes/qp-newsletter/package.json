@@ -54,6 +54,7 @@
   "dependencies": {
     "@10up/block-components": "^1.20.0",
     "@parcel/watcher": "^2.5.0",
+    "@splidejs/splide": "^4.1.4",
     "@tailwindcss/cli": "^4.0.14",
     "@wordpress/blocks": "^14.9.0",
     "@wordpress/icons": "^10.20.0",

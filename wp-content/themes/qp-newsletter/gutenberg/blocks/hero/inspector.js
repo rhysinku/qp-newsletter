@@ -1,54 +1,81 @@
 import { InspectorControls } from "@wordpress/block-editor";
-import { PanelBody, ToggleControl } from "@wordpress/components";
-
-import { Heading, Image } from "@marameodesign/components";
+import { PanelBody, SelectControl, ToggleControl } from "@wordpress/components";
+import { Heading, Image, BackgroundColor } from "@marameodesign/components";
 
 export default function Inspector(props) {
-  const { imageId } = Image.get(props);
+  const { setAttributes, attributes } = props;
   const {
-    showImageAsBackground,
-    showBreadcrumbs,
-    showBgDecor,
-    showImageBgDecor,
-  } = props.attributes;
-  const { setAttributes } = props;
+    heroType = "featured",
+    showBackToParent = false,
+    showBreadcrumbs = false,
+    showBgDecor = false,
+  } = attributes;
 
   return (
     <InspectorControls>
-      <PanelBody title="Block Settings">
-        <Heading.InspectorControl {...props} />
-
-        <Image.InspectorControl
-          {...props}
-          customOptions={{
-            allowCaption: true,
-            allowFit: true,
-          }}
+      <PanelBody title="Hero Type & Layout" initialOpen={true}>
+        <SelectControl
+          label="Hero Type"
+          help="Select whether this is a Featured Hero or Simple Hero."
+          value={heroType}
+          options={[
+            { label: "Featured Hero", value: "featured" },
+            { label: "Simple Hero", value: "simple" },
+          ]}
+          onChange={val => setAttributes({ heroType: val })}
         />
+      </PanelBody>
 
-        {imageId && (
-          <ToggleControl
-            label="Show Image as Background"
-            checked={showImageAsBackground}
-            onChange={value => setAttributes({ showImageAsBackground: value })}
-          />
-        )}
+      <PanelBody title="Background" initialOpen={true}>
+        <BackgroundColor.InspectorControl {...props} __hasSpacingBottom />
+      </PanelBody>
 
-        {(!imageId || showImageAsBackground) && (
-          <ToggleControl
-            label="Show Background Decor"
-            checked={showBgDecor}
-            onChange={value => setAttributes({ showBgDecor: value })}
+      {heroType === "featured" && (
+        <PanelBody title="Featured Hero Settings" initialOpen={true}>
+          <Heading.InspectorControl
+            {...props}
+            customOptions={{
+              allowPreHeading: true,
+              allowPostTitle: true,
+            }}
           />
-        )}
 
-        {showImageAsBackground && imageId && (
-          <ToggleControl
-            label="Show Image Decor"
-            checked={showImageBgDecor}
-            onChange={value => setAttributes({ showImageBgDecor: value })}
+          <Image.InspectorControl
+            {...props}
+            customOptions={{
+              allowCaption: false,
+              allowFit: true,
+            }}
           />
-        )}
+        </PanelBody>
+      )}
+
+      {heroType === "simple" && (
+        <PanelBody title="Simple Hero Settings" initialOpen={true}>
+          <Heading.InspectorControl
+            {...props}
+            customOptions={{
+              allowPreHeading: false,
+              allowPostTitle: true,
+            }}
+          />
+
+          <ToggleControl
+            label="Show 'Back to Parent' button"
+            help="Renders a return link to the parent page or hub."
+            checked={showBackToParent}
+            onChange={value => setAttributes({ showBackToParent: value })}
+          />
+        </PanelBody>
+      )}
+
+      <PanelBody title="Display Options" initialOpen={false}>
+        <ToggleControl
+          label="Show Background Decoration"
+          help="Displays subtle background graphic accents."
+          checked={showBgDecor}
+          onChange={value => setAttributes({ showBgDecor: value })}
+        />
 
         <ToggleControl
           label="Show Breadcrumbs"

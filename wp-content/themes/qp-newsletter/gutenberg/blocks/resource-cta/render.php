@@ -23,10 +23,10 @@ if (!$resource || $resource->post_type !== 'resource') {
 }
 
 // Fetch custom ACF fields for resources
-$resource_type = get_field('resource_type', $resource_id);
-$skill_level = get_field('skill_level', $resource_id);
+$resource_type = get_field('resources_type', $resource_id) ?: (get_field('resource_type', $resource_id) ?: '');
+$skill_level = get_field('skill_level', $resource_id) ?: 'beginner';
 $external_url = get_field('external_url', $resource_id);
-$file_attachment = get_field('file_attachment', $resource_id); // Returns ID, array or URL
+$file_attachment = get_field('downloadable_file', $resource_id) ?: get_field('file_attachment', $resource_id); // Returns ID, array or URL
 
 // Build the download link URL based on the resource type
 $target_url = '#';
@@ -54,7 +54,7 @@ if ($skill_level === 'advance') {
 }
 
 // Format the Resource Type label for humans
-$type_label = esc_html(ucfirst(str_replace('_', ' ', $resource_type)));
+$type_label = $resource_type ? esc_html(ucfirst(str_replace('_', ' ', $resource_type))) : '';
 ?>
 
 <div class="mmd-resource-cta qp-resource-cta p-6 border border-solid border-primary-brass-300 rounded-md bg-neutral-light-grey flex flex-col md:flex-row md:items-center md:justify-between gap-6 my-6" style="background-color: #1e293b; border: 1px solid #334155; border-radius: 6px; padding: 1.5rem; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1.5rem;">

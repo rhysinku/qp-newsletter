@@ -1,41 +1,29 @@
 import {
   AttributeObject,
-  BackgroundColor,
   Heading,
-  Preview,
   Image,
+  Preview,
 } from "@marameodesign/components";
 
 export const schema = () => {
   const attrObject = new AttributeObject();
-
   Preview.addAttributes(attrObject);
-  BackgroundColor.addAttributes(attrObject);
   Heading.addAttributes(attrObject);
   Image.addAttributes(attrObject);
 
-  attrObject.updateDefaultValue("imageRis", "hero");
-  attrObject.updateDefaultValue("headingLevel", 1);
+  attrObject.updateDefaultValue("headingLevel", 2);
   attrObject.updateDefaultValue("enablePreHeading", true);
-  attrObject.updateDefaultValue("bgColor", "bg-neutral-white");
+  attrObject.updateDefaultValue("imageRis", "hero");
+  attrObject.updateDefaultValue("useFeaturedImage", false);
 
   attrObject.add({
-    heroType: {
-      type: "string",
-      enum: ["featured", "simple"],
-      default: "featured",
-    },
-    showBackToParent: {
+    isFirstSlide: {
       type: "boolean",
       default: false,
     },
     showBreadcrumbs: {
       type: "boolean",
-      default: false,
-    },
-    showBgDecor: {
-      type: "boolean",
-      default: false,
+      default: true,
     },
   });
 

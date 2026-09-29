@@ -1,19 +1,14 @@
-import {
-  Preview,
-  Image,
-} from "@marameodesign/components";
-
+import { Preview, Image } from "@marameodesign/components";
 import Inspector from "./inspector";
-import { HeroSimple, HeroFeatured, HeroLarge } from "./variants";
-
+import { HeroFeatured, HeroSimple } from "./variants";
 import "./editor.scss";
 
-export const Edit = (props) => {
+export const Edit = props => {
   const { preview } = Preview.get(props);
-  const { setAttributes } = props;
-  const { showImageAsBackground } = props.attributes;
-  const { imageId, imageUri, useFeaturedImage, imageRis } = Image.get(props);
-  
+  const { setAttributes, attributes } = props;
+  const { heroType = "featured" } = attributes;
+  const { imageUri, useFeaturedImage, imageRis } = Image.get(props);
+
   Image.useImageAttributesSync({
     imageUri,
     useFeaturedImage,
@@ -22,27 +17,17 @@ export const Edit = (props) => {
   });
 
   if (preview) {
-    return Preview.Content(props);
+    return <Preview.Content {...props} />;
   }
 
-  if (imageId) {
-    if (showImageAsBackground) {
-      return <>
-        <Inspector {...props} />
-        <HeroLarge.Edit {...props} />
-      </>;
-    }
-    else {
-      return <>
-        <Inspector {...props} />
-        <HeroFeatured.Edit {...props} />
-      </>;
-    }
-  }
-  else {
-    return <>
+  return (
+    <>
       <Inspector {...props} />
-      <HeroSimple.Edit {...props} />
-    </>;
-  }
-}
+      {heroType === "simple" ? (
+        <HeroSimple.Edit {...props} />
+      ) : (
+        <HeroFeatured.Edit {...props} />
+      )}
+    </>
+  );
+};
