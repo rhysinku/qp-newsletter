@@ -1,1 +1,27 @@
-/* Intentionally empty — no project-specific styles ship in the boilerplate. Add this component's styles here as it's built. */
+@layer components {
+  .mmd-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mmd-button-group:not(:first-child, .mod--display--no-spacing) {
+    margin-top: 1.5rem;
+  }
+
+  .mmd-button-group:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  .mmd-button-group:is(.is-style-stacked) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+
+  .mmd-button-group:is(.is-style-stacked) :is(.btn, .mmd-button) {
+    max-width: none;
+    width: 100%;
+  }
+}

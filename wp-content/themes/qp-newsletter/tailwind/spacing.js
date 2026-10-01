@@ -109,10 +109,10 @@ function generateInnerContentSpacing() {
         marginBottom: pxToRem(16),
       },
     },
-    ".mmd-content > .mmd-heading:not(+ p)": {
+    ".mmd-content > .mmd-heading:not(:has(+ p))": {
       marginBottom: pxToRem(32),
     },
-    ".mmd-content > :has(+ .mmd-button-group)": {
+    ".mmd-content > :has(+ :is(.mmd-button-group, .wp-block-mmd-button-group))": {
       marginBottom: "0 !important",
     },
   };

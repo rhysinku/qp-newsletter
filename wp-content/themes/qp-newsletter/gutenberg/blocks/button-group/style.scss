@@ -1,10 +1,24 @@
 .mmd-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+
+  &:not(:first-child, .mod--display--no-spacing) {
+    margin-top: 1.5rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
   &:is(.is-style-stacked) {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
 
-    .btn {
+    .btn,
+    .mmd-button {
       max-width: none;
       width: 100%;
     }

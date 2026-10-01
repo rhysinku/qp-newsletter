@@ -1,5 +1,13 @@
 .editor-styles-wrapper {
   .mmd-button-group {
+    &:not(:first-child, .mod--display--no-spacing) {
+      margin-top: 1.5rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+
     .block-editor-inner-blocks {
       width: 100%;
     }
@@ -30,7 +38,7 @@
     }
 
     &:is(.is-style-stacked) {
-      [data-title="Button"]:has(> .btn) {
+      [data-title="Button"]:has(> :is(.btn, .mmd-button)) {
         width: 100%;
         justify-content: center;
       }
@@ -38,10 +46,10 @@
   }
 
   // Base
-  [data-title="Button"]:has(> .btn) {
+  [data-title="Button"]:has(> :is(.btn, .mmd-button)) {
     width: max-content;
 
-    > .btn {
+    > :is(.btn, .mmd-button) {
       width: 100%;
     }
   }
@@ -50,7 +58,7 @@
 
 .editor-styles-wrapper{
   .mmd-button-group:is(.is-style-stacked){
-      .btn{
+      :is(.btn, .mmd-button){
           justify-content: center;
           .tenup-block-components-link__label{
               display: inline;
