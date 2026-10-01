@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Support Us Modal Component Styles
+   ========================================================================== */
+
+.mmd-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.mmd-modal.hidden {
+  display: none !important;
+}
+
+.mmd-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1;
+}
+
+.mmd-modal__dialog {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 44rem;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid var(--color-neutral-grey-200);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 2rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+}
+
+@media (max-width: 639px) {
+  .mmd-modal__dialog {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+.mmd-modal__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  color: var(--color-neutral-grey-500);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mmd-modal__close:hover {
+  color: var(--color-neutral-grey-900);
+  background-color: var(--color-neutral-grey-100);
+}
+
+.mmd-modal__close:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Modal Option Cards */
+.mmd-modal-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  border: 2px solid var(--color-neutral-grey-200);
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.mmd-modal-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.mmd-modal-card--coffee {
+  background: linear-gradient(180deg, #FFFDF8 0%, #FFFFFF 100%);
+  border-color: #F1E3C8;
+}
+
+.mmd-modal-card--coffee:hover {
+  border-color: var(--color-primary-brass-400);
+}
+
+.mmd-modal-card--content {
+  background: linear-gradient(180deg, #F8FAFD 0%, #FFFFFF 100%);
+  border-color: #DCE8F6;
+}
+
+.mmd-modal-card--content:hover {
+  border-color: var(--color-primary);
+}
+
+/* Feature Icons */
+.mmd-modal-card__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.mmd-modal-card:hover .mmd-modal-card__icon {
+  transform: scale(1.05);
+}
+
+.mmd-modal-card__icon--coffee {
+  background-color: #FEF3C7;
+  color: #B45309;
+}
+
+.mmd-modal-card__icon--content {
+  background-color: var(--color-primary-blue-200);
+  color: var(--color-primary);
+}
+
+/* Modal Buttons */
+.mmd-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.mmd-modal-btn--coffee {
+  background-color: #FF813F;
+  color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(255, 129, 63, 0.2);
+}
+
+.mmd-modal-btn--coffee:hover {
+  background-color: #E66A28;
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(255, 129, 63, 0.3);
+}
+
+.mmd-modal-btn--coffee:focus-visible {
+  outline: 2px solid #FF813F;
+  outline-offset: 2px;
+}
+
+.mmd-modal-btn--content {
+  background-color: var(--color-primary);
+  color: #ffffff !important;
+  box-shadow: 0 2px 4px rgba(6, 75, 141, 0.2);
+}
+
+.mmd-modal-btn--content:hover {
+  background-color: var(--color-primary-navy-900);
+  color: #ffffff !important;
+  box-shadow: 0 4px 8px rgba(27, 54, 93, 0.3);
+}
+
+.mmd-modal-btn--content:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

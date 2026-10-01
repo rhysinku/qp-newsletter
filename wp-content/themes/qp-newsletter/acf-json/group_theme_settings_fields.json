@@ -39,7 +39,7 @@
             "label": "Header CTA Link",
             "name": "header_cta_link",
             "type": "url",
-            "instructions": "URL for the header CTA button.",
+            "instructions": "Optional custom URL for the header CTA button. Leave blank or use '#' to open the Support Us modal (Buy Us a Coffee & Submit Content).",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -48,6 +48,67 @@
                 "id": ""
             },
             "default_value": ""
+        },
+        {
+            "key": "field_theme_support_modal_heading",
+            "label": "Support Modal Heading",
+            "name": "support_modal_heading",
+            "type": "text",
+            "instructions": "Main heading for the Support Us modal dialog.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Support QP Newsletter"
+        },
+        {
+            "key": "field_theme_support_coffee_url",
+            "label": "Buy Us a Coffee URL",
+            "name": "support_coffee_url",
+            "type": "url",
+            "instructions": "Destination URL for direct financial donations (e.g. Buy Me a Coffee, Ko-fi, GitHub Sponsors).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https://buymeacoffee.com/qpnewsletter"
+        },
+        {
+            "key": "field_theme_support_modal_description",
+            "label": "Support Modal Description",
+            "name": "support_modal_description",
+            "type": "textarea",
+            "instructions": "Sub-heading / description copy for the Support Us modal.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "We are an independent technical community. Choose how you would like to help us produce deep-dive engineering tutorials and open-access resources.",
+            "rows": 3
+        },
+        {
+            "key": "field_theme_support_submit_url",
+            "label": "Submit Content URL",
+            "name": "support_submit_url",
+            "type": "text",
+            "instructions": "Destination link or URL for submitting community articles, guides, and tools (e.g. /submit-content/).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "/submit-content/"
         },
         {
             "key": "field_theme_footer_partners",

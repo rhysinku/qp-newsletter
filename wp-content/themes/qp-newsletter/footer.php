@@ -124,18 +124,12 @@ $privacy_links       = get_field('footer_privacy_policy_links', 'option');
         </div>
       </div>
 
-      <!-- Creator Credits on Right -->
-      <div class="lg:text-right text-neutral-grey-500 flex items-center gap-1">
-        <span><?php esc_html_e('Website by', 'qp-newsletter'); ?></span>
-        <a href="https://marameodesign.com" target="_blank" rel="noopener noreferrer" class="font-bold hover:text-primary focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
-          <?php esc_html_e('Marameo Design', 'qp-newsletter'); ?>
-        </a>
-      </div>
-
     </div>
 
   </div>
 </footer>
+
+<?php get_template_part('templates/partials/modal-support'); ?>
 
 <?php wp_footer(); ?>
 </body>

@@ -383,12 +383,138 @@
     }
   }
 
+  class SupportModal {
+    constructor() {
+      this.modal = document.getElementById('mmd-support-modal');
+      this.triggers = document.querySelectorAll('.js-support-modal-trigger, a[href="#support-modal"], a[href="#support"]');
+      this.closeBtn = this.modal ? this.modal.querySelector('.mmd-modal__close') : null;
+      this.backdrop = this.modal ? this.modal.querySelector('.mmd-modal__backdrop') : null;
+      this.lastFocusedElement = null;
+
+      if (!this.modal) return;
+
+      this.init();
+    }
+
+    init() {
+      this.setupTriggers();
+      this.setupCloseEvents();
+      this.setupFocusTrap();
+    }
+
+    setupTriggers() {
+      document.addEventListener('click', (e) => {
+        const trigger = e.target.closest('.js-support-modal-trigger, a[href="#support-modal"], a[href="#support"]');
+        if (trigger) {
+          e.preventDefault();
+          this.openModal(trigger);
+        }
+      });
+    }
+
+    setupCloseEvents() {
+      if (this.closeBtn) {
+        this.closeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.closeModal();
+        });
+      }
+
+      if (this.backdrop) {
+        this.backdrop.addEventListener('click', () => {
+          this.closeModal();
+        });
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !this.modal.classList.contains('hidden')) {
+          this.closeModal();
+        }
+      });
+    }
+
+    openModal(triggerElement) {
+      this.lastFocusedElement = triggerElement || document.activeElement;
+
+      // Close mobile navigation drawer if open
+      const mobileNav = document.querySelector('#mobile-navigation');
+      if (mobileNav && mobileNav.classList.contains('is-active')) {
+        const hamburger = document.querySelector('.mmd-header__hamburger');
+        if (hamburger) {
+          hamburger.click();
+        }
+      }
+
+      this.modal.classList.remove('hidden');
+      this.modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+
+      this.triggers.forEach((trigger) => {
+        trigger.setAttribute('aria-expanded', 'true');
+      });
+
+      // Move focus into the modal
+      const focusable = this.getFocusableElements();
+      if (focusable.length > 0) {
+        // Focus close button or first interactive element
+        (this.closeBtn || focusable[0]).focus();
+      }
+    }
+
+    closeModal() {
+      this.modal.classList.add('hidden');
+      this.modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+
+      this.triggers.forEach((trigger) => {
+        trigger.setAttribute('aria-expanded', 'false');
+      });
+
+      if (this.lastFocusedElement && typeof this.lastFocusedElement.focus === 'function') {
+        this.lastFocusedElement.focus();
+      }
+    }
+
+    getFocusableElements() {
+      return Array.from(
+        this.modal.querySelectorAll(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      );
+    }
+
+    setupFocusTrap() {
+      this.modal.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab') return;
+
+        const focusable = this.getFocusableElements();
+        if (focusable.length === 0) return;
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          }
+        } else {
+          if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+      });
+    }
+  }
+
   // Initialize when DOM is fully loaded
   document.addEventListener('DOMContentLoaded', () => {
     new SiteHeader();
     new TableOfContents();
     new ShareWidgets();
     new DynamicFilter();
+    new SupportModal();
   });
 
 })();

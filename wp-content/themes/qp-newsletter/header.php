@@ -14,6 +14,7 @@ $cta_link   = get_field('header_cta_link', 'option');
 if (empty($cta_link)) {
   $cta_link = '#';
 }
+$is_modal_cta = empty($cta_link) || $cta_link === '#' || $cta_link === '#support-modal';
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -53,9 +54,15 @@ if (empty($cta_link)) {
 
     <!-- Header Actions (CTA + Hamburger) -->
     <div class="flex items-center gap-4">
-      <a href="<?php echo esc_url($cta_link); ?>" class="mmd-header__cta hidden sm:inline-flex items-center justify-center px-6 py-2.5 bg-primary hover:bg-primary-navy-900 text-white text-sm font-semibold rounded-full transition-all duration-200">
-        <?php echo esc_html($cta_label); ?>
-      </a>
+      <?php if ($is_modal_cta) : ?>
+        <button type="button" class="mmd-header__cta js-support-modal-trigger hidden sm:inline-flex items-center justify-center px-6 py-2.5 bg-primary hover:bg-primary-navy-900 text-white text-sm font-semibold rounded-full transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 cursor-pointer" aria-haspopup="dialog" aria-expanded="false" aria-controls="mmd-support-modal">
+          <?php echo esc_html($cta_label); ?>
+        </button>
+      <?php else : ?>
+        <a href="<?php echo esc_url($cta_link); ?>" class="mmd-header__cta hidden sm:inline-flex items-center justify-center px-6 py-2.5 bg-primary hover:bg-primary-navy-900 text-white text-sm font-semibold rounded-full transition-all duration-200 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+          <?php echo esc_html($cta_label); ?>
+        </a>
+      <?php endif; ?>
 
       <button class="mmd-header__hamburger lg:hidden flex items-center justify-center p-2 text-neutral-grey-700 hover:text-primary transition-colors focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2" aria-controls="mobile-navigation" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation', 'qp-newsletter'); ?>">
         <svg class="icon-hamburger h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -83,7 +90,13 @@ if (empty($cta_link)) {
   </nav>
 
   <!-- Mobile CTA Button -->
-  <a href="<?php echo esc_url($cta_link); ?>" class="mmd-mobile-nav__cta w-full flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-navy-900 text-white text-base font-semibold rounded-full transition-all duration-200 mt-2">
-    <?php echo esc_html($cta_label); ?>
-  </a>
+  <?php if ($is_modal_cta) : ?>
+    <button type="button" class="mmd-mobile-nav__cta js-support-modal-trigger w-full flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-navy-900 text-white text-base font-semibold rounded-full transition-all duration-200 mt-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 cursor-pointer" aria-haspopup="dialog" aria-expanded="false" aria-controls="mmd-support-modal">
+      <?php echo esc_html($cta_label); ?>
+    </button>
+  <?php else : ?>
+    <a href="<?php echo esc_url($cta_link); ?>" class="mmd-mobile-nav__cta w-full flex items-center justify-center px-6 py-3 bg-primary hover:bg-primary-navy-900 text-white text-base font-semibold rounded-full transition-all duration-200 mt-2 focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2">
+      <?php echo esc_html($cta_label); ?>
+    </a>
+  <?php endif; ?>
 </div>
