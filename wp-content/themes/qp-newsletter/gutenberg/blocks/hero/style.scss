@@ -42,16 +42,6 @@
           color: var(--color-system-white);
         }
       }
-
-      .mmd-button.mod--variant--secondary {
-        border-color: var(--color-system-white);
-        color: var(--color-system-white);
-
-        &:is(:hover, :focus) {
-          background-color: var(--color-system-white);
-          color: var(--color-primary-navy-900);
-        }
-      }
     }
 
     // ===================================

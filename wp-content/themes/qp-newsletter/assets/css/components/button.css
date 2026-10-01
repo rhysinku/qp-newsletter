@@ -1,8 +1,49 @@
 /* Button Styles
  *
  * Custom button styling for the QP NewsLetter project.
- * Handles primary, secondary, and arrow button variants with hover/focus states.
+ * Handles primary, secondary, and arrow button variants with theme tokens for dark/light modes.
  */
+
+@layer base {
+  :root,
+  .mod--theme--light {
+    --mmd-button-primary-bg: var(--color-primary);
+    --mmd-button-primary-text: var(--color-system-white);
+    --mmd-button-primary-border: var(--color-primary);
+    --mmd-button-primary-hover-bg: var(--color-primary-blue-50);
+    --mmd-button-primary-hover-text: var(--color-primary-navy-900);
+    --mmd-button-primary-hover-border: var(--color-primary-blue-50);
+
+    --mmd-button-secondary-bg: transparent;
+    --mmd-button-secondary-text: var(--color-primary-navy-900);
+    --mmd-button-secondary-border: var(--color-primary-navy-900);
+    --mmd-button-secondary-hover-bg: transparent;
+    --mmd-button-secondary-hover-text: var(--color-primary);
+    --mmd-button-secondary-hover-border: var(--color-primary);
+
+    --mmd-button-arrow-text: var(--color-neutral-grey-700);
+    --mmd-button-arrow-hover-text: var(--color-primary);
+  }
+
+  .mod--theme--dark {
+    --mmd-button-primary-bg: var(--color-system-white);
+    --mmd-button-primary-text: var(--color-primary-navy-900);
+    --mmd-button-primary-border: var(--color-system-white);
+    --mmd-button-primary-hover-bg: var(--color-primary-blue-50);
+    --mmd-button-primary-hover-text: var(--color-primary-navy-900);
+    --mmd-button-primary-hover-border: var(--color-primary-blue-50);
+
+    --mmd-button-secondary-bg: transparent;
+    --mmd-button-secondary-text: var(--color-system-white);
+    --mmd-button-secondary-border: var(--color-system-white);
+    --mmd-button-secondary-hover-bg: var(--color-system-white);
+    --mmd-button-secondary-hover-text: var(--color-primary-navy-900);
+    --mmd-button-secondary-hover-border: var(--color-system-white);
+
+    --mmd-button-arrow-text: var(--color-neutral-white);
+    --mmd-button-arrow-hover-text: var(--color-primary-blue-200);
+  }
+}
 
 .mmd-button {
   display: inline-flex;
@@ -21,34 +62,34 @@
 
 /* 1. Primary Button variant */
 .mmd-button.mod--variant--primary {
-  background-color: var(--color-primary);
-  color: var(--color-system-white);
-  border-color: var(--color-primary);
+  background-color: var(--mmd-button-primary-bg);
+  color: var(--mmd-button-primary-text);
+  border-color: var(--mmd-button-primary-border);
 }
 
 .mmd-button.mod--variant--primary:is(:hover, :focus) {
-  background-color: var(--color-primary-blue-50);
-  color: var(--color-primary-navy-900);
-  border-color: var(--color-primary-blue-50);
+  background-color: var(--mmd-button-primary-hover-bg);
+  color: var(--mmd-button-primary-hover-text);
+  border-color: var(--mmd-button-primary-hover-border);
 }
 
 /* 2. Secondary Button variant */
 .mmd-button.mod--variant--secondary {
-  background-color: transparent;
-  color: var(--color-primary-navy-900);
-  border-color: var(--color-primary-navy-900);
+  background-color: var(--mmd-button-secondary-bg);
+  color: var(--mmd-button-secondary-text);
+  border-color: var(--mmd-button-secondary-border);
 }
 
 .mmd-button.mod--variant--secondary:is(:hover, :focus) {
-  background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--mmd-button-secondary-hover-bg);
+  color: var(--mmd-button-secondary-hover-text);
+  border-color: var(--mmd-button-secondary-hover-border);
 }
 
 /* 3. Arrow Button variant */
 .mmd-button.mod--variant--arrow {
   background-color: transparent;
-  color: var(--color-neutral-grey-700);
+  color: var(--mmd-button-arrow-text);
   border: none;
   padding: 0;
   font-weight: 700;
@@ -58,7 +99,7 @@
 }
 
 .mmd-button.mod--variant--arrow:is(:hover, :focus) {
-  color: var(--color-primary);
+  color: var(--mmd-button-arrow-hover-text);
 }
 
 .mmd-button.mod--variant--arrow svg {

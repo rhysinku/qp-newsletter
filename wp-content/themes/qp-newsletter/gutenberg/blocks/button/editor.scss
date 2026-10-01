@@ -1,12 +1,43 @@
 .editor-styles-wrapper {
   .mmd-button {
-    .tenup-block-components-link__label {
+    .tenup-block-components-link__label,
+    a,
+    span,
+    input {
+      color: inherit !important;
       text-decoration: none;
     }
 
-    // Secondary variant
+    &.mod--variant--primary {
+      background-color: var(--mmd-button-primary-bg) !important;
+      color: var(--mmd-button-primary-text) !important;
+      border-color: var(--mmd-button-primary-border) !important;
+
+      &:is(:hover, :focus) {
+        background-color: var(--mmd-button-primary-hover-bg) !important;
+        color: var(--mmd-button-primary-hover-text) !important;
+        border-color: var(--mmd-button-primary-hover-border) !important;
+      }
+    }
+
     &.mod--variant--secondary {
-      outline: var(--mmd-button-outline);
+      background-color: var(--mmd-button-secondary-bg) !important;
+      color: var(--mmd-button-secondary-text) !important;
+      border-color: var(--mmd-button-secondary-border) !important;
+
+      &:is(:hover, :focus) {
+        background-color: var(--mmd-button-secondary-hover-bg) !important;
+        color: var(--mmd-button-secondary-hover-text) !important;
+        border-color: var(--mmd-button-secondary-hover-border) !important;
+      }
+    }
+
+    &.mod--variant--arrow {
+      color: var(--mmd-button-arrow-text) !important;
+
+      &:is(:hover, :focus) {
+        color: var(--mmd-button-arrow-hover-text) !important;
+      }
     }
   }
 }
