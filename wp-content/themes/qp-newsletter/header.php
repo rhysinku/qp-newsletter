@@ -6,6 +6,13 @@
  */
 
 $logo_image = get_field('header_logo', 'option');
+if (empty($logo_image) && has_custom_logo()) {
+  $custom_logo_id = (int) get_theme_mod('custom_logo');
+  $logo_image     = [
+    'url' => wp_get_attachment_image_url($custom_logo_id, 'full'),
+    'alt' => get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true),
+  ];
+}
 $cta_label  = get_field('header_cta_label', 'option');
 if (empty($cta_label)) {
   $cta_label = __('Support us', 'qp-newsletter');

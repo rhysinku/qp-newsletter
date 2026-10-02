@@ -14,6 +14,12 @@ function mmd_theme_setup() {
     'script',
   ]);
   add_theme_support('title-tag');
+  add_theme_support('custom-logo', [
+    'height'      => 80,
+    'width'       => 240,
+    'flex-width'  => true,
+    'flex-height' => true,
+  ]);
   remove_theme_support('core-block-patterns');
 }
 
