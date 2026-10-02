@@ -84,6 +84,65 @@ add_action('wp_head', function (): void {
 
 
 /**
+ * Preload the LCP hero image in wp_head on the front page or hero pages.
+ */
+function mmd_preload_lcp_image(): void {
+  if (!is_singular() && !is_front_page()) {
+    return;
+  }
+
+  $post_id = get_queried_object_id();
+  if (!$post_id && is_front_page()) {
+    $post_id = (int) get_option('page_on_front');
+  }
+
+  if (!$post_id) {
+    return;
+  }
+
+  $post = get_post($post_id);
+  if (!$post || empty($post->post_content)) {
+    return;
+  }
+
+  $blocks = parse_blocks($post->post_content);
+  foreach ($blocks as $block) {
+    $image_uri = '';
+    $image_srcset = '';
+    $image_sizes = '';
+
+    if ($block['blockName'] === 'mmd/hero-carousel') {
+      $first_slide = $block['innerBlocks'][0] ?? null;
+      if ($first_slide && !empty($first_slide['attrs']['imageUri'])) {
+        $image_uri = $first_slide['attrs']['imageUri'];
+        $image_srcset = $first_slide['attrs']['imageSrcSet'] ?? '';
+        $image_sizes = $first_slide['attrs']['imageSizes'] ?? '100vw';
+      }
+    } elseif ($block['blockName'] === 'mmd/hero') {
+      if (!empty($block['attrs']['imageUri'])) {
+        $image_uri = $block['attrs']['imageUri'];
+        $image_srcset = $block['attrs']['imageSrcSet'] ?? '';
+        $image_sizes = $block['attrs']['imageSizes'] ?? '100vw';
+      }
+    }
+
+    if ($image_uri) {
+      $attrs = sprintf('href="%s"', esc_url($image_uri));
+      if ($image_srcset) {
+        $attrs .= sprintf(' imagesrcset="%s"', esc_attr($image_srcset));
+      }
+      if ($image_sizes) {
+        $attrs .= sprintf(' imagesizes="%s"', esc_attr($image_sizes));
+      }
+      echo '<link rel="preload" as="image" ' . $attrs . ' fetchpriority="high">' . "\n";
+      break;
+    }
+  }
+}
+add_action('wp_head', 'mmd_preload_lcp_image', 2);
+
+
+/**
  * WooCommerce Blocks enqueues 'wc-blocks-style' unconditionally on every
  * front-end page (via a wp_head hook), even though this theme doesn't use
  * WooCommerce blocks or block-based notice templates. Strip it on pages
