@@ -6,7 +6,7 @@
  */
 
 defined('COMPANY_NAME') || define('COMPANY_NAME', 'QP Community');
-define('MMD_ASSETS_VERSION', defined('IS_DEV_ENV') && IS_DEV_ENV ? time() : '1.0.0');
+define('MMD_ASSETS_VERSION', defined('IS_DEV_ENV') && IS_DEV_ENV ? time() : '1.0.1');
 define('MMD_BLOCKS_BUILD_DIR', get_stylesheet_directory() . '/gutenberg/build/blocks/');
 define('MMD_BLOCKS_BUILD_URI', get_stylesheet_directory_uri() . '/gutenberg/build/blocks/');
 define('MMD_BLOCKS_SRC_DIR', get_stylesheet_directory() . '/gutenberg/blocks/');

@@ -1,6 +1,6 @@
 {
   "name": "qp-newsletter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Marameo Design custom theme.",
   "main": "index.js",
   "scripts": {
