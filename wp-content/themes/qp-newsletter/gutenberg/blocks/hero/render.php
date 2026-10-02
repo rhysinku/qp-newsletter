@@ -54,6 +54,9 @@ if (str_contains($content, $back_placeholder)) {
   $content = str_replace($back_placeholder, $back_html, $content);
 }
 
+// Swap PNG hero images to WebP
+$content = preg_replace('/(\/uploads\/[^\s"\']+\.)png/i', '$1webp', $content);
+
 // Optimize hero image for LCP (fetchpriority="high", loading="eager", data-no-lazy="1")
 $replaced = false;
 $content = preg_replace_callback(

@@ -127,6 +127,10 @@ function mmd_preload_lcp_image(): void {
     }
 
     if ($image_uri) {
+      $image_uri = preg_replace('/(\/uploads\/[^\s"\']+\.)png/i', '$1webp', $image_uri);
+      if ($image_srcset) {
+        $image_srcset = preg_replace('/(\/uploads\/[^\s"\']+\.)png/i', '$1webp', $image_srcset);
+      }
       $attrs = sprintf('href="%s"', esc_url($image_uri));
       if ($image_srcset) {
         $attrs .= sprintf(' imagesrcset="%s"', esc_attr($image_srcset));
