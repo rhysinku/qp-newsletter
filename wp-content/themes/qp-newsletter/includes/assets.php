@@ -73,6 +73,17 @@ add_action('wp_enqueue_scripts', 'mmd_enqueue_libraries', 100);
 
 
 /**
+ * Pin the cascade-layer order before any stylesheet. Block styles load
+ * separately and declare `@layer components` on their own; whichever sheet
+ * names a layer first fixes its rank, which would otherwise put `components`
+ * below Tailwind's `base` reset and break component styling.
+ */
+add_action('wp_head', function (): void {
+  echo '<style id="mmd-layer-order">@layer properties, theme, base, components, utilities;</style>' . "\n";
+}, 1);
+
+
+/**
  * WooCommerce Blocks enqueues 'wc-blocks-style' unconditionally on every
  * front-end page (via a wp_head hook), even though this theme doesn't use
  * WooCommerce blocks or block-based notice templates. Strip it on pages

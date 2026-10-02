@@ -234,6 +234,8 @@
     color: var(--color-primary-navy-900);
     background-color: var(--color-system-white);
     border: 1px solid var(--color-neutral-grey-200);
+    line-height: 1;
+    cursor: pointer;
     text-decoration: none !important;
     transition: all 0.15s ease-in-out;
   }
@@ -248,6 +250,7 @@
     background-color: var(--color-primary);
     color: var(--color-system-white);
     border-color: var(--color-primary);
+    cursor: default;
   }
 
   .facetwp-pager .facetwp-page.dots {

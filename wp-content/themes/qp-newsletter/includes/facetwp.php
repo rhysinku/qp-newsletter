@@ -163,6 +163,10 @@ add_filter('facetwp_facets', function (array $facets): array {
   return $facets;
 }, 10, 1);
 
+// Disable FacetWP's bundled front.css. It is unlayered, so it beats our
+// @layer components rules (display, padding, margin on .facetwp-page).
+add_filter('facetwp_load_css', '__return_false');
+
 // 2. Hide raw FacetWP result count badges.
 add_action('wp_head', function (): void {
   ?>
