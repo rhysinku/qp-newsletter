@@ -1,15 +1,13 @@
 import Splide from "@splidejs/splide";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const heroCarousels = document.querySelectorAll(
-    ".mmd-hero-carousel.splide"
-  );
+function initHeroCarousels() {
+  const heroCarousels = document.querySelectorAll(".mmd-hero-carousel.splide");
   if (!heroCarousels.length) {
     return;
   }
 
   heroCarousels.forEach(carouselEl => {
-    if (carouselEl.dataset.splideMounted) {
+    if (carouselEl.dataset.splideMounted || carouselEl.classList.contains("is-initialized")) {
       return;
     }
 
@@ -30,4 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
     splide.mount();
     carouselEl.dataset.splideMounted = "true";
   });
-});
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initHeroCarousels);
+} else {
+  initHeroCarousels();
+}

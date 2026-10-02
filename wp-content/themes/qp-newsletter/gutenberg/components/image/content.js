@@ -13,6 +13,8 @@ export default function Content(props) {
     decorSVG = <></>,
     isContainedHeight = false,
     suffix = "",
+    fetchPriority,
+    fetchpriority,
   } = props;
   const {
     imageId,
@@ -27,6 +29,10 @@ export default function Content(props) {
     imageLoading,
     imageDescription,
   } = get(props, suffix);
+
+  const resolvedFetchPriority = fetchPriority || fetchpriority;
+  const effectiveLoading =
+    resolvedFetchPriority === "high" ? "eager" : imageLoading;
 
   /**
    * Return nothing if no image URI
@@ -52,7 +58,12 @@ export default function Content(props) {
           )}
           width={imageWidth || null}
           height={imageHeight || null}
-          loading={imageLoading}
+          loading={effectiveLoading}
+          {...(resolvedFetchPriority && {
+            fetchPriority: resolvedFetchPriority,
+            fetchpriority: resolvedFetchPriority,
+            "data-no-lazy": resolvedFetchPriority === "high" ? "1" : undefined,
+          })}
           decoding="async"
           srcSet={imageSrcSet || null}
           sizes={imageSizes || null}

@@ -6,6 +6,17 @@
     visibility: visible !important;
     overflow: hidden;
 
+    // Prevent CLS: Only show first slide until Splide initializes
+    &:not(.is-initialized) {
+      .splide__list {
+        display: block !important;
+      }
+
+      .splide__slide:not(:first-child) {
+        display: none !important;
+      }
+    }
+
     .splide__track {
       overflow: hidden;
       position: relative;
@@ -21,7 +32,9 @@
     }
 
     .splide__slide {
-      flex-shrink: 0;
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
       list-style: none !important;
       margin: 0;
       position: relative;

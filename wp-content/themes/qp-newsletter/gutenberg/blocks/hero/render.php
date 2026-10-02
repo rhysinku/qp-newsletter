@@ -54,4 +54,25 @@ if (str_contains($content, $back_placeholder)) {
   $content = str_replace($back_placeholder, $back_html, $content);
 }
 
+// Optimize hero image for LCP (fetchpriority="high", loading="eager", data-no-lazy="1")
+$replaced = false;
+$content = preg_replace_callback(
+  '/<img\s([^>]+)>/i',
+  function ($matches) use (&$replaced) {
+    if ($replaced) {
+      return $matches[0];
+    }
+    $replaced = true;
+    $attrs = $matches[1];
+
+    $attrs = preg_replace('/\sloading=["\'][^"\']*["\']/i', '', $attrs);
+    $attrs = preg_replace('/\sfetchpriority=["\'][^"\']*["\']/i', '', $attrs);
+    $attrs = preg_replace('/\sdata-no-lazy=["\'][^"\']*["\']/i', '', $attrs);
+    $attrs = rtrim(trim($attrs), '/');
+
+    return '<img ' . trim($attrs) . ' loading="eager" fetchpriority="high" data-no-lazy="1">';
+  },
+  $content
+);
+
 echo $content;

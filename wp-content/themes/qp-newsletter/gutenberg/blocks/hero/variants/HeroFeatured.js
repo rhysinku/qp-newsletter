@@ -112,6 +112,7 @@ HeroFeatured.Save = props => {
 
       <Image.Content
         {...props}
+        fetchPriority="high"
         wrapperClassName="relative order-first lg:order-last lg:absolute lg:right-0 lg:top-0 lg:h-full lg:max-w-[calc(50%_-_1rem)] lg:w-1/2"
         captionClassName="mmd-figcaption mod--variant--floating lg:pr-2 lg:pl-10"
         ratioWrapperClassName="is-ratio-image ratio-3-2 lg:ratio-none lg:absolute lg:inset-0 rounded-2xl overflow-hidden"
