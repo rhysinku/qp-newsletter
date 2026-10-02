@@ -16,6 +16,14 @@ if (!defined('ABSPATH')) {
 // 0. Enable FacetWP's built-in accessibility features.
 add_filter('facetwp_load_a11y', '__return_true');
 
+// Suppress FacetWP scripts and styles on the front page where no facets exist.
+add_filter('facetwp_load_assets', function ($load) {
+  if (is_front_page()) {
+    return false;
+  }
+  return $load;
+});
+
 // 1. Code-register all platform facets.
 add_filter('facetwp_facets', function (array $facets): array {
   // Required defaults array for pager facets to prevent PHP 8 undefined key warnings.

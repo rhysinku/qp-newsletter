@@ -147,6 +147,25 @@ add_action('wp_head', 'mmd_preload_lcp_image', 2);
 
 
 /**
+ * Preload critical body and heading fonts in wp_head to break font chaining.
+ */
+function mmd_preload_critical_fonts(): void {
+  $fonts = [
+    'assets/fonts/inter-v20-latin-regular.woff2',
+    'assets/fonts/inter-v20-latin-700.woff2',
+  ];
+
+  foreach ($fonts as $font_rel) {
+    printf(
+      '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+      esc_url(MMD_THEME_URI . $font_rel)
+    );
+  }
+}
+add_action('wp_head', 'mmd_preload_critical_fonts', 2);
+
+
+/**
  * WooCommerce Blocks enqueues 'wc-blocks-style' unconditionally on every
  * front-end page (via a wp_head hook), even though this theme doesn't use
  * WooCommerce blocks or block-based notice templates. Strip it on pages
